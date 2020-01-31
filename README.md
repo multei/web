@@ -1,3 +1,7 @@
+# Multei web app
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/49d539f4-dba4-4d99-9565-b32a1032a0cb/deploy-status)](https://app.netlify.com/sites/multei/deploys)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
