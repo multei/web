@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import openALPR from "openalpr"
 import toBase64 from "openalpr/dist/toBase64"
 
-const IndexPage = () => {
+const ReportPage = () => {
   const [fileData, setFileData] = useState(null)
   const [plate, setPlate] = useState(null)
   const [vehicleMake, setVehicleMake] = useState(null)
@@ -48,4 +48,4 @@ const IndexPage = () => {
   </Layout>);
 }
 
-export default IndexPage
+export default ReportPage
