@@ -23,7 +23,7 @@
     "axios": "0.19.2",
     "babel-jest": "25.1.0",
     "babel-preset-gatsby": "0.2.29",
-    "husky": "^4.2.3",
+    "husky": "4.2.3",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.1.0",
     "netlify-cli": "2.32.0",
