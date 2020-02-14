@@ -38,6 +38,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
+    "clean:install": "rm -rf node_modules/sharp && npm install",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
