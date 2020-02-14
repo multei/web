@@ -1,0 +1,9 @@
+.button {
+    background-color: var();
+    border-radius: 4px;
+}
+
+.button.primary {
+    background-color: var(--primary-color);
+    color: var(--on-primary-color);
+}
