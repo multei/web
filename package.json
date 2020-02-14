@@ -22,6 +22,7 @@
     "axios": "0.19.2",
     "babel-jest": "25.1.0",
     "babel-preset-gatsby": "0.2.29",
+    "husky": "^4.2.3",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.1.0",
     "netlify-cli": "2.32.0",
@@ -51,5 +52,11 @@
   },
   "engines": {
     "node": ">=10.13.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   }
 }
