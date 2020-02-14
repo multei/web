@@ -1,9 +1,20 @@
 {
   "name": "multei-web",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Multei website project",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "contributors": [
+    {
+      "name": "Beto Maia",
+      "email": "adalberto.maia@gmail.com",
+      "url": "https://github.com/adalbertomaia"
+    },
+    {
+      "name": "Jimmy Andrade",
+      "email": "contato@jimmyandrade.com",
+      "url": "https://github.com/jimmyandrade"
+    }
+  ],
   "dependencies": {
     "gatsby": "2.19.17",
     "gatsby-image": "2.2.41",
@@ -52,7 +63,7 @@
     "jest": "jest",
     "serve": "gatsby serve",
     "start": "npm run develop",
-    "test": "npm run jest && npm run test:e2e:ci",
+    "test": "npm run jest",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
@@ -69,7 +80,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run jest",
-      "pre-push": "npm test"
+      "pre-push": "npm run jest && npm run test:e2e:ci"
     }
   }
 }
