@@ -1,15 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
+import IndexTemplate from "../templates"
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = (props) => (
+  <>
     <SEO title="Denunciar estacionamento irregular" />
-    <h1>Denuncie estacionamento irregular</h1>
-    <Link to="/fazer-denuncia">Denunciar</Link>
-  </Layout>
+    <IndexTemplate {...props} />
+  </>
 )
 
 export default IndexPage

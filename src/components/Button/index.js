@@ -1,8 +1,8 @@
 import React from "react"
 import './index.css'
 
-const Button = ({variant, ...otherProps}) => (
-  <button className={`button ${variant}`} type="submit" {...otherProps} />
+const Button = ({color, ...otherProps}) => (
+  <button className={`button ${color}`} type="submit" {...otherProps} />
 )
 
 export default Button
