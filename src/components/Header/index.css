@@ -16,6 +16,7 @@ header .container {
 }
 
 header .container h1 {
+    font-size: 1rem;
     margin: 0;
 }
 
