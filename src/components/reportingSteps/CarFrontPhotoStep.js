@@ -15,10 +15,11 @@ const CarFrontPhotoStep = ({
       A foto precisa mostrar o painel do veículo e provar que não há uma
       credencial visível.
     </p>
-    <label htmlFor="carFrontImage">Enviar foto da frente</label>
+    <label htmlFor="carFrontImageUploadField">Foto da frente</label>
     <FileInput
-      id="carFrontImage"
+      id="carFrontImageUploadField"
       accept="image/*"
+      data-test-id="carFrontImageUploadField"
       onChange={onChange}
       name="carFrontImage"
       required={true}
