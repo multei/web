@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Multei!`,
-    description: `Denuncie quem para seu carro em vagas para pessoas com deficiência`,
+    description: `Aqui você pode fazer sua denúncia contra estacionamento irregular em vagas de pessoas com deficiência, grávidas e pessoas idosas.`,
     author: `@multeiapp`,
   },
   plugins: [
