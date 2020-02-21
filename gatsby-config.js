@@ -14,7 +14,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-layout`
+      resolve: `gatsby-plugin-layout`,
     },
     {
       resolve: `gatsby-plugin-manifest`,
