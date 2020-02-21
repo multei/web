@@ -1,20 +1,46 @@
 {
   "name": "multei-web",
-  "private": true,
-  "description": "Multei website project",
   "version": "0.1.0",
+  "description": "Multei! website project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "private": true,
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "clean:install": "rm -rf node_modules/sharp && npm install",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "jest": "jest",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
+    "test": "npm run jest",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
+  },
   "contributors": [
     {
       "name": "Beto Maia",
-      "email": "adalberto.maia@gmail.com",
+      "email": "beto@multei.com.br",
       "url": "https://github.com/adalbertomaia"
     },
     {
       "name": "Jimmy Andrade",
-      "email": "contato@jimmyandrade.com",
+      "email": "jimmy@multei.com.br",
       "url": "https://github.com/jimmyandrade"
     }
   ],
+  "license": "MIT",
   "dependencies": {
     "gatsby": "2.19.18",
     "gatsby-image": "2.2.41",
@@ -47,32 +73,6 @@
     "prettier": "1.19.1",
     "react-test-renderer": "16.12.0",
     "start-server-and-test": "1.10.8"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "clean": "gatsby clean",
-    "clean:install": "rm -rf node_modules/sharp && npm install",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "jest": "jest",
-    "serve": "gatsby serve",
-    "start": "npm run develop",
-    "test": "npm run jest",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
-    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "engines": {
     "node": ">=10.13.0"
