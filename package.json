@@ -69,7 +69,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "25.1.0",
     "netlify-cli": "2.35.0",
-    "openalpr": "0.2.4",
+    "openalpr": "0.2.5",
     "prettier": "1.19.1",
     "react-test-renderer": "16.12.0",
     "start-server-and-test": "1.10.8"
