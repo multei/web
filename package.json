@@ -68,7 +68,7 @@
     "husky": "4.2.3",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.1.0",
-    "netlify-cli": "2.35.0",
+    "netlify-cli": "2.36.0",
     "openalpr": "0.2.5",
     "prettier": "1.19.1",
     "react-test-renderer": "16.12.0",
