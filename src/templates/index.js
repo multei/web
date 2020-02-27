@@ -10,11 +10,11 @@ const IndexTemplate = props => (
     <Typography component="h1" variant="srOnly">
       Página inicial
     </Typography>
-    <Typography component="h2">Verifique se seu carro foi multado</Typography>
+    <Typography component="h2">Confira se seu carro foi multado</Typography>
     <form>
       <TextField
-        label="Placa do carro"
         id="car_plate"
+        label="Placa do carro"
         InputProps={{
           "aria-required": true,
           maxLength: 7,
