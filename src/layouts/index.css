@@ -16,6 +16,11 @@
   --surface-color: #FFFFFF;
   /* https://coolors.co/a63446-f6f4f3-0069ae-23ce6b-0f1108 */
   /* https://material.io/resources/color/#!/?view.left=0&view.right=1&primary.color=0069AE&primary.text.color=F6F4F3&secondary.color=23CE6B&secondary.text.color=0F1108 */
+
+  --default-margin-bottom: 1.45rem;
+  --default-horizontal-margin: 1.45rem;
+  --half-margin-bottom: calc(var(--default-margin-bottom) / 2)
+
 }
 
 html {
@@ -81,7 +86,7 @@ strong {
 dfn {
   font-style: italic;
 }
-h1 {
+h1, .MuiTypography-h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -233,11 +238,11 @@ body {
 img {
   max-width: 100%;
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
-h1 {
+h1, .MuiTypography-h1 {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
   color: inherit;
   font-family: var(--default-font-family);
   font-weight: bold;
@@ -245,9 +250,9 @@ h1 {
   font-size: 2.25rem;
   line-height: 1.1;
 }
-h2 {
+h2, .MuiTypography-h2 {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
   color: inherit;
   font-family: var(--default-font-family);
   font-weight: bold;
@@ -255,9 +260,9 @@ h2 {
   font-size: 1.62671rem;
   line-height: 1.1;
 }
-h3 {
+h3, .MuiTypography-h3 {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
   color: inherit;
   font-family: var(--default-font-family);
   font-weight: bold;
@@ -265,9 +270,9 @@ h3 {
   font-size: 1.38316rem;
   line-height: 1.1;
 }
-h4 {
+h4, .MuiTypography-h4 {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
   color: inherit;
   font-family: var(--default-font-family);
   font-weight: bold;
@@ -275,9 +280,9 @@ h4 {
   font-size: 1rem;
   line-height: 1.1;
 }
-h5 {
+h5, .MuiTypography-h5 {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
   color: inherit;
   font-family: var(--default-font-family);
   font-weight: bold;
@@ -285,9 +290,9 @@ h5 {
   font-size: 0.85028rem;
   line-height: 1.1;
 }
-h6 {
+h6, MuiTypography-h6 {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
   color: inherit;
   font-family: var(--default-font-family);
   font-weight: bold;
@@ -301,34 +306,34 @@ hgroup {
 }
 ul {
   padding: 0;
-  margin: 0 0 1.45rem 1.45rem;
+  margin: 0 0 var(--default-margin-bottom) var(--default-horizontal-margin);
   list-style-position: outside;
   list-style-image: none;
 }
 ol {
   padding: 0;
-  margin: 0 0 1.45rem 1.45rem;
+  margin: 0 0 var(--default-margin-bottom) var(--default-horizontal-margin);
   list-style-position: outside;
   list-style-image: none;
 }
 dl {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
 dd {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
 p {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
 figure {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
 pre {
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
   font-size: 0.85rem;
   line-height: 1.42;
   background: hsla(0, 0%, 0%, 0.04);
@@ -347,34 +352,34 @@ table {
 }
 fieldset {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
 blockquote {
   padding: 0;
-  margin: 0 1.45rem 1.45rem;
+  margin: 0 1.45rem var(--default-margin-bottom);
 }
 form {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
 noscript {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
 iframe {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
-hr {
+hr, .MuiDivider-root {
   padding: 0;
-  margin: 0 0 calc(1.45rem - 1px);
+  margin: 0 0 calc(var(--default-margin-bottom) - 1px);
   background: hsla(0, 0%, 0%, 0.2);
   border: none;
   height: 1px;
 }
 address {
   padding: 0;
-  margin: 0 0 1.45rem;
+  margin: 0 0 var(--default-margin-bottom);
 }
 b {
   font-weight: bold;
@@ -389,7 +394,7 @@ th {
   font-weight: bold;
 }
 li {
-  margin-bottom: calc(1.45rem / 2);
+  margin-bottom: var(--half-margin-bottom);
 }
 ol li {
   padding-left: 0;
@@ -399,13 +404,13 @@ ul li {
 }
 li > ol {
   margin-left: 1.45rem;
-  margin-bottom: calc(1.45rem / 2);
-  margin-top: calc(1.45rem / 2);
+  margin-bottom: var(--half-margin-bottom);
+  margin-top: var(--half-margin-bottom);
 }
 li > ul {
   margin-left: 1.45rem;
-  margin-bottom: calc(1.45rem / 2);
-  margin-top: calc(1.45rem / 2);
+  margin-bottom: var(--half-margin-bottom);
+  margin-top: var(--half-margin-bottom);
 }
 blockquote *:last-child {
   margin-bottom: 0;
@@ -417,7 +422,7 @@ p *:last-child {
   margin-bottom: 0;
 }
 li > p {
-  margin-bottom: calc(1.45rem / 2);
+  margin-bottom: var(--half-margin-bottom);
 }
 code {
   font-size: 0.85rem;
@@ -494,4 +499,29 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+.MuiTypography-srOnly {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.MuiTypography-srOnly:active, .MuiTypography-srOnly:focus {
+  clip: auto;
+  -webkit-clip-path: none;
+  clip-path: none;
+  height: auto;
+  margin: auto;
+  overflow: visible;
+  width: auto;
+  white-space: normal;
 }

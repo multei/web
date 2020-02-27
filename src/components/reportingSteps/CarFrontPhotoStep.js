@@ -1,6 +1,7 @@
 import React from "react"
-import Button from "../Button"
 import FileInput from "../FileInput"
+import Button from "@material-ui/core/Button"
+import Typography from "@material-ui/core/Typography"
 
 const CarFrontPhotoStep = ({
   isLoading,
@@ -10,11 +11,13 @@ const CarFrontPhotoStep = ({
   photoPreviewURL,
 }) => (
   <form onSubmit={onSubmit}>
-    <h2>Tire uma foto da frente do carro, incluindo a placa.</h2>
-    <p>
+    <Typography component="h2">
+      Tire uma foto da frente do carro, incluindo a placa.
+    </Typography>
+    <Typography paragraph={true}>
       A foto precisa mostrar o painel do veículo e provar que não há uma
       credencial visível.
-    </p>
+    </Typography>
     <label htmlFor="carFrontImageUploadField">Foto da frente</label>
     <FileInput
       id="carFrontImageUploadField"
@@ -27,7 +30,7 @@ const CarFrontPhotoStep = ({
     {photoPreviewURL && (
       <figure>
         <figcaption>Prévia da parte da frente do veículo</figcaption>
-        <img src={photoPreviewURL} />
+        <img alt="Prévia da frente do veículo" src={photoPreviewURL} />
         {!isValid && (
           <p>Por favor, envie uma foto da parte da frente do veículo.</p>
         )}
@@ -37,6 +40,7 @@ const CarFrontPhotoStep = ({
       disabled={!isValid}
       id="submitCarFrontImage"
       name="submitCarFrontImage"
+      variant="contained"
       type="submit"
     >
       Enviar foto da frente

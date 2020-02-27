@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 
 import SEO from "../../components/seo"
-import openALPR from "openalpr"
-import toBase64 from "openalpr/dist/toBase64"
 import CarFrontPhotoStep from "../../components/reportingSteps/CarFrontPhotoStep"
 
 const ReportPage = () => {
@@ -29,9 +27,7 @@ const ReportPage = () => {
     }
 
     const file = event.target.files[0]
-    const base64FileData = await toBase64(file)
 
-    setFileData(base64FileData)
     setFormValidity(true)
     setLoading(false)
     setPhotoPreviewURL(URL.createObjectURL(file))
@@ -50,24 +46,6 @@ const ReportPage = () => {
     setLoading(true)
     event.preventDefault()
     event.persist()
-    const instance = openALPR.create({
-      secretKey: process.env.GATSBY_OPENALPR_API_SECRET,
-    })
-
-    instance
-      .recognize(fileData)
-      .then(data => {
-        if (data.results.length === 0) {
-          throw new Error("Vehicle plate not found")
-        }
-        const vehicleData = getVehicleData(data.results[0])
-        setPlate(vehicleData.plate)
-        setVehicleMake(vehicleData.make)
-        setVehicleMakeModel(vehicleData.makeModel)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
   }
   return (
     <>

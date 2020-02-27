@@ -9,7 +9,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import Divider from "@material-ui/core/Divider"
 import Header from "../components/Header"
+import ThemeProvider from "@material-ui/styles/ThemeProvider"
+import Typography from "@material-ui/core/Typography"
+
+import theme from "../themes"
+
 import "./index.css"
 
 const Layout = ({ children }) => {
@@ -24,7 +30,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -34,12 +40,14 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <hr />
+        <Divider />
         <footer>
-          © {new Date().getFullYear()} {data.site.siteMetadata.title}
+          <Typography paragraph={true}>
+            © {new Date().getFullYear()} {data.site.siteMetadata.title}
+          </Typography>
         </footer>
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 

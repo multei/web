@@ -1,13 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders correctly 1`] = `
-<header>
+<header
+  className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
+>
   <div
-    className="container"
+    className="MuiToolbar-root MuiToolbar-regular container MuiToolbar-gutters"
   >
-    <h1>
+    <h1
+      className="MuiTypography-root MuiTypography-h6"
+    >
       <a
+        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
         href="/"
+        onBlur={[Function]}
+        onFocus={[Function]}
       >
         Default Starter
       </a>
