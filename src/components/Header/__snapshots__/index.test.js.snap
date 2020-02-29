@@ -11,10 +11,7 @@ exports[`Header renders correctly 1`] = `
       className="MuiTypography-root MuiTypography-h6"
     >
       <a
-        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
         href="/"
-        onBlur={[Function]}
-        onFocus={[Function]}
       >
         Default Starter
       </a>
