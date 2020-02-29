@@ -16,7 +16,7 @@
 
     Site will at `http://localhost:8000`!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_ for GraphQL.
+    Note: You'll also see a second link: `http://localhost:8000/___graphql` for GraphQL.
 
     Edit files. Save your changes and the browser will update in real time!
 
