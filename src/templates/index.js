@@ -2,8 +2,9 @@ import { Link } from "gatsby"
 import React from "react"
 import Button from "@material-ui/core/Button"
 import Divider from "@material-ui/core/Divider"
-import TextField from "@material-ui/core/TextField"
 import Typography from "@material-ui/core/Typography"
+import CheckParkingForm from "../containers/CheckParkingForm"
+import ParkingsList from "../containers/ParkingsList"
 
 const IndexTemplate = props => (
   <article>
@@ -11,25 +12,8 @@ const IndexTemplate = props => (
       Página inicial
     </Typography>
     <Typography component="h2">Confira se seu carro foi multado</Typography>
-    <form>
-      <TextField
-        id="car_plate"
-        label="Placa do carro"
-        InputProps={{
-          "aria-required": true,
-          maxLength: 7,
-        }}
-        name="car_plate"
-        placeholder="Letras e números"
-        required={true}
-        size="small"
-        type="search"
-        variant="outlined"
-      />
-      <Button size="medium" type="submit" variant="contained">
-        Verificar
-      </Button>
-    </form>
+    <CheckParkingForm />
+    <ParkingsList />
     <Divider />
     <Typography component="h2">
       Encontrou um carro estacionado de forma irregular?
