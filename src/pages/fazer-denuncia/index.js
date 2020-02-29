@@ -14,7 +14,6 @@ const ReportPage = () => {
   const [vehicleMakeModel, setVehicleMakeModel] = useState(null)
 
   async function handleFileChange(event) {
-    console.log("Changed")
     event.persist()
     setLoading(true)
 
