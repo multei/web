@@ -25,6 +25,8 @@
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "npm run jest",
+    "testc": "npm run jest && codecov",
+    "testu": "npm run jest -- -u",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
