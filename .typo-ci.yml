@@ -1,12 +1,9 @@
-# chore(.typo-cli.yml) Add Typo CI support
-
-dictionaries:
+dictionaries: 
   - pt_BR
   - en
-  
-excluded_files:
-  - "vendor/**/*"
-  - "node_modules/**/*"
+excluded_files: 
+  - vendor/**/*
+  - node_modules/**/*
   - "*.key"
   - "*.enc"
   - "*.min.css"
@@ -14,10 +11,9 @@ excluded_files:
   - "*.min.js"
   - "*.js.map"
   - "*.mk"
-  - "package-lock.json"
-  - "yarn.lock"
-  - "Gemfile.lock"
-  - ".typo-ci.yml"
-  
-  excluded_words:
+  - package-lock.json
+  - yarn.lock
+  - Gemfile.lock
+  - .typo-ci.yml
+excluded_words: 
   - typoci
