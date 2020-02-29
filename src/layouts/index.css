@@ -110,9 +110,6 @@ sub {
 sup {
   top: -0.5em;
 }
-img {
-  border-style: none;
-}
 svg:not(:root) {
   overflow: hidden;
 }
@@ -234,11 +231,6 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-}
-img {
-  max-width: 100%;
-  padding: 0;
-  margin: 0 0 var(--default-margin-bottom);
 }
 h1, .MuiTypography-h1 {
   padding: 0;
