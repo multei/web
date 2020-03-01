@@ -12,21 +12,25 @@
   "keywords": [
     "gatsby"
   ],
+  "author": "Multei!",
   "private": true,
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
     "clean:install": "rm -rf node_modules/sharp && npm install",
+    "ci": "npm run testc && npm run codecov",
+    "codecov": "codecov",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "dev": "npm run develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "jest": "jest",
     "serve": "gatsby serve",
     "start": "npm run develop",
-    "test": "npm run jest",
-    "testc": "npm run jest && codecov",
-    "testu": "npm run jest -- -u",
+    "test": "jest",
+    "testc": "jest --coverage",
+    "testu": "jest -u",
+    "testw": "jest --watch",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
@@ -85,8 +89,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run jest",
-      "pre-push": "npm run jest && npm run test:e2e:ci"
+      "pre-commit": "npm test",
+      "pre-push": "npm test && npm run test:e2e:ci"
     }
   }
 }
