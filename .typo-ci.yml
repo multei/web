@@ -16,5 +16,8 @@ excluded_files:
   - Gemfile.lock
   - .typo-ci.yml
 excluded_words: 
+  - dev
   - typoci
   - testc
+  - testu
+  - testw
