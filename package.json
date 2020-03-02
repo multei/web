@@ -24,7 +24,6 @@
     "cy:run": "cypress run",
     "dev": "npm run develop",
     "develop": "gatsby develop",
-    "develop:netlify": "netlify dev",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "start": "npm run develop",
