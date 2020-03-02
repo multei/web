@@ -5,13 +5,16 @@ exports[`Header renders correctly 1`] = `
   className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
 >
   <div
-    className="MuiToolbar-root MuiToolbar-regular container MuiToolbar-gutters"
+    className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
   >
     <h1
-      className="MuiTypography-root MuiTypography-h6"
+      className="MuiTypography-root makeStyles-root-45 MuiTypography-h1 makeStyles-h1-44"
     >
       <a
+        className="MuiTypography-root MuiLink-root makeStyles-root-45 MuiLink-underlineHover MuiTypography-colorInherit"
         href="/"
+        onBlur={[Function]}
+        onFocus={[Function]}
       >
         Default Starter
       </a>
