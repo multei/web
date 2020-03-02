@@ -5,18 +5,23 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useMemo } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import Container from "@material-ui/core/Container"
+import CssBaseline from "@material-ui/core/CssBaseline"
 import Divider from "@material-ui/core/Divider"
+
 import Header from "../components/Header"
+import Main from "../components/Main"
+import Footer from "../components/Footer"
+
 import ThemeProvider from "@material-ui/styles/ThemeProvider"
-import Typography from "@material-ui/core/Typography"
-
 import theme from "../themes"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
-import "./index.css"
+// import "./index.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -29,24 +34,21 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
+
+  const dynamicTheme = useMemo(() => theme({ paletteType: "light" }), [
+    prefersDarkMode,
+  ])
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={dynamicTheme}>
+      <CssBaseline />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
+      <Container>
+        <Main>{children}</Main>
         <Divider />
-        <footer>
-          <Typography paragraph={true}>
-            © {new Date().getFullYear()} {data.site.siteMetadata.title}
-          </Typography>
-        </footer>
-      </div>
+        <Footer siteTitle={data.site.siteMetadata.title} />
+      </Container>
     </ThemeProvider>
   )
 }

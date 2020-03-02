@@ -13,7 +13,7 @@ module.exports = {
     `<rootDir>.*/public`,
     `cypress`,
   ],
-  testURL: `http://localhost:8000`,
+  testURL: `http://localhost:8888`,
   transform: {
     "^.+\\.jsx?$": `<rootDir>/jest-preprocess.js`,
   },

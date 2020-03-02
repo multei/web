@@ -4,21 +4,24 @@
 
 ## 🚀 Quick start
 
-1.  **Start developing.**
+### Start developing
 
-    Navigate into root directory and start it up.
+1. Navigate into root directory and start it up.
+2. Run `npm run develop` or `netlify dev`;
+3. Open the source code and start editing!
+   Save your changes and the browser will update in real time!
 
-    ```shell
-    npm run develop
-    ```
+### URLs and ports
 
-1.  **Open the source code and start editing!**
+If you run `npm run develop` (or `gatsby develop`), site will open at `http://localhost:8000`!
+If you run `netlify dev`, site will open `http://localhost:8888`.
 
-    Site will at `http://localhost:8000`!
+#### GraphQL endpoint
 
-    Note: You'll also see a second link: `http://localhost:8000/___graphql` for GraphQL.
+You'll also see a second link for GraphQL:
 
-    Edit files. Save your changes and the browser will update in real time!
+- http://localhost:8000/___graphql (if you run `npm run develop`)
+- http://localhost:8888/___graphql (if you run `netlify dev`)
 
 ## 🧐 What's inside?
 

@@ -11,7 +11,7 @@ const CarFrontPhotoStep = ({
   photoPreviewURL,
 }) => (
   <form onSubmit={onSubmit}>
-    <Typography component="h2">
+    <Typography component="h2" variant="h2">
       Tire uma foto da frente do carro, incluindo a placa.
     </Typography>
     <Typography paragraph={true}>

@@ -5,28 +5,35 @@ import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
 import CheckParkingForm from "../containers/CheckParkingForm"
 import ParkingsList from "../containers/ParkingsList"
+import Box from "@material-ui/core/Box"
 
 const IndexTemplate = props => (
-  <article>
+  <Box component="article" display="block">
+    <Typography component="h2" variant="h2">
+      Encontrou um carro estacionado de forma irregular?
+    </Typography>
+    <Typography paragraph={true}>
+      <Button
+        color="primary"
+        component={Link}
+        to="/fazer-denuncia"
+        variant="contained"
+      >
+        Denuncie agora
+      </Button>
+    </Typography>
+    <Divider />
     <Typography component="h1" variant="srOnly">
       Página inicial
     </Typography>
-    <Typography component="h2">Confira se seu carro foi multado</Typography>
-    <CheckParkingForm />
-    <ParkingsList />
-    <Divider />
-    <Typography component="h2">
-      Encontrou um carro estacionado de forma irregular?
+
+    <Typography component="h2" variant="h2">
+      Confira se seu carro foi multado
     </Typography>
-    <Button
-      color="primary"
-      component={Link}
-      to="/fazer-denuncia"
-      variant="contained"
-    >
-      Denuncie agora
-    </Button>
-  </article>
+    <CheckParkingForm />
+
+    <ParkingsList />
+  </Box>
 )
 
 export default IndexTemplate

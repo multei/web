@@ -42,6 +42,24 @@ export default () => {
     setCarPlate(event.target.value)
   }
 
+  const handleApiResponse = response => {
+    dispatch({ type: "api_success" })
+
+    const { data } = response.data
+    globalActions.setParkingsData(data.parkings)
+  }
+
+  const handleApiError = error => {
+    globalActions.setParkingsData({ data: [] })
+    const isNotFoundError =
+      typeof error.response !== "undefined" && error.response.status === 404
+    if (isNotFoundError) {
+      dispatch({ type: "not_found_error" })
+      return
+    }
+    dispatch({ type: "api_error" })
+  }
+
   const handleSubmit = async event => {
     event.preventDefault()
 
@@ -57,19 +75,10 @@ export default () => {
       baseURL: `${baseURL}/v1`,
     })
     try {
-      const result = await instance.get(`/parkings/${carPlate}`)
-      dispatch({ type: "api_success" })
-
-      const { data } = result.data
-      globalActions.setParkingsData(data.parkings)
+      const response = await instance.get(`/parkings/${carPlate}`)
+      handleApiResponse(response)
     } catch (error) {
-      const parkingNotFound = error.response.status === 404
-      if (parkingNotFound) {
-        dispatch({ type: "not_found_error" })
-      } else {
-        dispatch({ type: "api_error" })
-      }
-      globalActions.setParkingsData({ data: [] })
+      handleApiError(error)
     }
   }
 

@@ -1,18 +1,15 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import PropTypes from "prop-types"
 
-import "./index.css"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
+
+import SiteTitle from "../SiteTitle"
 
 const Header = ({ siteTitle }) => (
   <AppBar component="header" position="static">
-    <Toolbar className="container">
-      <Typography component="h1" variant="h6">
-        <Link to="/">{siteTitle}</Link>
-      </Typography>
+    <Toolbar>
+      <SiteTitle>{siteTitle}</SiteTitle>
     </Toolbar>
   </AppBar>
 )
