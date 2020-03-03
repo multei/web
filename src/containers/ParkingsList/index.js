@@ -3,6 +3,6 @@ import ParkingsList from "../../components/ParkingsList"
 import useGlobal from "../../hooks/useGlobal"
 
 export default () => {
-  const [globalState, globalActions] = useGlobal()
+  const [globalState] = useGlobal()
   return <ParkingsList parkings={globalState.parkingsData} />
 }

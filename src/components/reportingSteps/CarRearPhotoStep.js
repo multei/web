@@ -25,3 +25,5 @@ const CarRearPhotoStep = ({ isLoading, onChange, onSubmit }) => (
     {isLoading && <progress />}
   </form>
 )
+
+export default CarRearPhotoStep

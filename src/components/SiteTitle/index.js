@@ -10,22 +10,13 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1rem",
     margin: 0,
   },
-  root: {
-    color: theme.palette.primary.contrastText,
-  },
 }))
 
 export default ({ children }) => {
   const classes = useStyles()
   return (
     <Typography classes={classes} component="h1" variant="h1">
-      <Link
-        classes={classes}
-        color="inherit"
-        component={GatsbyLink}
-        to="/"
-        underline="hover"
-      >
+      <Link color="inherit" component={GatsbyLink} to="/" underline="hover">
         {children}
       </Link>
     </Typography>

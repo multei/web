@@ -1,9 +1,9 @@
-import React, { useReducer, useState } from "react"
-import axios from "axios"
+import React, { useEffect, useReducer, useState } from "react"
 import CheckParkingForm from "../../components/CheckParkingForm"
 import useGlobal from "../../hooks/useGlobal"
+import { getParkingsByCarPlate } from "../../services/parkings"
 
-export default () => {
+export default ({ carPlate }) => {
   const initialState = {
     carPlate: "",
     loading: false,
@@ -31,12 +31,22 @@ export default () => {
           loading: false,
           success: true,
         }
+      default:
+        break
     }
   }
 
-  const [globalState, globalActions] = useGlobal()
+  const [, globalActions] = useGlobal()
   const [state, dispatch] = useReducer(reducer, initialState)
-  const [carPlate, setCarPlate] = useState("")
+  const [stateCarPlate, setCarPlate] = useState(carPlate)
+
+  useEffect(() => {
+    window.history.pushState(
+      { carPlate },
+      null,
+      `/consultar?car_plate=${carPlate}`
+    )
+  })
 
   const handleCarPlateChange = event => {
     setCarPlate(event.target.value)
@@ -50,14 +60,15 @@ export default () => {
   }
 
   const handleApiError = error => {
-    globalActions.setParkingsData({ data: [] })
     const isNotFoundError =
       typeof error.response !== "undefined" && error.response.status === 404
     if (isNotFoundError) {
       dispatch({ type: "not_found_error" })
+      globalActions.setParkingsData([])
       return
     }
     dispatch({ type: "api_error" })
+    globalActions.setParkingsData(null)
   }
 
   const handleSubmit = async event => {
@@ -65,17 +76,8 @@ export default () => {
 
     dispatch({ type: "api_request" })
 
-    const baseURL = process.env.GATSBY_MULTEI_API_BASEURL
-    if (typeof baseURL === "undefined") {
-      throw new Error(
-        "Can not make requests to API. API base URL is not defined."
-      )
-    }
-    const instance = axios.create({
-      baseURL: `${baseURL}/v1`,
-    })
     try {
-      const response = await instance.get(`/parkings/${carPlate}`)
+      const response = await getParkingsByCarPlate(stateCarPlate)
       handleApiResponse(response)
     } catch (error) {
       handleApiError(error)
@@ -84,7 +86,7 @@ export default () => {
 
   return (
     <CheckParkingForm
-      carPlate={carPlate}
+      carPlate={stateCarPlate}
       loading={state.loading}
       onCarPlateChange={handleCarPlateChange}
       onSubmit={handleSubmit}

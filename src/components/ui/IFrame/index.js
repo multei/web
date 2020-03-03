@@ -1,6 +1,6 @@
 import React from "react"
 import makeStyles from "@material-ui/core/styles/makeStyles"
-import objectFitCover from "../../themes/styles/objectFitCover"
+import objectFitCover from "../../../themes/styles/objectFitCover"
 import clsx from "clsx"
 
 const useStyles = makeStyles({
@@ -12,12 +12,13 @@ const useStyles = makeStyles({
   cover: objectFitCover,
 })
 
-export default ({ variant, ...props }) => {
+export default ({ title, variant, ...props }) => {
   const classes = useStyles()
   return (
     <iframe
       className={clsx(classes.root, variant === "cover" && classes.cover)}
       frameBorder="0"
+      title={title}
       {...props}
     />
   )

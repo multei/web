@@ -6,7 +6,7 @@ import style from "./index.css.js"
 
 const useStyles = makeStyles(style)
 
-export default ({ alt, height, title, variant, width, ...props }) => {
+const Image = ({ alt, height, title, variant, width, ...props }) => {
   const classes = useStyles()
   return (
     <img
@@ -19,3 +19,5 @@ export default ({ alt, height, title, variant, width, ...props }) => {
     />
   )
 }
+
+export default Image

@@ -5,9 +5,10 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
 import GridList from "@material-ui/core/GridList"
 import GridListTile from "@material-ui/core/GridListTile"
 import EmbedMap from "../../containers/EmbedMap"
-import Image from "../Image"
+import Image from "../ui/Image"
 import GridListTileBar from "@material-ui/core/GridListTileBar"
 import React from "react"
+import Link from "@material-ui/core/Link"
 
 export default ({
   car_front_photo_height,
@@ -26,6 +27,7 @@ export default ({
       <header>
         <Typography>{car_plate}</Typography>
         <Typography>Data e hora da denúncia: {created_at}</Typography>
+        <Link>Expandir para mais detalhes</Link>
       </header>
     </ExpansionPanelSummary>
     <ExpansionPanelDetails>

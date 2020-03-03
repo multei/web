@@ -31,6 +31,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-material-ui`,
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Overpass`,
+            subsets: [`latin`],
+            variants: [`400`, `700`],
+          },
+        ],
+      },
+    },
     { resolve: `gatsby-plugin-sharp` },
     { resolve: `gatsby-transformer-sharp` },
     // this (optional) plugin enables Progressive Web App + Offline functionality

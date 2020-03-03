@@ -7,47 +7,39 @@
 
 import React, { useMemo } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Container from "@material-ui/core/Container"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Divider from "@material-ui/core/Divider"
 
 import Header from "../components/Header"
-import Main from "../components/Main"
+import Main from "../components/ui/Main"
 import Footer from "../components/Footer"
 
 import ThemeProvider from "@material-ui/styles/ThemeProvider"
-import theme from "../themes"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
-
-// import "./index.css"
+import useSiteTitle from "../hooks/useSiteTitle"
+import factory from "../themes/factory"
+import { LinearProgress } from "@material-ui/core"
+import useGlobal from "../hooks/useGlobal"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
 
-  const dynamicTheme = useMemo(() => theme({ paletteType: "light" }), [
-    prefersDarkMode,
-  ])
+  const dynamicTheme = useMemo(factory(prefersDarkMode), [prefersDarkMode])
+  const siteTitle = useSiteTitle()
+
+  const [globalState] = useGlobal()
 
   return (
     <ThemeProvider theme={dynamicTheme}>
       <CssBaseline />
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {globalState.loading && <LinearProgress />}
+      <Header siteTitle={siteTitle} />
       <Container>
         <Main>{children}</Main>
         <Divider />
-        <Footer siteTitle={data.site.siteMetadata.title} />
+        <Footer siteTitle={siteTitle} />
       </Container>
     </ThemeProvider>
   )

@@ -1,51 +1,68 @@
 import React from "react"
-import FileInput from "../FileInput"
-import Button from "@material-ui/core/Button"
+import FileInput from "../ui/FileInput"
 import Typography from "@material-ui/core/Typography"
+import Alert from "@material-ui/lab/Alert"
+import AlertTitle from "@material-ui/lab/AlertTitle"
+import Figure from "../ui/Figure"
+import Fab from "@material-ui/core/Fab"
+import AddAPhotoIcon from "@material-ui/icons/AddAPhoto"
+import Image from "../ui/Image"
 
 const CarFrontPhotoStep = ({
-  isLoading,
-  isValid,
+  isCarFrontPhotoValid,
   onChange,
   onSubmit,
   photoPreviewURL,
 }) => (
   <form onSubmit={onSubmit}>
     <Typography component="h2" variant="h2">
-      Tire uma foto da frente do carro, incluindo a placa.
+      Tire uma foto da frente do carro, com a placa visível
     </Typography>
-    <Typography paragraph={true}>
+    <Typography paragraph={true} variant="body2">
       A foto precisa mostrar o painel do veículo e provar que não há uma
       credencial visível.
     </Typography>
-    <label htmlFor="carFrontImageUploadField">Foto da frente</label>
-    <FileInput
-      id="carFrontImageUploadField"
-      accept="image/*"
-      data-test-id="carFrontImageUploadField"
-      onChange={onChange}
-      name="carFrontImage"
-      required={true}
-    />
-    {photoPreviewURL && (
-      <figure>
-        <figcaption>Prévia da parte da frente do veículo</figcaption>
-        <img alt="Prévia da frente do veículo" src={photoPreviewURL} />
-        {!isValid && (
-          <p>Por favor, envie uma foto da parte da frente do veículo.</p>
-        )}
-      </figure>
+    {!isCarFrontPhotoValid && false && (
+      <Alert severity="warning" variant="outlined">
+        <AlertTitle>
+          Por favor, envie uma foto da parte da frente do veículo.
+        </AlertTitle>
+      </Alert>
     )}
-    <Button
-      disabled={!isValid}
-      id="submitCarFrontImage"
-      name="submitCarFrontImage"
-      variant="contained"
-      type="submit"
-    >
-      Enviar foto da frente
-    </Button>
-    {isLoading && <progress />}
+    {photoPreviewURL && (
+      <Figure>
+        <figcaption>Prévia da parte da frente do veículo</figcaption>
+        <Image
+          alt="Prévia da frente do veículo"
+          loading="lazy"
+          src={photoPreviewURL}
+        />
+      </Figure>
+    )}
+    <Typography paragraph={true}>
+      <Fab
+        aria-label="adicionar foto da frente"
+        color="primary"
+        component="label"
+        htmlFor="carFrontImageUploadField"
+        tabIndex={0}
+        variant="extended"
+      >
+        <AddAPhotoIcon />
+        Adicionar foto
+      </Fab>
+      <Typography variant="srOnly">
+        <FileInput
+          id="carFrontImageUploadField"
+          accept="image/*"
+          data-test-id="carFrontImageUploadField"
+          onChange={onChange}
+          name="carFrontImage"
+          required={true}
+          tabIndex={-1}
+        />
+      </Typography>
+    </Typography>
   </form>
 )
 

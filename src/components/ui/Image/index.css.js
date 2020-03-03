@@ -1,4 +1,4 @@
-import objectFitCover from "../../themes/styles/objectFitCover"
+import objectFitCover from "../../../themes/styles/objectFitCover"
 
 export default {
   root: {

@@ -2,16 +2,23 @@
   <dictionary name="lajimmy.andrade">
     <words>
       <w>axios</w>
+      <w>calt</w>
       <w>cantarell</w>
+      <w>clig</w>
       <w>clsx</w>
+      <w>consolas</w>
       <w>fira</w>
+      <w>focusring</w>
+      <w>liga</w>
       <w>loadershim</w>
+      <w>menlo</w>
       <w>multei</w>
       <w>netlify</w>
       <w>neue</w>
       <w>parkings</w>
       <w>roboto</w>
       <w>segoe</w>
+      <w>tnum</w>
       <w>webm</w>
       <w>webp</w>
       <w>woff</w>

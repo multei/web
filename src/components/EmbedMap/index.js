@@ -1,5 +1,5 @@
 import React from "react"
-import IFrame from "../IFrame"
+import IFrame from "../ui/IFrame"
 
 export default ({ apiKey, coordinates, ...props }) => (
   <IFrame
