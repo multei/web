@@ -49,7 +49,7 @@
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "4.9.5",
-    "@material-ui/icons": "^4.9.1",
+    "@material-ui/icons": "4.9.1",
     "@material-ui/lab": "4.0.0-alpha.45",
     "@material-ui/styles": "4.9.0",
     "clsx": "1.1.0",
@@ -72,7 +72,7 @@
     "use-global-hook": "0.1.12"
   },
   "devDependencies": {
-    "@hot-loader/react-dom": "^16.12.0",
+    "@hot-loader/react-dom": "16.12.0",
     "@testing-library/cypress": "5.3.0",
     "axe-core": "3.5.1",
     "axios": "0.19.2",
