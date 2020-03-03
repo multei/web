@@ -69,5 +69,6 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-# Cypress videos
+# Cypress generated files
+cypress/screenshots
 cypress/videos
