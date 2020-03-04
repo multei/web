@@ -261,9 +261,6 @@ const theme = ({ paletteType }) => {
           listStylePosition: "outside",
           padding: 0,
         },
-        gutters: {
-          marginBottom: `${baseTheme.spacing(3)}px`,
-        },
       },
       MuiListItem: {
         root: {
