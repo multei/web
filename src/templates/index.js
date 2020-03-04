@@ -22,7 +22,10 @@ const AboutTemplate = () => {
           sem&nbsp;credencial
         </Typography>
         <Figure>
-          <Image src={prefersDarkMode ? darkImage : lightImage} />
+          <Image
+            alt="Ilustração de uma cidade. Ao fundo, um prédio com o pôr-do-sol atrás. À frente, dois carros andando em direções opostas na mão dupla. Acima de cada carro, um balão com um símbolo de verificação."
+            src={prefersDarkMode ? darkImage : lightImage}
+          />
         </Figure>
         <Typography align="center" paragraph={true} variant="body2">
           Encontrou um&nbsp;carro estacionado irregularmente <wbr />
@@ -32,8 +35,10 @@ const AboutTemplate = () => {
       <Container maxWidth="xs">
         <Typography align="center" paragraph={true}>
           <Button
+            id="reportNowButton"
             component={GatsbyLink}
             color="primary"
+            data-testid="reportNowButton"
             size="large"
             to="/denunciar"
             variant="contained"

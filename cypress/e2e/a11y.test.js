@@ -6,11 +6,11 @@ describe("Accessibility checks", () => {
     cy.wait(500)
   })
   context("should have no detectable accessibility violations on load", () => {
-    xit("home page", () => {
+    it("home page", () => {
       cy.checkA11y()
     })
-    xit("create report page", () => {
-      cy.findByText("Denuncie agora")
+    it("report page", () => {
+      cy.get('[data-testid="reportNowButton"]')
         .click()
         .checkA11y()
     })
