@@ -8,7 +8,9 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default props => {
+const Form = props => {
   const classes = useStyles()
   return <form className={classes.root} {...props} />
 }
+
+export default Form

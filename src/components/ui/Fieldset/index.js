@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({ variant, ...props }) => {
+const Fieldset = ({ variant, ...props }) => {
   const classes = useStyles()
   return (
     <fieldset
@@ -34,3 +34,5 @@ export default ({ variant, ...props }) => {
     />
   )
 }
+
+export default Fieldset
