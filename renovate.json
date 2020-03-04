@@ -2,12 +2,12 @@
   "extends": [
     "config:base"
   ],
-  "automerge": true,
+  "automerge": false,
   "enabled": true,
   "packageRules": [
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
+      "automerge": false
     }
   ],
   "semanticCommits": true,
