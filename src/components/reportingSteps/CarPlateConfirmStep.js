@@ -1,36 +1,42 @@
 import React from "react"
-import Button from "../Button"
 import Typography from "@material-ui/core/Typography"
+import Button from "@material-ui/core/Button"
+import Fieldset from "../ui/Fieldset"
+import Form from "../ui/Form"
+import CarPlateField from "../ui/CarPlateField"
 
 const CarPlateConfirmStep = ({ onSubmit, plate }) => (
-  <form onSubmit={onSubmit}>
-    <Typography component="h2" variant="h2">
-      Recebemos as fotos com sucesso.
-    </Typography>
-    <p>
-      Agora você pode complementar sua denúncia com mais informações. Ela
-      continuará anônima.
-    </p>
-    <label htmlFor="car-plate">Confirme a placa do carro</label>
-    <input
-      id="car-plate"
-      aria-required={true}
-      defaultValue={plate}
-      maxLength={7}
-      minLength={7}
-      name="car-plate"
-      pattern="[A-Z]{3}[0-9][A-Z][0-9]{2}"
-      required={true}
-    />
-    <Button
-      id="submitCarPlate"
-      color="primary"
-      name="submitCarPlate"
-      type="submit"
-    >
-      Confirmar denúncia
-    </Button>
-  </form>
+  <Form onSubmit={onSubmit}>
+    <Fieldset>
+      <Typography component="h2" color="success" variant="h2">
+        Recebemos as fotos com sucesso.
+      </Typography>
+      <Typography paragraph={true}>
+        Agora você pode complementar sua denúncia com mais informações. Ela
+        continuará anônima.
+      </Typography>
+      <Typography paragraph={true}>
+        <CarPlateField
+          id="car_plate"
+          defaultValue={plate}
+          label="Placa do carro"
+          name="car_plate"
+          required={true}
+        />
+      </Typography>
+      <Typography paragraph={true}>
+        <Button
+          id="submitCarPlate"
+          color="primary"
+          name="submitCarPlate"
+          variant="contained"
+          type="submit"
+        >
+          Confirmar denúncia
+        </Button>
+      </Typography>
+    </Fieldset>
+  </Form>
 )
 
 export default CarPlateConfirmStep

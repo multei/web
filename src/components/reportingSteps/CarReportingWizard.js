@@ -10,6 +10,7 @@ import StepLabel from "@material-ui/core/StepLabel"
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft"
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight"
 import Typography from "@material-ui/core/Typography"
+import StepContent from "@material-ui/core/StepContent"
 
 const CarReportingWizard = ({
   activeStep,
@@ -40,11 +41,11 @@ const CarReportingWizard = ({
               <Step key={`car-reporting-wizard-step-${index}`}>
                 <StepLabel>{label}</StepLabel>
                 {activeStep === index && (
-                  <>
+                  <StepContent>
                     {activeStep > 0 && backButton}
                     {children}
                     {nextButton}
-                  </>
+                  </StepContent>
                 )}
               </Step>
             )
@@ -52,7 +53,7 @@ const CarReportingWizard = ({
         </Stepper>
       </Hidden>
       <Typography align="center" component="div">
-        <Hidden implementation="css" smUp={true}>
+        <Hidden implementation="js" smUp={true}>
           {children}
         </Hidden>
       </Typography>
