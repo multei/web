@@ -10,7 +10,6 @@ import StepLabel from "@material-ui/core/StepLabel"
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft"
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight"
 import Typography from "@material-ui/core/Typography"
-import Divider from "@material-ui/core/Divider"
 
 const CarReportingWizard = ({
   activeStep,
