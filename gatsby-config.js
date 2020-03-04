@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Multei! Denuncie estacionamento irregular`,
+        short_name: `Multei!`,
         start_url: `/`,
         background_color: `#F6F4F3`,
         theme_color: `#0069AE`,
