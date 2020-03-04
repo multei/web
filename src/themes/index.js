@@ -25,7 +25,7 @@ const theme = ({ paletteType }) => {
         main: "#ffff00",
       },
       code: {
-        background: "hsla(0, 0%, 0%, 0.04)",
+        background: "hsla(0, 0%, 0%, 0.2)",
       },
       divider: "hsla(0, 0%, 0%, 0.2)",
       text: {
@@ -33,7 +33,7 @@ const theme = ({ paletteType }) => {
       },
       background: {
         default: paletteType === "light" ? "#f6f4f3" : "#011627",
-        paper: paletteType === "light" ? "#f6f4f3" : "#011627",
+        paper: paletteType === "light" ? "#FBFFFE" : "hsla(0, 0%, 0%, 0.2)",
       },
     },
   })

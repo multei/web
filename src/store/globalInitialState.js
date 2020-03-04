@@ -1,5 +1,5 @@
 export default {
-  currentReporting: {
+  currentParkingReportingData: {
     carFrontPhotoPreviewUrl: null,
   },
   loading: null,

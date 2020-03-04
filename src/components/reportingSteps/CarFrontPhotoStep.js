@@ -7,6 +7,7 @@ import Figure from "../ui/Figure"
 import Fab from "@material-ui/core/Fab"
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto"
 import Image from "../ui/Image"
+import Card from "@material-ui/core/Card"
 
 const CarFrontPhotoStep = ({
   isCarFrontPhotoValid,
@@ -29,16 +30,18 @@ const CarFrontPhotoStep = ({
         </AlertTitle>
       </Alert>
     )}
-    {photoPreviewURL && (
-      <Figure>
-        <figcaption>Prévia da parte da frente do veículo</figcaption>
-        <Image
-          alt="Prévia da frente do veículo"
-          loading="lazy"
-          src={photoPreviewURL}
-        />
-      </Figure>
-    )}
+    <Card>
+      {photoPreviewURL && (
+        <Figure>
+          <figcaption>Prévia da parte da frente do veículo</figcaption>
+          <Image
+            alt="Prévia da frente do veículo"
+            loading="lazy"
+            src={photoPreviewURL}
+          />
+        </Figure>
+      )}
+    </Card>
     <Typography paragraph={true}>
       <Fab
         aria-label="adicionar foto da frente"

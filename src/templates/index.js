@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box"
 import Typography from "@material-ui/core/Typography"
 import { Link as GatsbyLink } from "gatsby"
 
-import lightImage from "../images/undraw_order_a_car_3tww.svg"
+import lightImage from "../images/undraw_order_a_car_3tww_light.svg"
 import darkImage from "../images/undraw_order_a_car_3tww_dark.svg"
 import Image from "../components/ui/Image"
 import { Container } from "@material-ui/core"

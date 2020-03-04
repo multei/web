@@ -11,19 +11,19 @@ export default props => {
 
     if (typeof event.target.files[0] === "undefined") {
       globalActions.setLoading(false)
-      globalActions.setCurrentParkingReportingData(prev => ({
-        ...prev,
+      globalActions.setCurrentParkingReportingData({
+        ...globalState.currentParkingReportingData,
         carFrontPhotoPreviewUrl: null,
-      }))
-
+      })
       return false
     }
 
     const file = event.target.files[0]
-    globalActions.setCurrentParkingReportingData(prev => ({
-      ...prev,
+    globalActions.setCurrentParkingReportingData({
+      ...globalState.currentParkingReportingData,
       carFrontPhotoPreviewUrl: URL.createObjectURL(file),
-    }))
+    })
+    console.log(globalState.currentParkingReportingData)
 
     globalActions.setLoading(false)
   }
@@ -32,11 +32,12 @@ export default props => {
     event.preventDefault()
     globalActions.setLoading(true)
   }
+  const { carFrontPhotoPreviewUrl } = globalState.currentParkingReportingData
   return (
     <CarFrontPhotoStep
       onChange={handleChange}
       onSubmit={handleSubmit}
-      photoPreviewURL={globalState.currentReporting.carFrontPhotoPreviewUrl}
+      photoPreviewURL={carFrontPhotoPreviewUrl}
       {...props}
     />
   )

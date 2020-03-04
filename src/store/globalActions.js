@@ -6,7 +6,7 @@ const actions = {
     store.setState({ loading: loading })
   },
   setCurrentParkingReportingData: (store, parkingReportData) => {
-    store.setState({ currentParkingReportData: parkingReportData })
+    store.setState({ currentParkingReportingData: parkingReportData })
   },
 }
 

@@ -34,7 +34,7 @@ const CarReportingWizard = ({
   )
   return (
     <>
-      <Hidden implementation="js" xsDown={true}>
+      <Hidden implementation="css" xsDown={true}>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => {
             return (
@@ -43,9 +43,7 @@ const CarReportingWizard = ({
                 {activeStep === index && (
                   <>
                     {activeStep > 0 && backButton}
-                    <Divider />
                     {children}
-                    <Divider />
                     {nextButton}
                   </>
                 )}
@@ -55,7 +53,7 @@ const CarReportingWizard = ({
         </Stepper>
       </Hidden>
       <Typography align="center" component="div">
-        <Hidden implementation="js" smUp={true}>
+        <Hidden implementation="css" smUp={true}>
           {children}
         </Hidden>
       </Typography>
