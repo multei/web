@@ -1,7 +1,7 @@
-dictionaries: 
+dictionaries:
   - pt_BR
   - en
-excluded_files: 
+excluded_files:
   - vendor/**/*
   - node_modules/**/*
   - "*.key"
@@ -15,8 +15,10 @@ excluded_files:
   - yarn.lock
   - Gemfile.lock
   - .typo-ci.yml
-excluded_words: 
+excluded_words:
+  - automerge
   - dev
+  - gatsby
   - typoci
   - testc
   - testu
