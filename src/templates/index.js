@@ -10,7 +10,6 @@ import { Container } from "@material-ui/core"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Figure from "../components/ui/Figure"
 import Button from "@material-ui/core/Button"
-import Divider from "@material-ui/core/Divider"
 import Link from "@material-ui/core/Link"
 
 const AboutTemplate = () => {
@@ -26,8 +25,8 @@ const AboutTemplate = () => {
           <Image src={prefersDarkMode ? darkImage : lightImage} />
         </Figure>
         <Typography align="center" paragraph={true} variant="body2">
-          Encontrou um carro estacionado de forma irregular em vagas para
-          pessoas idosas e/ou com&nbsp;deficiência?
+          Encontrou um&nbsp;carro estacionado irregularmente <wbr />
+          em&nbsp;vagas para&nbsp;pessoas&nbsp;com&nbsp;deficiência?
         </Typography>
       </Container>
       <Container maxWidth="xs">
@@ -50,7 +49,7 @@ const AboutTemplate = () => {
             to="/consultar"
             underline="always"
           >
-            Buscar&nbsp;denúncias
+            Consultar&nbsp;denúncias
           </Link>
         </Typography>
       </Container>
