@@ -53,7 +53,7 @@
     "@material-ui/lab": "4.0.0-alpha.45",
     "@material-ui/styles": "4.9.0",
     "clsx": "1.1.0",
-    "gatsby": "2.19.28",
+    "gatsby": "2.19.29",
     "gatsby-image": "2.2.42",
     "gatsby-plugin-layout": "1.1.22",
     "gatsby-plugin-manifest": "2.2.42",
