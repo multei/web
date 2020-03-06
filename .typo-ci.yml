@@ -18,7 +18,10 @@ excluded_files:
 excluded_words:
   - automerge
   - dev
+  - filesystem
   - gatsby
+  - gatsby-source-filesystem
+  - source
   - typoci
   - testc
   - testu
