@@ -1,6 +1,6 @@
 # Multei web app
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3a602d49-9682-47d0-898d-000299855663/deploy-status)](https://app.netlify.com/sites/multei/deploys)
+![End-to-end tests](https://github.com/multei/web/workflows/End-to-end%20tests/badge.svg)
 
 ## 🚀 Quick start
 
