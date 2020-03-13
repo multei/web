@@ -88,7 +88,7 @@
     "netlify-cli": "2.38.0",
     "prettier": "1.19.1",
     "react-test-renderer": "16.13.0",
-    "start-server-and-test": "1.10.9"
+    "start-server-and-test": "1.10.10"
   },
   "engines": {
     "node": ">=10.13.0"
