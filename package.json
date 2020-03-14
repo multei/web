@@ -68,7 +68,7 @@
     "query-string": "6.11.1",
     "react": "16.13.0",
     "react-dom": "16.13.0",
-    "react-helmet": "5.2.1",
+    "react-helmet": "6.0.0-beta.2",
     "use-global-hook": "0.1.12"
   },
   "devDependencies": {
