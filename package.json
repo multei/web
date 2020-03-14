@@ -53,7 +53,7 @@
     "@material-ui/lab": "4.0.0-alpha.45",
     "@material-ui/styles": "4.9.0",
     "clsx": "1.1.0",
-    "gatsby": "2.19.41",
+    "gatsby": "2.19.43",
     "gatsby-image": "2.2.43",
     "gatsby-plugin-layout": "1.1.23",
     "gatsby-plugin-manifest": "2.2.47",
@@ -62,7 +62,7 @@
     "gatsby-plugin-prefetch-google-fonts": "1.4.3",
     "gatsby-plugin-react-helmet": "3.1.23",
     "gatsby-plugin-sharp": "2.4.12",
-    "gatsby-source-filesystem": "2.1.54",
+    "gatsby-source-filesystem": "2.1.55",
     "gatsby-transformer-sharp": "2.3.18",
     "prop-types": "15.7.2",
     "query-string": "6.11.1",
@@ -72,7 +72,7 @@
     "use-global-hook": "0.1.12"
   },
   "devDependencies": {
-    "@hot-loader/react-dom": "16.12.0",
+    "@hot-loader/react-dom": "16.13.0",
     "@testing-library/cypress": "6.0.0",
     "axe-core": "3.5.2",
     "axios": "0.19.2",
@@ -85,7 +85,7 @@
     "husky": "4.2.3",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.1.0",
-    "netlify-cli": "2.38.0",
+    "netlify-cli": "2.39.0",
     "prettier": "1.19.1",
     "react-test-renderer": "16.13.0",
     "start-server-and-test": "1.10.10"
