@@ -72,7 +72,7 @@
     "use-global-hook": "0.1.12"
   },
   "devDependencies": {
-    "@hot-loader/react-dom": "16.12.0",
+    "@hot-loader/react-dom": "16.13.0",
     "@testing-library/cypress": "6.0.0",
     "axe-core": "3.5.2",
     "axios": "0.19.2",
