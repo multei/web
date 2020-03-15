@@ -97,7 +97,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm test",
-      "pre-push": "npm test && npm run test:e2e:ci"
+      "pre-push": "npm test && npm run test:e2e:ci",
+      "post-update": "npm install"
     }
   }
 }
