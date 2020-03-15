@@ -1,15 +1,15 @@
 import React from "react"
-import FileInput from "../ui/FileInput"
+
+import Card from "@material-ui/core/Card"
+import Fab from "@material-ui/core/Fab"
 import Typography from "@material-ui/core/Typography"
+
+import AddAPhotoIcon from "@material-ui/icons/AddAPhoto"
 import Alert from "@material-ui/lab/Alert"
 import AlertTitle from "@material-ui/lab/AlertTitle"
-import Figure from "../ui/Figure"
-import Fab from "@material-ui/core/Fab"
-import AddAPhotoIcon from "@material-ui/icons/AddAPhoto"
-import Image from "../ui/Image"
-import Card from "@material-ui/core/Card"
-import Form from "../ui/Form"
-import Fieldset from "../ui/Fieldset"
+
+import { Fieldset, Figure, FileInput, Form } from "muy"
+import { Image } from "@material-ui/icons"
 
 const CarFrontPhotoStep = ({
   isCarFrontPhotoValid,

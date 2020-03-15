@@ -13,7 +13,6 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import Divider from "@material-ui/core/Divider"
 
 import Header from "../components/Header"
-import Main from "../components/ui/Main"
 import Footer from "../components/Footer"
 
 import ThemeProvider from "@material-ui/styles/ThemeProvider"
@@ -22,6 +21,7 @@ import useSiteTitle from "../hooks/useSiteTitle"
 import factory from "../themes/factory"
 import { LinearProgress } from "@material-ui/core"
 import useGlobal from "../hooks/useGlobal"
+import { MainContent } from "muy"
 
 const Layout = ({ children }) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
       {globalState.loading && <LinearProgress />}
       <Header siteTitle={siteTitle} />
       <Container>
-        <Main>{children}</Main>
+        <MainContent>{children}</MainContent>
         <Divider />
         <Footer siteTitle={siteTitle} />
       </Container>

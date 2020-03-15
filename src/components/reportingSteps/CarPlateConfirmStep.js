@@ -1,9 +1,7 @@
 import React from "react"
 import Typography from "@material-ui/core/Typography"
 import Button from "@material-ui/core/Button"
-import Fieldset from "../ui/Fieldset"
-import Form from "../ui/Form"
-import CarPlateField from "../ui/CarPlateField"
+import { CarPlateField, Fieldset, Form } from "muy"
 
 const CarPlateConfirmStep = ({ onSubmit, plate }) => (
   <Form onSubmit={onSubmit}>

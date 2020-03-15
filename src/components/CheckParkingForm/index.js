@@ -1,9 +1,6 @@
 import React from "react"
 import Button from "@material-ui/core/Button"
-
-import Fieldset from "../ui/Fieldset"
-import Form from "../ui/Form"
-import CarPlateField from "../ui/CarPlateField"
+import { CarPlateField, Fieldset, Form } from "muy"
 
 export default ({
   carPlate,

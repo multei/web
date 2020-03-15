@@ -1,15 +1,13 @@
 import React from "react"
-import { Box } from "@material-ui/core"
-import Image from "../components/ui/Image"
 import image from "../images/undraw_privacy_protection_nlwy_dark.svg"
 import Typography from "@material-ui/core/Typography"
-import Figure from "../components/ui/Figure"
 import Container from "@material-ui/core/Container"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
+import { Article, Figure, Image } from "muy"
 
 const PrivacyTemplate = () => (
-  <Box component="article">
+  <Article>
     <Container maxWidth="xs">
       <Typography component="h1" variant="h1">
         Privacidade e proteção de dados
@@ -101,7 +99,7 @@ const PrivacyTemplate = () => (
         coletem informações de denúncias para fins de medição.
       </Typography>
     </Container>
-  </Box>
+  </Article>
 )
 
 export default PrivacyTemplate

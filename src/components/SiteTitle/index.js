@@ -12,6 +12,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+/**
+ * @todo Migrate SiteTitle to muy library
+ * @param children
+ * @return {*}
+ */
 export default ({ children }) => {
   const classes = useStyles()
   return (

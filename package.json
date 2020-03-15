@@ -1,5 +1,5 @@
 {
-  "name": "multei-web",
+  "name": "@multei/web",
   "version": "0.1.0",
   "description": "Multei! website project",
   "repository": {
@@ -64,6 +64,7 @@
     "gatsby-plugin-sharp": "2.4.12",
     "gatsby-source-filesystem": "2.1.55",
     "gatsby-transformer-sharp": "2.3.18",
+    "muy": "0.3.5",
     "prop-types": "15.7.2",
     "query-string": "6.11.1",
     "react": "16.13.0",

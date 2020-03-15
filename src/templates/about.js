@@ -3,11 +3,11 @@ import React from "react"
 import Button from "@material-ui/core/Button"
 import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
-import Box from "@material-ui/core/Box"
 import HomeCheckParkingForm from "../containers/HomeCheckParkingForm"
+import { Article } from "muy"
 
 const IndexTemplate = () => (
-  <Box component="article" display="block">
+  <Article>
     <Typography component="h1" variant="srOnly">
       Página inicial
     </Typography>
@@ -33,7 +33,7 @@ const IndexTemplate = () => (
       Confira se seu carro foi multado
     </Typography>
     <HomeCheckParkingForm />
-  </Box>
+  </Article>
 )
 
 export default IndexTemplate

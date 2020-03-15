@@ -1,10 +1,16 @@
 import React from "react"
+import Typography from "@material-ui/core/Typography"
+import { Article } from "muy"
 
 const NotFoundTemplate = () => (
-  <article>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </article>
+  <Article>
+    <Typography component="h1" variant="h1">
+      NOT FOUND
+    </Typography>
+    <Typography paragraph={true}>
+      You just hit a route that doesn&#39;t exist... the sadness.
+    </Typography>
+  </Article>
 )
 
 export default NotFoundTemplate

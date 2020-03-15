@@ -1,12 +1,12 @@
 import React from "react"
-import Box from "@material-ui/core/Box"
 import ExpansionPanel from "@material-ui/core/ExpansionPanel"
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
 import Typography from "@material-ui/core/Typography"
 import { ExpansionPanelDetails } from "@material-ui/core"
+import { Article } from "muy"
 
 const HelpTemplate = () => (
-  <Box component="article" display="block">
+  <Article>
     <Typography component="h1" variant="h1">
       Ajuda
     </Typography>
@@ -24,7 +24,7 @@ const HelpTemplate = () => (
         Quais são as penalidades para quem estaciona em vaga sem credencial?
       </ExpansionPanelSummary>
     </ExpansionPanel>
-  </Box>
+  </Article>
 )
 
 export default HelpTemplate

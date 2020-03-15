@@ -1,21 +1,19 @@
 import React from "react"
-import Box from "@material-ui/core/Box"
 import Typography from "@material-ui/core/Typography"
 import { Link as GatsbyLink } from "gatsby"
 
 import lightImage from "../images/undraw_order_a_car_3tww_light.svg"
 import darkImage from "../images/undraw_order_a_car_3tww_dark.svg"
-import Image from "../components/ui/Image"
 import { Container } from "@material-ui/core"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
-import Figure from "../components/ui/Figure"
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
+import { Article, Figure, Image } from "muy"
 
 const AboutTemplate = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
   return (
-    <Box component="article">
+    <Article>
       <Container maxWidth="xs">
         <Typography component="h1" align="center" variant="h2">
           Denuncie quem estaciona em&nbsp;vagas preferenciais
@@ -58,7 +56,7 @@ const AboutTemplate = () => {
           </Link>
         </Typography>
       </Container>
-    </Box>
+    </Article>
   )
 }
 

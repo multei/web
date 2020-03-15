@@ -1,8 +1,8 @@
 import React from "react"
-import EmbedMap from "../../components/EmbedMap"
+import { EmbedGoogleMap } from "muy"
 
 export default ({ coordinates, ...props }) => (
-  <EmbedMap
+  <EmbedGoogleMap
     apiKey={process.env.GATSBY_EMBED_API_KEY}
     coordinates={coordinates}
     {...props}

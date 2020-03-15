@@ -1,16 +1,14 @@
 import React from "react"
-import { Box } from "@material-ui/core"
-import Image from "../components/ui/Image"
 import image from "../images/undraw_terms_lso0_dark.svg"
 import Typography from "@material-ui/core/Typography"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import Container from "@material-ui/core/Container"
-import Figure from "../components/ui/Figure"
 import ListItemText from "@material-ui/core/ListItemText"
+import { Article, Figure, Image } from "muy"
 
 const TermsTemplate = () => (
-  <Box component="article">
+  <Article>
     <Container maxWidth="xs">
       <Typography component="h1" variant="h1">
         Termos de uso
@@ -45,7 +43,7 @@ const TermsTemplate = () => (
         <Image src={image} />
       </Figure>
     </Container>
-  </Box>
+  </Article>
 )
 
 export default TermsTemplate

@@ -5,9 +5,10 @@ import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 
 import SiteTitle from "../SiteTitle"
+import { PageHeader } from "muy"
 
 const Header = ({ siteTitle }) => (
-  <AppBar component="header" position="static">
+  <AppBar component={PageHeader} position="static">
     <Toolbar>
       <SiteTitle>{siteTitle}</SiteTitle>
     </Toolbar>

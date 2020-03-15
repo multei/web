@@ -5,10 +5,10 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
 import GridList from "@material-ui/core/GridList"
 import GridListTile from "@material-ui/core/GridListTile"
 import EmbedMap from "../../containers/EmbedMap"
-import Image from "../ui/Image"
 import GridListTileBar from "@material-ui/core/GridListTileBar"
 import React from "react"
 import Link from "@material-ui/core/Link"
+import { Image } from "muy"
 
 export default ({
   car_front_photo_height,
