@@ -67,8 +67,8 @@
     "muy": "0.3.5",
     "prop-types": "15.7.2",
     "query-string": "6.11.1",
-    "react": "16.13.0",
-    "react-dom": "16.13.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-helmet": "6.0.0-beta.2",
     "use-global-hook": "0.1.12"
   },
@@ -88,7 +88,7 @@
     "jest": "25.1.0",
     "netlify-cli": "2.39.0",
     "prettier": "1.19.1",
-    "react-test-renderer": "16.13.0",
+    "react-test-renderer": "16.13.1",
     "start-server-and-test": "1.10.10"
   },
   "engines": {
