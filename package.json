@@ -64,7 +64,7 @@
     "gatsby-plugin-sharp": "2.4.12",
     "gatsby-source-filesystem": "2.1.55",
     "gatsby-transformer-sharp": "2.3.18",
-    "muy": "0.5.3",
+    "muy": "0.5.4",
     "prop-types": "15.7.2",
     "query-string": "6.11.1",
     "react": "16.13.0",
