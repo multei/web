@@ -21,6 +21,7 @@ excluded_words:
   - filesystem
   - gatsby
   - gatsby-source-filesystem
+  - muy
   - source
   - typoci
   - testc
