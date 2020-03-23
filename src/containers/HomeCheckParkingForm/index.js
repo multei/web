@@ -5,12 +5,12 @@ import { withPrefix } from "../../../.cache/gatsby-browser-entry"
 
 const checkPath = "/consultar"
 
-const handleSubmit = event => {
+const handleSubmit = (event) => {
   event.preventDefault()
   navigate(`${checkPath}?car_plate=`)
 }
 
-const HomeCheckParkingForm = props => (
+const HomeCheckParkingForm = (props) => (
   <CheckParkingForm
     formProps={{
       action: withPrefix(checkPath),
