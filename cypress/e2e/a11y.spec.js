@@ -10,9 +10,7 @@ describe("Accessibility checks", () => {
       cy.checkA11y()
     })
     it("report page", () => {
-      cy.get('[data-testid="reportNowButton"]')
-        .click()
-        .checkA11y()
+      cy.get('[data-testid="reportNowButton"]').click().checkA11y()
     })
   })
 })
