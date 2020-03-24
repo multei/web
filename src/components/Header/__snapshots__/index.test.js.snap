@@ -11,15 +11,16 @@ exports[`Header renders correctly 1`] = `
     className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
   >
     <h1
-      className="MuiTypography-root MuiTypography-h1 makeStyles-h1-46"
+      className="MuiTypography-root MuiTypography-body1"
     >
       <a
         className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
         href="/"
         onBlur={[Function]}
         onFocus={[Function]}
+        target="_self"
       >
-        Default Starter
+        Test site title
       </a>
     </h1>
   </div>
