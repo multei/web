@@ -82,7 +82,7 @@
     "babel-preset-gatsby": "0.3.1",
     "codecov": "3.6.5",
     "cypress": "4.2.0",
-    "cypress-axe": "0.6.1",
+    "cypress-axe": "0.7.0",
     "cypress-file-upload": "4.0.4",
     "husky": "4.2.3",
     "identity-obj-proxy": "3.0.0",
