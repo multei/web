@@ -32,7 +32,7 @@
     "testu": "jest -u",
     "testw": "jest --watch",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
-    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 'wait-on http://localhost:8000 && npm run cy:run'"
   },
   "contributors": [
     {
@@ -90,7 +90,8 @@
     "netlify-cli": "2.40.0",
     "prettier": "2.0.2",
     "react-test-renderer": "16.13.1",
-    "start-server-and-test": "1.10.11"
+    "start-server-and-test": "1.10.11",
+    "wait-on": "^4.0.1"
   },
   "engines": {
     "node": ">=10.13.0"
