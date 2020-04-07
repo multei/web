@@ -39,7 +39,8 @@
       "profile": "http://jimmyandrade.com",
       "contributions": [
         "code",
-        "doc"
+        "doc",
+        "bug"
       ]
     }
   ],
