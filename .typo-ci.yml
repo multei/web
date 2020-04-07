@@ -23,6 +23,7 @@ excluded_words:
   - filesystem
   - gatsby
   - gatsby-source-filesystem
+  - jimmyandrade
   - muy
   - Ruan
   - ruandev
