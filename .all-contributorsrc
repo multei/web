@@ -40,7 +40,8 @@
       "contributions": [
         "code",
         "doc",
-        "bug"
+        "bug",
+        "a11y"
       ]
     }
   ],
