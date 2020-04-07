@@ -14,7 +14,18 @@
 3. Open the source code and start editing!
    Save your changes and the browser will update in real time!
 
-## Contributors ✨
+## How to contribute?
+
+### Check our [project board](https://github.com/orgs/multei/projects/1)
+
+You can find it at https://github.com/orgs/multei/projects/1
+
+## Check our guidelines & code of conduct
+
+- [Contributing Guidelines](https://github.com/multei/.github/blob/master/CONTRIBUTING.md);
+- [Code of Conduct](https://github.com/multei/.github/blob/master/CODE_OF_CONDUCT.md).
+
+### Meet our contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
