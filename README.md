@@ -14,7 +14,18 @@
 3. Open the source code and start editing!
    Save your changes and the browser will update in real time!
 
-## Contributors ✨
+## How to contribute?
+
+### Check our [project board](https://github.com/orgs/multei/projects/1)
+
+You can find it at https://github.com/orgs/multei/projects/1
+
+## Check our guidelines & code of conduct
+
+- [Contributing Guidelines](https://github.com/multei/.github/blob/master/CONTRIBUTING.md);
+- [Code of Conduct](https://github.com/multei/.github/blob/master/CODE_OF_CONDUCT.md).
+
+### Meet our contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -23,6 +34,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
+    <td align="center"><a href="https://github.com/adalbertomaia"><img src="https://avatars0.githubusercontent.com/u/23324060?v=4" width="100px;" alt=""/><br /><sub><b>Adalberto Maia</b></sub></a><br /><a href="https://github.com/multei/web/commits?author=adalbertomaia" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/thomazmz"><img src="https://avatars3.githubusercontent.com/u/16430263?v=4" width="100px;" alt=""/><br /><sub><b>Thomaz Zandonotto</b></sub></a><br /><a href="https://github.com/multei/web/commits?author=thomazmz" title="Code">💻</a></td>
     <td align="center"><a href="http://www.ruanvictor.dev"><img src="https://avatars2.githubusercontent.com/u/13110218?v=4" width="100px;" alt=""/><br /><sub><b>Ruan Victor</b></sub></a><br /><a href="https://github.com/multei/web/commits?author=ruandev" title="Code">💻</a></td>
   </tr>
