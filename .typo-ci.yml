@@ -17,11 +17,14 @@ excluded_files:
   - .typo-ci.yml
 excluded_words:
   - automerge
+  - contributorsrc
   - dev
   - filesystem
   - gatsby
   - gatsby-source-filesystem
   - muy
+  - Ruan
+  - ruandev
   - source
   - typoci
   - testc
