@@ -16,6 +16,7 @@ excluded_files:
   - Gemfile.lock
   - .typo-ci.yml
 excluded_words:
+  - adalbertomaia
   - automerge
   - contributorsrc
   - dev
