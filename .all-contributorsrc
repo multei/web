@@ -31,6 +31,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "jimmyandrade",
+      "name": "Jimmy Andrade",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2307245?v=4",
+      "profile": "http://jimmyandrade.com",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
