@@ -1,6 +1,6 @@
 # Multei web app
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![End-to-end tests](https://github.com/multei/web/workflows/End-to-end%20tests/badge.svg)
@@ -66,6 +66,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/thomazmz"><img src="https://avatars3.githubusercontent.com/u/16430263?v=4" width="100px;" alt=""/><br /><sub><b>Thomaz Zandonotto</b></sub></a><br /><a href="https://github.com/multei/web/commits?author=thomazmz" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.ruanvictor.dev"><img src="https://avatars2.githubusercontent.com/u/13110218?v=4" width="100px;" alt=""/><br /><sub><b>Ruan Victor</b></sub></a><br /><a href="https://github.com/multei/web/commits?author=ruandev" title="Code">💻</a></td>
   </tr>
 </table>
 
