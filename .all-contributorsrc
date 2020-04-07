@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "thomazmz",
+      "name": "Thomaz Zandonotto",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16430263?v=4",
+      "profile": "https://github.com/thomazmz",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "web",
+  "projectOwner": "multei",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
