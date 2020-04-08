@@ -10,7 +10,10 @@
     "url": "https://github.com/multei/web/issues"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "multei",
+    "react",
+    "web"
   ],
   "author": "Multei!",
   "private": true,
@@ -23,7 +26,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "dev": "npm run develop",
-    "develop": "gatsby develop -p 8000",
+    "develop": "gatsby develop --host ${npm_package_config_localhost} --port ${npm_package_config_port}",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "start": "npm run develop",
@@ -31,21 +34,13 @@
     "testc": "jest --coverage",
     "testu": "jest -u",
     "testw": "jest --watch",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
-    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 'wait-on http://localhost:8000 && npm run cy:run'"
+    "test:e2e": "start-server-and-test develop http://${npm_package_config_localhost}:${npm_package_config_port} cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://${npm_package_config_localhost}:${npm_package_config_port} 'wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:run'"
   },
-  "contributors": [
-    {
-      "name": "Beto Maia",
-      "email": "beto@multei.com.br",
-      "url": "https://github.com/adalbertomaia"
-    },
-    {
-      "name": "Jimmy Andrade",
-      "email": "jimmy@multei.com.br",
-      "url": "https://github.com/jimmyandrade"
-    }
-  ],
+  "config": {
+    "localhost": "localhost",
+    "port": 8000
+  },
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "4.9.9",
