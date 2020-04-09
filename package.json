@@ -34,12 +34,13 @@
     "testc": "jest --coverage",
     "testu": "jest -u",
     "testw": "jest --watch",
-    "test:e2e": "start-server-and-test develop http://${npm_package_config_localhost}:${npm_package_config_port} cy:open",
-    "test:e2e:ci": "start-server-and-test develop http://${npm_package_config_localhost}:${npm_package_config_port} 'wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:run'"
+    "test:e2e": "npm run develop & wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:open",
+    "test:e2e:ci": "npm run develop & wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:run"
   },
   "config": {
     "localhost": "localhost",
     "port": 8000
+
   },
   "license": "MIT",
   "dependencies": {
@@ -48,7 +49,7 @@
     "@material-ui/lab": "4.0.0-alpha.48",
     "@material-ui/styles": "4.9.6",
     "clsx": "1.1.0",
-    "gatsby": "2.20.13",
+    "gatsby": "2.20.15",
     "gatsby-image": "2.3.2",
     "gatsby-plugin-canonical-urls": "2.2.1",
     "gatsby-plugin-layout": "1.2.1",
@@ -65,7 +66,7 @@
     "query-string": "6.12.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-helmet": "6.0.0-beta.2",
+    "react-helmet": "6.0.0",
     "use-global-hook": "0.1.12"
   },
   "devDependencies": {
@@ -79,13 +80,12 @@
     "cypress": "4.3.0",
     "cypress-axe": "0.8.1",
     "cypress-file-upload": "4.0.4",
-    "husky": "4.2.3",
+    "husky": "4.2.5",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.3.0",
     "netlify-cli": "2.41.0",
     "prettier": "2.0.4",
     "react-test-renderer": "16.13.1",
-    "start-server-and-test": "1.10.11",
     "wait-on": "4.0.2"
   },
   "engines": {
