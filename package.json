@@ -86,7 +86,7 @@
     "prettier": "2.0.4",
     "react-test-renderer": "16.13.1",
     "start-server-and-test": "1.10.11",
-    "wait-on": "4.0.1"
+    "wait-on": "4.0.2"
   },
   "engines": {
     "node": ">=10.13.0"
