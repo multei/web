@@ -16,12 +16,17 @@ excluded_files:
   - Gemfile.lock
   - .typo-ci.yml
 excluded_words:
+  - adalbertomaia
   - automerge
+  - contributorsrc
   - dev
   - filesystem
   - gatsby
   - gatsby-source-filesystem
+  - jimmyandrade
   - muy
+  - Ruan
+  - ruandev
   - source
   - typoci
   - testc

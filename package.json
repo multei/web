@@ -10,7 +10,10 @@
     "url": "https://github.com/multei/web/issues"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "multei",
+    "react",
+    "web"
   ],
   "author": "Multei!",
   "private": true,
@@ -23,7 +26,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "dev": "npm run develop",
-    "develop": "gatsby develop -p 8000",
+    "develop": "gatsby develop --host ${npm_package_config_localhost} --port ${npm_package_config_port}",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "start": "npm run develop",
@@ -31,21 +34,14 @@
     "testc": "jest --coverage",
     "testu": "jest -u",
     "testw": "jest --watch",
-    "test:e2e": "npm run develop & wait-on http://localhost:8000 && npm run cy:open",
-    "test:e2e:ci": "npm run develop & wait-on http://localhost:8000 && npm run cy:run"
+    "test:e2e": "npm run develop & wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:open",
+    "test:e2e:ci": "npm run develop & wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:run"
   },
-  "contributors": [
-    {
-      "name": "Beto Maia",
-      "email": "beto@multei.com.br",
-      "url": "https://github.com/adalbertomaia"
-    },
-    {
-      "name": "Jimmy Andrade",
-      "email": "jimmy@multei.com.br",
-      "url": "https://github.com/jimmyandrade"
-    }
-  ],
+  "config": {
+    "localhost": "localhost",
+    "port": 8000
+
+  },
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "4.9.9",
@@ -53,8 +49,8 @@
     "@material-ui/lab": "4.0.0-alpha.48",
     "@material-ui/styles": "4.9.6",
     "clsx": "1.1.0",
-    "gatsby": "2.20.12",
-    "gatsby-image": "2.3.1",
+    "gatsby": "2.20.13",
+    "gatsby-image": "2.3.2",
     "gatsby-plugin-canonical-urls": "2.2.1",
     "gatsby-plugin-layout": "1.2.1",
     "gatsby-plugin-manifest": "2.3.3",
@@ -67,7 +63,7 @@
     "gatsby-transformer-sharp": "2.4.4",
     "muy": "0.15.4",
     "prop-types": "15.7.2",
-    "query-string": "6.11.1",
+    "query-string": "6.12.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-helmet": "6.0.0-beta.2",
@@ -87,8 +83,8 @@
     "husky": "4.2.3",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.2.7",
-    "netlify-cli": "2.40.0",
-    "prettier": "2.0.2",
+    "netlify-cli": "2.41.0",
+    "prettier": "2.0.4",
     "react-test-renderer": "16.13.1",
     "wait-on": "^4.0.1"
   },

@@ -1,0 +1,56 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "thomazmz",
+      "name": "Thomaz Zandonotto",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16430263?v=4",
+      "profile": "https://github.com/thomazmz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ruandev",
+      "name": "Ruan Victor",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13110218?v=4",
+      "profile": "http://www.ruanvictor.dev",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "adalbertomaia",
+      "name": "Adalberto Maia",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/23324060?v=4",
+      "profile": "https://github.com/adalbertomaia",
+      "contributions": [
+        "code",
+        "bug",
+        "a11y"
+      ]
+    },
+    {
+      "login": "jimmyandrade",
+      "name": "Jimmy Andrade",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2307245?v=4",
+      "profile": "http://jimmyandrade.com",
+      "contributions": [
+        "code",
+        "doc",
+        "bug",
+        "a11y"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "web",
+  "projectOwner": "multei",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
