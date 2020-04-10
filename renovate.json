@@ -17,6 +17,7 @@
     }
   ],
   "semanticCommits": true,
+  "schedule": "every weekend",
   "unicodeEmoji": true,
   "updateLockFiles": true
 }
