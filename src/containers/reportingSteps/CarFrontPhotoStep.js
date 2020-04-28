@@ -2,10 +2,10 @@ import React from "react"
 import CarFrontPhotoStep from "../../components/reportingSteps/CarFrontPhotoStep"
 import useGlobal from "../../hooks/useGlobal"
 
-export default props => {
+export default (props) => {
   const [globalState, globalActions] = useGlobal()
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     event.persist()
     globalActions.setLoading(true)
 
@@ -27,7 +27,7 @@ export default props => {
 
     globalActions.setLoading(false)
   }
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.persist()
     event.preventDefault()
     globalActions.setLoading(true)
