@@ -1,8 +1,8 @@
 [build]
     base = "/"
-    publish = "public/"
     command = "gatsby build"
     functions = "functions/"
+    publish = "public/"
 
 [[headers]]
     for = "/*"
