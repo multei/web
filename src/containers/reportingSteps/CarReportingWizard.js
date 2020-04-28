@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import CarReportingWizard from "../../components/reportingSteps/CarReportingWizard"
 import CarFrontPhotoStep from "../../containers/reportingSteps/CarFrontPhotoStep"
 import CarRearPhotoStep from "../../components/reportingSteps/CarRearPhotoStep"
-import CarPlateConfirmStep from "../../components/reportingSteps/CarPlateConfirmStep"
+import CarPlateConfirmStep from "../../containers/reportingSteps/CarPlateConfirmStep"
 
 function getSteps() {
   return [
@@ -20,7 +20,7 @@ export default () => {
   const steps = getSteps()
   const maxSteps = steps.length
 
-  const getStepContent = stepIndex => {
+  const getStepContent = (stepIndex) => {
     switch (stepIndex) {
       case 0:
         return <CarFrontPhotoStep transitionDirection={transitionDirection} />
@@ -35,12 +35,12 @@ export default () => {
 
   const handleNext = () => {
     setTransitionDirection("left")
-    setActiveStep(prevActiveStep => prevActiveStep + 1)
+    setActiveStep((prevActiveStep) => prevActiveStep + 1)
   }
 
   const handleBack = () => {
     setTransitionDirection("right")
-    setActiveStep(prevActiveStep => prevActiveStep - 1)
+    setActiveStep((prevActiveStep) => prevActiveStep - 1)
   }
 
   return (
