@@ -28,6 +28,8 @@
     "dev": "npm run develop",
     "develop": "gatsby develop --host ${npm_package_config_localhost} --port ${npm_package_config_port}",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "precommit": "sh ./scripts/test-staged.sh",
+    "prepush": "npm test && npm run test:e2e:ci",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "jest",
@@ -40,7 +42,6 @@
   "config": {
     "localhost": "localhost",
     "port": 8000
-
   },
   "license": "MIT",
   "dependencies": {
@@ -93,8 +94,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test && npm run test:e2e:ci",
+      "pre-commit": "npm run precommit",
+      "pre-push": "npm run prepush",
       "post-update": "npm install"
     }
   }
