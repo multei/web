@@ -10,7 +10,7 @@ const theme = ({ paletteType }) => {
       type: paletteType === "light" ? "light" : "dark",
       primary: {
         contrastText: "#f6f4f3",
-        main: paletteType === "light" ? "#0069ae" : "#623CEA",
+        main: "#623CEA",
       },
       secondary: {
         main: "#119DA4",
