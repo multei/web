@@ -23,7 +23,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      background_color: siteMetadata.author,
+      background_color: siteMetadata.backgroundColor,
       display: siteMetadata.display,
       icon: siteMetadata.icon,
       name: siteMetadata.title,
