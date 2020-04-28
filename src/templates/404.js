@@ -1,9 +1,11 @@
 import React from "react"
 import Typography from "@material-ui/core/Typography"
 import { Article } from "muy"
+import { SEO } from "metax"
 
 const NotFoundTemplate = () => (
   <Article>
+    <SEO title="Página não encontrada" />
     <Typography component="h1" variant="h1">
       NOT FOUND
     </Typography>

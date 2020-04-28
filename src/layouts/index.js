@@ -17,7 +17,7 @@ import Footer from "../components/Footer"
 
 import ThemeProvider from "@material-ui/styles/ThemeProvider"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
-import useSiteTitle from "../hooks/useSiteTitle"
+import useSiteMetadata from "../hooks/useSiteMetadata.js"
 import factory from "../themes/factory"
 import { LinearProgress } from "@material-ui/core"
 import useGlobal from "../hooks/useGlobal"
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
 
   const dynamicTheme = useMemo(factory(prefersDarkMode), [prefersDarkMode])
-  const siteTitle = useSiteTitle()
+  const { title } = useSiteMetadata()
 
   const [globalState] = useGlobal()
 
@@ -35,11 +35,11 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={dynamicTheme}>
       <CssBaseline />
       {globalState.loading && <LinearProgress />}
-      <Header siteTitle={siteTitle} />
+      <Header siteTitle={title} />
       <Container>
         <MainContent>{children}</MainContent>
         <Divider />
-        <Footer siteTitle={siteTitle} />
+        <Footer siteTitle={title} />
       </Container>
     </ThemeProvider>
   )

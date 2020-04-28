@@ -9,11 +9,13 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
 import { Article, Figure, Image } from "muy"
+import { SEO } from "metax"
 
 const AboutTemplate = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
   return (
     <Article>
+      <SEO title="Denunciar estacionamento irregular" />
       <Container maxWidth="xs">
         <Typography component="h1" align="center" variant="h2">
           Denuncie quem estaciona em&nbsp;vagas preferenciais

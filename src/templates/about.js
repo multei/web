@@ -5,9 +5,11 @@ import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
 import HomeCheckParkingForm from "../containers/HomeCheckParkingForm"
 import { Article } from "muy"
+import { SEO } from "metax"
 
 const IndexTemplate = () => (
   <Article>
+    <SEO />
     <Typography component="h1" variant="srOnly">
       Página inicial
     </Typography>

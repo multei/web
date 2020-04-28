@@ -6,9 +6,14 @@ import ListItem from "@material-ui/core/ListItem"
 import Container from "@material-ui/core/Container"
 import ListItemText from "@material-ui/core/ListItemText"
 import { Article, Figure, Image } from "muy"
+import { SEO } from "metax"
 
 const TermsTemplate = () => (
   <Article>
+    <SEO
+      title="Privacidade, uso e proteção de dados"
+      description="Saiba como o Multei! se compromete a respeitar sua privacidade e proteger as informações de quem denuncia"
+    />
     <Container maxWidth="xs">
       <Typography component="h1" variant="h1">
         Termos de uso
