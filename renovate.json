@@ -3,16 +3,15 @@
     "config:base"
   ],
   "assignees": ["jimmyandrade"],
-  "automerge": false,
   "enabled": true,
   "labels": ["dependencies", "renovate"],
   "packageRules": [
     {
-      "updateTypes": ["minor", "pin", "digest"],
+      "updateTypes": ["major"],
       "automerge": false
     },
     {
-      "updateTypes": ["patch"],
+      "updateTypes": ["digest", "minor", "patch", "pin"],
       "automerge": true
     }
   ],
