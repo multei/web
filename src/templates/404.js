@@ -1,6 +1,6 @@
 import React from "react"
 import { Article, H1, Paragraph } from "muy"
-import SEO from "../components/Seo"
+import SEO from "../components/SEO"
 
 const NotFoundTemplate = () => (
   <Article>

@@ -4,7 +4,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
 import Typography from "@material-ui/core/Typography"
 import { ExpansionPanelDetails } from "@material-ui/core"
 import { Article } from "muy"
-import SEO from "../components/Seo"
+import SEO from "../components/SEO"
 
 const HelpTemplate = () => (
   <Article>

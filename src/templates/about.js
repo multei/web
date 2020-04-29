@@ -5,7 +5,7 @@ import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
 import HomeCheckParkingForm from "../containers/HomeCheckParkingForm"
 import { Article } from "muy"
-import SEO from "../components/Seo"
+import SEO from "../components/SEO"
 
 const AboutTemplate = () => (
   <Article>

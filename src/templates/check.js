@@ -4,7 +4,7 @@ import CheckParkingForm from "../containers/CheckParkingForm"
 import ParkingsAlerts from "../components/ParkingsAlerts"
 import { Article, H1 } from "muy"
 import { parse } from "query-string"
-import SEO from "../components/Seo"
+import SEO from "../components/SEO"
 
 const CheckTemplate = ({ location }) => {
   const parsedQueryString = parse(location.search)

@@ -9,7 +9,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
 import { Article, Figure, Image } from "muy"
-import SEO from "../components/Seo"
+import SEO from "../components/SEO"
 
 const IndexTemplate = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
