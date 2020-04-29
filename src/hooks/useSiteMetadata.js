@@ -5,7 +5,10 @@ const useSiteMetadata = () => {
     query SiteTitleQuery {
       site {
         siteMetadata {
+          description
+          themeColor
           title
+          titleTemplate
         }
       }
     }
