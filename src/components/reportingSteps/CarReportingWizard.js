@@ -12,25 +12,31 @@ import NextButton from "../NextButton"
 
 const CarReportingWizard = ({
   activeStep,
+  backButtonDisabled,
   children,
   maxSteps,
+  nextButtonDisabled,
   nextButtonLabel,
   onBack,
   onNext,
+  showBackButton,
   showMobileStepper,
+  showNextButton,
   steps,
 }) => {
-  const backButton = <BackButton disabled={activeStep <= 0} onClick={onBack} />
+  const backButton = (
+    <BackButton disabled={backButtonDisabled} onClick={onBack} />
+  )
   const nextButton = (
-    <NextButton disabled={activeStep >= maxSteps - 1} onClick={onNext}>
+    <NextButton disabled={nextButtonDisabled} onClick={onNext}>
       {nextButtonLabel}
     </NextButton>
   )
   return (
     <>
       <Hidden implementation="css" xsDown={true}>
-        {activeStep > 0 && backButton}
-        <Stepper activeStep={activeStep} orientation="vertical">
+        {showBackButton && backButton}
+        <Stepper activeStep={activeStep} orientation={"vertical"}>
           {steps.map((label, index) => {
             return (
               <Step key={`car-reporting-wizard-step-${index}`}>
@@ -38,7 +44,7 @@ const CarReportingWizard = ({
                 {activeStep === index && (
                   <StepContent>
                     {children}
-                    {nextButton}
+                    {showNextButton && nextButton}
                   </StepContent>
                 )}
               </Step>

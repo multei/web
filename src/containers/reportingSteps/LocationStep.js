@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import usePosition from "../../hooks/usePosition"
 import LocationStep from "../../components/reportingSteps/LocationStep"
+import useGlobal from "../../hooks/useGlobal"
 
 export default () => {
   const {
@@ -13,11 +14,16 @@ export default () => {
     permissionDenied,
   } = usePosition()
 
+  const [globalState, globalActions] = useGlobal()
   const [loadingMap, setLoadingMap] = useState(null)
 
   useEffect(() => {
     if (currentPosition) {
       setLoadingMap(true)
+      globalActions.setCurrentParkingReportingData({
+        ...globalState.currentParkingReportingData,
+        currentPosition,
+      })
     }
   }, [currentPosition])
 

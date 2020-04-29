@@ -1,5 +1,4 @@
 import React from "react"
-import Button from "@material-ui/core/Button"
 import { CarPlateField, Fieldset, Form, H2, Paragraph } from "muy"
 import FormGroup from "@material-ui/core/FormGroup"
 import Fade from "@material-ui/core/Fade"
@@ -21,6 +20,7 @@ const CarPlateConfirmStep = ({ carPlate, onChange, onSubmit, plate }) => (
             name="carPlate"
             required={true}
             value={carPlate}
+            variant={"outlined"}
           />
         </FormGroup>
       </Fade>

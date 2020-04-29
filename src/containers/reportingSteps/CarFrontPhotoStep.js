@@ -2,7 +2,7 @@ import React from "react"
 import CarFrontPhotoStep from "../../components/reportingSteps/CarFrontPhotoStep"
 import useGlobal from "../../hooks/useGlobal"
 
-export default (props) => {
+export default ({ onSubmit, ...props }) => {
   const [globalState, globalActions] = useGlobal()
 
   const handleFileUpload = (event) => {
@@ -23,7 +23,6 @@ export default (props) => {
       ...globalState.currentParkingReportingData,
       carFrontPhotoPreviewUrl: URL.createObjectURL(file),
     })
-    console.log(globalState.currentParkingReportingData)
 
     globalActions.setLoading(false)
   }
@@ -31,6 +30,7 @@ export default (props) => {
     event.persist()
     event.preventDefault()
     globalActions.setLoading(true)
+    onSubmit()
   }
   const { carFrontPhotoPreviewUrl } = globalState.currentParkingReportingData
 

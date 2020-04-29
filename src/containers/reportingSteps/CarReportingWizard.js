@@ -2,10 +2,9 @@ import React, { useState } from "react"
 import CarReportingWizard from "../../components/reportingSteps/CarReportingWizard"
 import CarFrontPhotoStep from "../../containers/reportingSteps/CarFrontPhotoStep"
 import CarPlateConfirmStep from "../../containers/reportingSteps/CarPlateConfirmStep"
-import Alert from "@material-ui/lab/Alert"
-import AlertTitle from "@material-ui/lab/AlertTitle"
 import LocationStep from "../../containers/reportingSteps/LocationStep"
 import SuccessStep from "../../components/reportingSteps/SuccessStep"
+import useGlobal from "../../hooks/useGlobal"
 
 function getSteps() {
   return [
@@ -18,26 +17,24 @@ function getSteps() {
 
 export default () => {
   const [activeStep, setActiveStep] = useState(0)
+  const [globalState] = useGlobal()
   const [transitionDirection, setTransitionDirection] = useState("left")
+
   const steps = getSteps()
   const maxSteps = steps.length
 
   const getStepContent = (stepIndex) => {
     switch (stepIndex) {
       case 0:
-        return <CarFrontPhotoStep transitionDirection={transitionDirection} />
+        return <CarFrontPhotoStep />
       case 1:
-        return <CarPlateConfirmStep transitionDirection={transitionDirection} />
+        return <CarPlateConfirmStep />
       case 2:
-        return <LocationStep transitionDirection={transitionDirection} />
+        return <LocationStep />
       case 3:
-        return <SuccessStep transitionDirection={transitionDirection} />
+        return <SuccessStep />
       default:
-        return (
-          <Alert>
-            <AlertTitle>Etapa inválida</AlertTitle>
-          </Alert>
-        )
+        throw new Error("Invalid step index")
     }
   }
 
@@ -50,7 +47,22 @@ export default () => {
 
   const handleBack = () => {
     setTransitionDirection("right")
-    setActiveStep((prevActiveStep) => prevActiveStep - 1)
+    if (activeStep > 0) {
+      setActiveStep((prevActiveStep) => prevActiveStep - 1)
+    }
+  }
+
+  const nextButtonDisabled = () => {
+    switch (activeStep) {
+      case 0:
+        return !globalState.currentParkingReportingData.carFrontPhotoPreviewUrl
+      case 1:
+        return !(globalState.currentParkingReportingData.carPlate.length === 7)
+      case 2:
+        return !globalState.currentParkingReportingData.currentPosition
+      default:
+        return false
+    }
   }
 
   const nextButtonLabel = activeStep === 2 ? "Finalizar" : "Avançar"
@@ -58,11 +70,15 @@ export default () => {
   return (
     <CarReportingWizard
       activeStep={activeStep}
+      backButtonDisabled={activeStep < 1}
       onBack={handleBack}
       onNext={handleNext}
       maxSteps={maxSteps}
+      nextButtonDisabled={nextButtonDisabled()}
       nextButtonLabel={nextButtonLabel}
+      showBackButton={activeStep > 0 && activeStep < 3}
       showMobileStepper={activeStep < 3}
+      showNextButton={activeStep < 3}
       transitionDirection={transitionDirection}
       steps={steps}
     >
