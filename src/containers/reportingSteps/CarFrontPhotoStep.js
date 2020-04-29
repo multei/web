@@ -5,7 +5,7 @@ import useGlobal from "../../hooks/useGlobal"
 export default (props) => {
   const [globalState, globalActions] = useGlobal()
 
-  const handleChange = (event) => {
+  const handleFileUpload = (event) => {
     event.persist()
     globalActions.setLoading(true)
 
@@ -33,9 +33,10 @@ export default (props) => {
     globalActions.setLoading(true)
   }
   const { carFrontPhotoPreviewUrl } = globalState.currentParkingReportingData
+
   return (
     <CarFrontPhotoStep
-      onChange={handleChange}
+      onChange={handleFileUpload}
       onSubmit={handleSubmit}
       photoPreviewURL={carFrontPhotoPreviewUrl}
       {...props}

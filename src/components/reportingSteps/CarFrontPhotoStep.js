@@ -1,15 +1,25 @@
 import React from "react"
 
-import Card from "@material-ui/core/Card"
+import Paper from "@material-ui/core/Paper"
 import Fab from "@material-ui/core/Fab"
-import Typography from "@material-ui/core/Typography"
 
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto"
 import Alert from "@material-ui/lab/Alert"
 import AlertTitle from "@material-ui/lab/AlertTitle"
 
-import { Fieldset, Figure, FileInput, Form } from "muy"
-import { Image } from "@material-ui/icons"
+import {
+  Fieldset,
+  Figure,
+  FigureCaption,
+  Form,
+  H2,
+  Image,
+  Paragraph,
+  PhotoUploadField,
+} from "muy"
+
+import Fade from "@material-ui/core/Fade"
+import Typography from "@material-ui/core/Typography"
 
 const CarFrontPhotoStep = ({
   isCarFrontPhotoValid,
@@ -19,13 +29,13 @@ const CarFrontPhotoStep = ({
 }) => (
   <Form onSubmit={onSubmit}>
     <Fieldset>
-      <Typography component="h2" variant="h2">
+      <H2 gutterBottom={true}>
         Tire uma foto da frente do carro, com a placa visível
-      </Typography>
-      <Typography paragraph={true} variant="body2">
+      </H2>
+      <Paragraph variant="body2">
         A foto precisa mostrar o painel do veículo e provar que não há uma
         credencial visível.
-      </Typography>
+      </Paragraph>
       {!isCarFrontPhotoValid && false && (
         <Alert severity="warning" variant="outlined">
           <AlertTitle>
@@ -33,21 +43,25 @@ const CarFrontPhotoStep = ({
           </AlertTitle>
         </Alert>
       )}
-      <Card>
-        {photoPreviewURL && (
+
+      <Fade in={photoPreviewURL}>
+        <Paper>
           <Figure>
-            <figcaption>Prévia da parte da frente do veículo</figcaption>
+            <Typography component={"div"} variant={"srOnly"}>
+              <FigureCaption>Prévia da frente do veículo</FigureCaption>
+            </Typography>
             <Image
               alt="Prévia da frente do veículo"
               loading="lazy"
               src={photoPreviewURL}
             />
           </Figure>
-        )}
-      </Card>
-      <Typography paragraph={true}>
+        </Paper>
+      </Fade>
+
+      <Paragraph>
         <Fab
-          aria-label="adicionar foto da frente"
+          aria-label="Adicionar foto da frente"
           color="primary"
           component="label"
           htmlFor="carFrontImageUploadField"
@@ -56,12 +70,11 @@ const CarFrontPhotoStep = ({
           variant="extended"
         >
           <AddAPhotoIcon />
-          Adicionar foto
+          {photoPreviewURL ? "Trocar foto" : "Adicionar foto"}
         </Fab>
-        <Typography variant="srOnly">
-          <FileInput
+        <Typography component={"span"} variant={"srOnly"}>
+          <PhotoUploadField
             id="carFrontImageUploadField"
-            accept="image/*"
             data-test-id="carFrontImageUploadField"
             onChange={onChange}
             name="carFrontImage"
@@ -69,7 +82,7 @@ const CarFrontPhotoStep = ({
             tabIndex={-1}
           />
         </Typography>
-      </Typography>
+      </Paragraph>
     </Fieldset>
   </Form>
 )
