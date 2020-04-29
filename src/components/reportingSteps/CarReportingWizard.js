@@ -6,7 +6,6 @@ import Step from "@material-ui/core/Step"
 import Stepper from "@material-ui/core/Stepper"
 import StepLabel from "@material-ui/core/StepLabel"
 
-import Typography from "@material-ui/core/Typography"
 import StepContent from "@material-ui/core/StepContent"
 import BackButton from "../BackButton"
 import NextButton from "../NextButton"
@@ -15,14 +14,18 @@ const CarReportingWizard = ({
   activeStep,
   children,
   maxSteps,
+  nextButtonLabel,
   onBack,
   onNext,
+  showMobileStepper,
   steps,
 }) => {
-  const isLastStep = activeStep === maxSteps - 1
-  const nextButtonLabel = isLastStep ? "Finalizar" : "Avançar"
-  const backButton = <BackButton disabled={activeStep === 0} onClick={onBack} />
-  const nextButton = <NextButton onClick={onNext}>{nextButtonLabel}</NextButton>
+  const backButton = <BackButton disabled={activeStep <= 0} onClick={onBack} />
+  const nextButton = (
+    <NextButton disabled={activeStep >= maxSteps - 1} onClick={onNext}>
+      {nextButtonLabel}
+    </NextButton>
+  )
   return (
     <>
       <Hidden implementation="css" xsDown={true}>
@@ -43,18 +46,20 @@ const CarReportingWizard = ({
           })}
         </Stepper>
       </Hidden>
-      <Typography align="center" component="div">
-        <Hidden implementation="js" smUp={true}>
-          {children}
-        </Hidden>
-      </Typography>
+
+      <Hidden implementation="js" smUp={true}>
+        {children}
+      </Hidden>
+
       <Hidden implementation="css" smUp={true}>
-        <MobileStepper
-          activeStep={activeStep}
-          backButton={backButton}
-          nextButton={nextButton}
-          steps={maxSteps}
-        />
+        {showMobileStepper && (
+          <MobileStepper
+            activeStep={activeStep}
+            backButton={backButton}
+            nextButton={nextButton}
+            steps={maxSteps}
+          />
+        )}
       </Hidden>
     </>
   )

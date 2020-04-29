@@ -1,16 +1,18 @@
 import React, { useState } from "react"
 import CarReportingWizard from "../../components/reportingSteps/CarReportingWizard"
 import CarFrontPhotoStep from "../../containers/reportingSteps/CarFrontPhotoStep"
-import CarRearPhotoStep from "../../components/reportingSteps/CarRearPhotoStep"
 import CarPlateConfirmStep from "../../containers/reportingSteps/CarPlateConfirmStep"
+import Alert from "@material-ui/lab/Alert"
+import AlertTitle from "@material-ui/lab/AlertTitle"
+import LocationStep from "../../containers/reportingSteps/LocationStep"
+import SuccessStep from "../../components/reportingSteps/SuccessStep"
 
 function getSteps() {
   return [
     <>Enviar foto da&nbsp;frente</>,
-    <>Enviar foto da&nbsp;traseira</>,
+    <>Confirmar placa</>,
     <>Enviar localização</>,
-    <>Confirmar denúncia</>,
-    <>Denúncia feita</>,
+    <>Denúncia realizada</>,
   ]
 }
 
@@ -25,17 +27,25 @@ export default () => {
       case 0:
         return <CarFrontPhotoStep transitionDirection={transitionDirection} />
       case 1:
-        return <CarRearPhotoStep transitionDirection={transitionDirection} />
-      case 3:
         return <CarPlateConfirmStep transitionDirection={transitionDirection} />
+      case 2:
+        return <LocationStep transitionDirection={transitionDirection} />
+      case 3:
+        return <SuccessStep transitionDirection={transitionDirection} />
       default:
-        return <></>
+        return (
+          <Alert>
+            <AlertTitle>Etapa inválida</AlertTitle>
+          </Alert>
+        )
     }
   }
 
   const handleNext = () => {
     setTransitionDirection("left")
-    setActiveStep((prevActiveStep) => prevActiveStep + 1)
+    if (activeStep < maxSteps) {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1)
+    }
   }
 
   const handleBack = () => {
@@ -43,12 +53,16 @@ export default () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1)
   }
 
+  const nextButtonLabel = activeStep === 2 ? "Finalizar" : "Avançar"
+
   return (
     <CarReportingWizard
       activeStep={activeStep}
       onBack={handleBack}
       onNext={handleNext}
       maxSteps={maxSteps}
+      nextButtonLabel={nextButtonLabel}
+      showMobileStepper={activeStep < 3}
       transitionDirection={transitionDirection}
       steps={steps}
     >
