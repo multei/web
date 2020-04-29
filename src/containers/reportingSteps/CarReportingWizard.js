@@ -3,7 +3,6 @@ import CarReportingWizard from "../../components/reportingSteps/CarReportingWiza
 import CarFrontPhotoStep from "../../containers/reportingSteps/CarFrontPhotoStep"
 import CarRearPhotoStep from "../../components/reportingSteps/CarRearPhotoStep"
 import CarPlateConfirmStep from "../../containers/reportingSteps/CarPlateConfirmStep"
-import { SEO } from "metax"
 
 function getSteps() {
   return [
@@ -53,7 +52,6 @@ export default () => {
       transitionDirection={transitionDirection}
       steps={steps}
     >
-      <SEO title="Denunciar" />
       {getStepContent(activeStep)}
     </CarReportingWizard>
   )

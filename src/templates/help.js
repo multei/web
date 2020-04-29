@@ -4,9 +4,11 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
 import Typography from "@material-ui/core/Typography"
 import { ExpansionPanelDetails } from "@material-ui/core"
 import { Article } from "muy"
+import SEO from "../components/Seo"
 
 const HelpTemplate = () => (
   <Article>
+    <SEO title={"Ajuda"} description={"Tire suas dúvidas sobre o Multei!"} />
     <Typography component="h1" variant="h1">
       Ajuda
     </Typography>

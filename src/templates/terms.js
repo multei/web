@@ -6,7 +6,7 @@ import ListItem from "@material-ui/core/ListItem"
 import Container from "@material-ui/core/Container"
 import ListItemText from "@material-ui/core/ListItemText"
 import { Article, Figure, Image } from "muy"
-import { SEO } from "metax"
+import SEO from "../components/Seo"
 
 const TermsTemplate = () => (
   <Article>

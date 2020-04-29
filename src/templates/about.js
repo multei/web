@@ -5,9 +5,9 @@ import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
 import HomeCheckParkingForm from "../containers/HomeCheckParkingForm"
 import { Article } from "muy"
-import { SEO } from "metax"
+import SEO from "../components/Seo"
 
-const IndexTemplate = () => (
+const AboutTemplate = () => (
   <Article>
     <SEO />
     <Typography component="h1" variant="srOnly">
@@ -38,4 +38,4 @@ const IndexTemplate = () => (
   </Article>
 )
 
-export default IndexTemplate
+export default AboutTemplate

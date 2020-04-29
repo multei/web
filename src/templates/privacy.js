@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import { Article, Figure, H1, H2, H3, Image, Paragraph } from "muy"
-import { SEO } from "metax"
+import SEO from "../components/Seo"
 
 const PrivacyTemplate = () => (
   <Article>

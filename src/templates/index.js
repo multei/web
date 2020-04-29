@@ -9,9 +9,9 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
 import { Article, Figure, Image } from "muy"
-import { SEO } from "metax"
+import SEO from "../components/Seo"
 
-const AboutTemplate = () => {
+const IndexTemplate = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
   return (
     <Article>
@@ -62,4 +62,4 @@ const AboutTemplate = () => {
   )
 }
 
-export default AboutTemplate
+export default IndexTemplate

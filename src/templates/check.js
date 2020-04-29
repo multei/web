@@ -3,8 +3,8 @@ import ParkingsList from "../containers/ParkingsList"
 import CheckParkingForm from "../containers/CheckParkingForm"
 import ParkingsAlerts from "../components/ParkingsAlerts"
 import { Article, H1 } from "muy"
-import { SEO } from "metax"
 import { parse } from "query-string"
+import SEO from "../components/Seo"
 
 const CheckTemplate = ({ location }) => {
   const parsedQueryString = parse(location.search)
