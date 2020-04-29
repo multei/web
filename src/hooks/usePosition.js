@@ -32,10 +32,15 @@ const usePosition = () => {
   }
 
   const getCurrentPosition = () => {
+    const SECONDS = 1000
     if (hasGeolocationSupport) {
       setLoadingCurrentLocation(true)
       setCurrentPosition(null)
-      navigator.geolocation.getCurrentPosition(onChange, onError)
+      navigator.geolocation.getCurrentPosition(onChange, onError, {
+        enableHighAccuracy: true,
+        maximumAge: 2.22222222 * SECONDS,
+        timeout: 10 * SECONDS,
+      })
     }
   }
 
