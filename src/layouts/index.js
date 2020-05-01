@@ -23,6 +23,7 @@ import { LinearProgress } from "@material-ui/core"
 import useGlobal from "../hooks/useGlobal"
 import { MainContent } from "muy"
 import Paper from "@material-ui/core/Paper"
+import useStandalone from "../hooks/useStandalone"
 
 const Layout = ({ children }) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
@@ -38,9 +39,11 @@ const Layout = ({ children }) => {
       {globalState.loading && <LinearProgress />}
       <Header siteTitle={title} />
       <Paper>
-        <MainContent mt={0} pt={3}>
-          {children}
-        </MainContent>
+        <Container>
+          <MainContent mt={useStandalone() ? 7 : 0} pt={3}>
+            {children}
+          </MainContent>
+        </Container>
         <Divider />
         <Footer siteTitle={title} />
       </Paper>

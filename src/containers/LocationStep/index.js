@@ -14,12 +14,12 @@ export default () => {
     permissionDenied,
   } = usePosition()
 
+  const [globalState, globalActions] = useGlobal()
   const [loadingMap, setLoadingMap] = useState(null)
 
   useEffect(() => {
     if (currentPosition) {
       setLoadingMap(true)
-      const [globalState, globalActions] = useGlobal()
       globalActions.setCurrentParkingReportingData({
         ...globalState.currentParkingReportingData,
         currentPosition,

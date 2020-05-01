@@ -5,9 +5,13 @@ import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 
 import { PageHeader, SiteTitle } from "muy"
+import useStandalone from "../../hooks/useStandalone"
 
 const Header = ({ siteTitle }) => (
-  <AppBar component={PageHeader} position="static">
+  <AppBar
+    component={PageHeader}
+    position={useStandalone() ? "fixed" : "static"}
+  >
     <Toolbar>
       <SiteTitle>{siteTitle}</SiteTitle>
     </Toolbar>
