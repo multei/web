@@ -2,7 +2,7 @@
 
 exports[`Header renders correctly 1`] = `
 <header
-  className="MuiBox-root MuiBox-root-41 MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
+  className="MuiBox-root MuiBox-root-42 MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
   itemScope={true}
   itemType="https://schema.org/WPHeader"
   role="banner"
