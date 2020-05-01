@@ -1,6 +1,7 @@
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme"
 import { getThemeOptions } from "muy"
 
+const majorelleBlue = "#623CEA"
 const theme = ({ paletteType }) => {
   /**
    * @see https://coolors.co/a63446-f6f4f3-0069ae-23ce6b-0f1108
@@ -10,7 +11,7 @@ const theme = ({ paletteType }) => {
       type: paletteType === "light" ? "light" : "dark",
       primary: {
         contrastText: "#f6f4f3",
-        main: "#623CEA",
+        main: majorelleBlue,
       },
       secondary: {
         main: "#119DA4",
@@ -33,8 +34,8 @@ const theme = ({ paletteType }) => {
         primary: paletteType === "light" ? "hsla(0, 0%, 0%, 0.8)" : "#f6f4f3",
       },
       background: {
-        default: paletteType === "light" ? "#f6f4f3" : "#011627",
-        paper: paletteType === "light" ? "#FBFFFE" : "hsla(0, 0%, 0%, 0.2)",
+        default: majorelleBlue,
+        paper: paletteType === "light" ? "#FBFFFE" : "hsla(0, 0%, 0%, 0.8)",
       },
     },
     typography: {
