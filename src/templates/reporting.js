@@ -1,5 +1,5 @@
 import React from "react"
-import CarReportingWizard from "../containers/reportingSteps/CarReportingWizard"
+import CarReportingWizard from "../containers/CarReportingWizard"
 import { SEO } from "metax"
 
 const ReportingTemplate = () => {

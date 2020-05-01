@@ -25,10 +25,18 @@ const CarReportingWizard = ({
   steps,
 }) => {
   const backButton = (
-    <BackButton disabled={backButtonDisabled} onClick={onBack} />
+    <BackButton
+      data-testid={"back-button"}
+      disabled={backButtonDisabled}
+      onClick={onBack}
+    />
   )
   const nextButton = (
-    <NextButton disabled={nextButtonDisabled} onClick={onNext}>
+    <NextButton
+      data-testid={"next-button"}
+      disabled={nextButtonDisabled}
+      onClick={onNext}
+    >
       {nextButtonLabel}
     </NextButton>
   )
@@ -57,7 +65,7 @@ const CarReportingWizard = ({
         {children}
       </Hidden>
 
-      <Hidden implementation="css" smUp={true}>
+      <Hidden implementation="js" smUp={true}>
         {showMobileStepper && (
           <MobileStepper
             activeStep={activeStep}

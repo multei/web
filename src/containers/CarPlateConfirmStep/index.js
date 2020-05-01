@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import CarPlateConfirmStep from "../../components/reportingSteps/CarPlateConfirmStep"
+import CarPlateConfirmStep from "../../components/CarPlateConfirmStep"
 import useGlobal from "../../hooks/useGlobal"
 
 export default () => {

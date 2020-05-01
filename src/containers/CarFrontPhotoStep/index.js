@@ -1,5 +1,5 @@
 import React from "react"
-import CarFrontPhotoStep from "../../components/reportingSteps/CarFrontPhotoStep"
+import CarFrontPhotoStep from "../../components/CarFrontPhotoStep"
 import useGlobal from "../../hooks/useGlobal"
 
 export default ({ onSubmit, ...props }) => {

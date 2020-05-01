@@ -1,5 +1,5 @@
 import React from "react"
-import { Figure, Form, H2, Paragraph } from "muy"
+import { Form, H2, Paragraph } from "muy"
 import Button from "@material-ui/core/Button"
 import Alert from "@material-ui/lab/Alert"
 import AlertTitle from "@material-ui/lab/AlertTitle"

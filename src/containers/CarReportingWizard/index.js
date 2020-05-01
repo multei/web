@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import CarReportingWizard from "../../components/reportingSteps/CarReportingWizard"
-import CarFrontPhotoStep from "../../containers/reportingSteps/CarFrontPhotoStep"
-import CarPlateConfirmStep from "../../containers/reportingSteps/CarPlateConfirmStep"
-import LocationStep from "../../containers/reportingSteps/LocationStep"
-import SuccessStep from "../../components/reportingSteps/SuccessStep"
+import CarReportingWizard from "../../components/CarReportingWizard"
+import CarFrontPhotoStep from "../../containers/CarFrontPhotoStep"
+import CarPlateConfirmStep from "../../containers/CarPlateConfirmStep"
+import LocationStep from "../../containers/LocationStep"
+import SuccessStep from "../../components/SuccessStep"
 import useGlobal from "../../hooks/useGlobal"
 
 function getSteps() {

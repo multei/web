@@ -1,4 +1,6 @@
 /// <reference types="cypress" />
+/// <reference types="cypress-axe" />
+
 describe("Accessibility checks", () => {
   beforeEach(() => {
     cy.visit("/")

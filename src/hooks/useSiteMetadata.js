@@ -5,7 +5,9 @@ const useSiteMetadata = () => {
     query SiteTitleQuery {
       site {
         siteMetadata {
+          applicationName
           description
+          statusBarStyle
           themeColor
           title
           titleTemplate
