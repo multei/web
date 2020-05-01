@@ -3,7 +3,7 @@ const siteMetadata = {
   backgroundColor: "#f6f4f3",
   description:
     "Aqui você pode fazer sua denúncia contra estacionamento irregular em vagas de pessoas com deficiência, grávidas e pessoas idosas.",
-  display: "minimal-ui",
+  display: "standalone",
   lang: "pt-br",
   icon: "src/images/icon.png",
   siteName: "Multei!",

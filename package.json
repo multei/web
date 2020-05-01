@@ -63,7 +63,7 @@
     "gatsby-plugin-sharp": "2.5.7",
     "gatsby-source-filesystem": "2.2.5",
     "gatsby-transformer-sharp": "2.4.7",
-    "metax": "1.0.1-alpha.0",
+    "metax": "1.0.1",
     "muy": "0.20.0-alpha.0",
     "prop-types": "15.7.2",
     "query-string": "6.12.1",

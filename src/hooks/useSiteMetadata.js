@@ -7,6 +7,7 @@ const useSiteMetadata = () => {
         siteMetadata {
           applicationName
           description
+          lang
           statusBarStyle
           themeColor
           title
