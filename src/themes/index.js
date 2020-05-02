@@ -38,6 +38,17 @@ const theme = ({ paletteType }) => {
         paper: paletteType === "light" ? "#FBFFFE" : "hsla(0, 0%, 0%, 0.8)",
       },
     },
+    overrides: {
+      MuiCssBaseline: {
+        "@global": {
+          body: {
+            "-webkit-tap-highlight-color": "transparent",
+            "-webkit-touch-callout": "none",
+            "-webkit-user-select": "none",
+          },
+        },
+      },
+    },
     typography: {
       fontFamily: [
         "Overpass",
