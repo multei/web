@@ -1,12 +1,15 @@
 const actions = {
+  setCurrentPosition: (store, currentPosition) => {
+    store.setState({ currentPosition })
+  },
   setParkingsData: (store, parkingsData) => {
-    store.setState({ parkingsData: parkingsData })
+    store.setState({ parkingsData })
   },
   setLoading: (store, loading) => {
-    store.setState({ loading: loading })
+    store.setState({ loading })
   },
-  setCurrentParkingReportingData: (store, parkingReportData) => {
-    store.setState({ currentParkingReportingData: parkingReportData })
+  setCurrentParkingReportingData: (store, currentParkingReportingData) => {
+    store.setState({ currentParkingReportingData })
   },
 }
 

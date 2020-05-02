@@ -18,14 +18,14 @@ export default () => {
   const [loadingMap, setLoadingMap] = useState(null)
 
   useEffect(() => {
-    if (currentPosition) {
+    if (Boolean(currentPosition)) {
       setLoadingMap(true)
-      globalActions.setCurrentParkingReportingData({
-        ...globalState.currentParkingReportingData,
-        currentPosition,
-      })
     }
-  }, [currentPosition, globalActions, globalState.currentParkingReportingData])
+  }, [currentPosition])
+
+  useEffect(() => {
+    globalActions.setCurrentPosition(currentPosition)
+  }, [currentPosition, globalActions])
 
   const handleMapLoaded = () => {
     setLoadingMap(false)

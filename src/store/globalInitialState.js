@@ -2,8 +2,8 @@ export default {
   currentParkingReportingData: {
     carFrontPhotoPreviewUrl: null,
     carPlate: "",
-    currentPosition: null,
   },
+  currentPosition: null,
   loading: null,
   parkingsData: [],
 }

@@ -59,7 +59,7 @@ export default () => {
       case 1:
         return !(globalState.currentParkingReportingData.carPlate.length === 7)
       case 2:
-        return !globalState.currentParkingReportingData.currentPosition
+        return !globalState.currentPosition
       default:
         return false
     }

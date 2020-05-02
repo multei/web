@@ -78,9 +78,14 @@ const LocationStep = (props) => {
       </FormControl>
       <Divider />
       {currentPosition && (
-        <>
+        <div style={{ position: "relative" }}>
           {loadingMap && (
-            <Skeleton variant="rect" width={"100%"} height={157} />
+            <Skeleton
+              style={{ position: "absolute", zIndex: 2 }}
+              variant="rect"
+              width={"100%"}
+              height={157}
+            />
           )}
 
           <EmbedGoogleMap
@@ -93,7 +98,7 @@ const LocationStep = (props) => {
             Se estiver tudo certo com esta localização, você pode finalizar a
             denúncia.
           </Paragraph>
-        </>
+        </div>
       )}
 
       {children}

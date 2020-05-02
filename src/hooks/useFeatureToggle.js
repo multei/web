@@ -29,7 +29,7 @@ const useFeatureToggle = (key) => {
     }
     window.addEventListener("storage", listener)
     return () => window.removeEventListener("storage", listener)
-  }, [localStorageKey])
+  }, [key])
 
   const valueSanitizer = (value) =>
     value === "false" || value === "" || value === 0 || value === "0"
