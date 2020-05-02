@@ -5,10 +5,33 @@ import ParkingsAlerts from "../components/ParkingsAlerts"
 import { Article, H1 } from "muy"
 import { parse } from "query-string"
 import SEO from "../components/SEO"
+import Alert from "@material-ui/lab/Alert"
+import AlertTitle from "@material-ui/lab/AlertTitle"
+import useFeatureToggle from "../hooks/useFeatureToggle"
 
 const CheckTemplate = ({ location }) => {
   const parsedQueryString = parse(location.search)
   const carPlate = parsedQueryString["car_plate"]
+  const [parkingCheckToggle] = useFeatureToggle("PARKING_CHECK")
+
+  const underConstruction = (
+    <Alert severity={"info"}>
+      <AlertTitle>
+        Em breve, você poderá consultar se seu veículo foi denunciado aqui.
+      </AlertTitle>
+      Nosso time está trabalhando para que este recurso seja liberado o mais
+      breve possível.
+    </Alert>
+  )
+
+  const form = (
+    <>
+      <CheckParkingForm carPlate={carPlate} />
+      <ParkingsAlerts />
+      <ParkingsList />
+    </>
+  )
+
   return (
     <Article>
       <SEO
@@ -16,9 +39,7 @@ const CheckTemplate = ({ location }) => {
         description="Consulte denúncias de estacionamento irregular buscando por placa"
       />
       <H1 gutterBottom={true}>Confira se seu veículo foi denunciado</H1>
-      <CheckParkingForm carPlate={carPlate} />
-      <ParkingsAlerts />
-      <ParkingsList />
+      {parkingCheckToggle ? form : underConstruction}
     </Article>
   )
 }

@@ -1,62 +1,75 @@
 import React from "react"
-import Typography from "@material-ui/core/Typography"
 import { Link as GatsbyLink } from "gatsby"
 
-import lightImage from "../images/undraw_order_a_car_3tww_light.svg"
-import darkImage from "../images/undraw_order_a_car_3tww_dark.svg"
+import image from "../images/undraw_order_a_car_3tww_dark.svg"
 import { Container } from "@material-ui/core"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
-import { Article, Figure, Image } from "muy"
+import { Article, Figure, H1, Image, Paragraph } from "muy"
 import SEO from "../components/SEO"
+import useFeatureToggle from "../hooks/useFeatureToggle"
 
 const IndexTemplate = () => {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
+  const [parkingCheckToggle] = useFeatureToggle("PARKING_CHECK")
+  const [parkingReportToggle] = useFeatureToggle("PARKING_REPORT")
   return (
     <Article>
       <SEO title="Denunciar estacionamento irregular" />
       <Container maxWidth="xs">
-        <Typography component="h1" align="center" variant="h2">
+        <H1 align="center" gutterBottom={true} variant="h2">
           Denuncie quem estaciona em&nbsp;vagas preferenciais
           sem&nbsp;credencial
-        </Typography>
+        </H1>
         <Figure>
           <Image
             alt="Ilustração de uma cidade. Ao fundo, um prédio com o pôr-do-sol atrás. À frente, dois carros andando em direções opostas na mão dupla. Acima de cada carro, um balão com um símbolo de verificação."
-            src={prefersDarkMode ? darkImage : lightImage}
+            src={image}
           />
         </Figure>
-        <Typography align="center" paragraph={true} variant="body2">
-          Encontrou um&nbsp;carro estacionado irregularmente <wbr />
+        <Paragraph align="center" variant="body2">
+          Encontrou um&nbsp;carro estacionado irregularmente <br />
           em&nbsp;vagas para&nbsp;pessoas&nbsp;com&nbsp;deficiência?
-        </Typography>
+        </Paragraph>
       </Container>
       <Container maxWidth="xs">
-        <Typography align="center" paragraph={true}>
-          <Button
-            id="reportNowButton"
-            component={GatsbyLink}
-            color="primary"
-            data-testid="reportNowButton"
-            size="large"
-            to="/denunciar"
-            variant="contained"
-          >
-            Fazer denúncia anônima
-          </Button>{" "}
-        </Typography>
-        <Typography align="center" paragraph={true} variant="body2">
-          Seu veículo foi&nbsp;denunciado?{" "}
-          <Link
-            color="inherit"
-            component={GatsbyLink}
-            to="/consultar"
-            underline="always"
-          >
-            Consultar&nbsp;denúncias
-          </Link>
-        </Typography>
+        {parkingReportToggle ? (
+          <Paragraph align="center">
+            <Button
+              id="reportNowButton"
+              component={GatsbyLink}
+              color="primary"
+              data-testid="reportNowButton"
+              size="large"
+              to="/denunciar"
+              variant="contained"
+            >
+              Fazer denúncia anônima
+            </Button>
+          </Paragraph>
+        ) : (
+          <Paragraph align={"center"}>
+            Em&nbsp;breve, você poderá fazer <br />
+            sua&nbsp;denúncia anônima por&nbsp;aqui.
+          </Paragraph>
+        )}
+        {parkingCheckToggle ? (
+          <Paragraph align="center" variant="body2">
+            Seu veículo foi&nbsp;denunciado?{" "}
+            <Link
+              color="inherit"
+              component={GatsbyLink}
+              to="/consultar"
+              underline="always"
+            >
+              Consultar&nbsp;denúncias
+            </Link>
+          </Paragraph>
+        ) : (
+          <Paragraph align="center" variant="body2">
+            Também será possível consultar veículos denunciados.
+          </Paragraph>
+        )}
       </Container>
     </Article>
   )

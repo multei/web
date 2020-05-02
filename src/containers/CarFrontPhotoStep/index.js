@@ -43,9 +43,9 @@ export default ({ onSubmit, ...props }) => {
     ...props,
   }
 
-  const useToggle = useFeatureToggle("GET_USER_MEDIA")
+  const [getUserMediaToggle] = useFeatureToggle("GET_USER_MEDIA")
 
-  return useToggle ? (
+  return getUserMediaToggle ? (
     <TakeCarFrontPhotoStep {...props} />
   ) : (
     <CarFrontPhotoStep {...props} />

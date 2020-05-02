@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useDebugValue, useEffect, useState } from "react"
 import usePosition from "../../hooks/usePosition"
 import LocationStep from "../../components/LocationStep"
 import useGlobal from "../../hooks/useGlobal"
@@ -16,6 +16,8 @@ export default () => {
 
   const [globalState, globalActions] = useGlobal()
   const [loadingMap, setLoadingMap] = useState(null)
+
+  useDebugValue(globalState.currentPosition)
 
   useEffect(() => {
     if (Boolean(currentPosition)) {
