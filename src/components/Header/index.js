@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => {
   const classes = useStyles()
   return (
     <AppBar
-      classes={standalone && classes}
+      classes={standalone ? classes : {}}
       component={PageHeader}
       position={standalone ? "fixed" : "static"}
     >

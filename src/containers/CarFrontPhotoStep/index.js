@@ -1,6 +1,7 @@
 import React from "react"
-import CarFrontPhotoStep from "../../components/CarFrontPhotoStep"
+// import CarFrontPhotoStep from "../../components/CarFrontPhotoStep"
 import useGlobal from "../../hooks/useGlobal"
+import TakeCarFrontPhotoStep from "../../components/TakeCarFrontPhotoStep"
 
 export default ({ onSubmit, ...props }) => {
   const [globalState, globalActions] = useGlobal()
@@ -35,7 +36,7 @@ export default ({ onSubmit, ...props }) => {
   const { carFrontPhotoPreviewUrl } = globalState.currentParkingReportingData
 
   return (
-    <CarFrontPhotoStep
+    <TakeCarFrontPhotoStep
       onChange={handleFileUpload}
       onSubmit={handleSubmit}
       photoPreviewURL={carFrontPhotoPreviewUrl}

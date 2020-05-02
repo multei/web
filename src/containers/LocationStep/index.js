@@ -25,7 +25,7 @@ export default () => {
         currentPosition,
       })
     }
-  }, [currentPosition])
+  }, [currentPosition, globalActions, globalState.currentParkingReportingData])
 
   const handleMapLoaded = () => {
     setLoadingMap(false)
