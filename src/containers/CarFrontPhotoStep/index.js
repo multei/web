@@ -1,7 +1,8 @@
 import React from "react"
-// import CarFrontPhotoStep from "../../components/CarFrontPhotoStep"
+import CarFrontPhotoStep from "../../components/CarFrontPhotoStep"
 import useGlobal from "../../hooks/useGlobal"
 import TakeCarFrontPhotoStep from "../../components/TakeCarFrontPhotoStep"
+import useFeatureToggle from "../../hooks/useFeatureToggle"
 
 export default ({ onSubmit, ...props }) => {
   const [globalState, globalActions] = useGlobal()
@@ -35,12 +36,18 @@ export default ({ onSubmit, ...props }) => {
   }
   const { carFrontPhotoPreviewUrl } = globalState.currentParkingReportingData
 
-  return (
-    <TakeCarFrontPhotoStep
-      onChange={handleFileUpload}
-      onSubmit={handleSubmit}
-      photoPreviewURL={carFrontPhotoPreviewUrl}
-      {...props}
-    />
+  props = {
+    onChange: handleFileUpload,
+    onSubmit: handleSubmit,
+    photoPreviewURL: carFrontPhotoPreviewUrl,
+    ...props,
+  }
+
+  const useToggle = useFeatureToggle("GET_USER_MEDIA")
+
+  return useToggle ? (
+    <TakeCarFrontPhotoStep {...props} />
+  ) : (
+    <CarFrontPhotoStep {...props} />
   )
 }
