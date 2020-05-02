@@ -4,6 +4,7 @@ import useSiteMetadata from "../../hooks/useSiteMetadata"
 
 const SEO = (props) => (
   <MetaxSEO
+    bodyAttributes={[{ onTouchStart: "" }]}
     link={[
       {
         href: "/iphone5_splash.png",
