@@ -1,20 +1,15 @@
 import React from "react"
 import ExpansionPanel from "@material-ui/core/ExpansionPanel"
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
-import Typography from "@material-ui/core/Typography"
 import { ExpansionPanelDetails } from "@material-ui/core"
-import { Article } from "muy"
+import { Article, H1, H2 } from "muy"
 import SEO from "../components/SEO"
 
 const HelpTemplate = () => (
   <Article>
     <SEO title={"Ajuda"} description={"Tire suas dúvidas sobre o Multei!"} />
-    <Typography component="h1" variant="h1">
-      Ajuda
-    </Typography>
-    <Typography component="h2" variant="h2">
-      Tire suas dúvidas
-    </Typography>
+    <H1>Ajuda</H1>
+    <H2 gutterBottom={true}>Tire suas dúvidas</H2>
     <ExpansionPanel>
       <ExpansionPanelSummary>
         Sou uma pessoa com deficiência. Como faço para ter minha credencial?
