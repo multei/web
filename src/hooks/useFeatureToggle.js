@@ -17,8 +17,6 @@ const useFeatureToggle = (key) => {
       default:
         return false
     }
-
-    return false
   }
 
   useDebugValue(value)
@@ -65,7 +63,7 @@ const useFeatureToggle = (key) => {
     }
     window.addEventListener("storage", listener)
     return () => window.removeEventListener("storage", listener)
-  }, [])
+  }, [localStorageKey])
 
   return [value]
 }
