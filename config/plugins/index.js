@@ -27,7 +27,7 @@ const plugins = [
       display: siteMetadata.display,
       icon: siteMetadata.icon,
       name: siteMetadata.title,
-      short_name: siteMetadata.shortName,
+      short_name: siteMetadata.siteName,
       start_url: siteMetadata.startUrl,
       theme_color: siteMetadata.themeColor,
     },
@@ -48,6 +48,7 @@ const plugins = [
     },
   },
   { resolve: `gatsby-plugin-sharp` },
+  { resolve: `gatsby-plugin-sitemap` },
   { resolve: `gatsby-transformer-sharp` },
   // this (optional) plugin enables Progressive Web App + Offline functionality
   // To learn more, visit: https://gatsby.dev/offline
