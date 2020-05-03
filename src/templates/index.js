@@ -3,7 +3,6 @@ import { Link as GatsbyLink } from "gatsby"
 
 import image from "../images/undraw_order_a_car_3tww_dark.svg"
 import { Container } from "@material-ui/core"
-import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
 import { Article, Figure, H1, Image, Paragraph } from "muy"
