@@ -8,6 +8,7 @@ const useSiteMetadata = () => {
           applicationName
           description
           lang
+          googleSiteVerification
           statusBarStyle
           themeColor
           title
