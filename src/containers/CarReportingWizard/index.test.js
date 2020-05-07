@@ -1,12 +1,11 @@
-import renderer from 'react-test-renderer';
+import renderer from "react-test-renderer"
 
-describe('<CarReportingWizard /> container', () => {
-
+describe("<CarReportingWizard /> container", () => {
   beforeAll(() => {
-    jest.mock('../../hooks/useGlobal')
+    jest.mock("../../hooks/useGlobal")
   })
 
-  it('Should pass', () => {
-    expect(true).toEqual(true);
+  it("Should pass", () => {
+    expect(true).toEqual(true)
   })
 })
