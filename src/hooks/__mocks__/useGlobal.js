@@ -1,3 +1,3 @@
-const useGlobalMock = () => ([ {}, {} ])
+const useGlobalMock = () => [{}, {}]
 
-export default useGlobalMock;
+export default useGlobalMock
