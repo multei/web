@@ -1,125 +1,42 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Button from "@material-ui/core/Button"
+import useUserMedia from "../../hooks/useUserMedia"
+import useVideoRef from "../../hooks/useVideoRef"
+import useCanvasRef from "../../hooks/useCanvasRef"
+import Skeleton from "@material-ui/lab/Skeleton"
+import Card from "@material-ui/core/Card"
+import CardContent from "@material-ui/core/CardContent"
+import CardActions from "@material-ui/core/CardActions"
+import Fab from "@material-ui/core/Fab"
+import CameraAltIcon from "@material-ui/icons/CameraAlt"
 
 const TakeCarFrontPhotoStep = () => {
-  /**
-   * Create state for video width and height
-   */
-  const [videoDimensions, setVideoDimensions] = useState({
-    height: 360,
-    width: 480,
-  })
-
-  /**
-   * Create state for stream
-   */
-  const [stream, setStream] = useState()
-
-  /**
-   * Configure video hook
-   */
-  const useVideo = () => {
-    const videoRef = useRef(null)
-
-    /**
-     * Expose video to browser once
-     */
-    useEffect(() => {
-      window.video = videoRef.current
-    }, [videoRef])
-
-    return videoRef
+  const constraints = {
+    audio: false,
+    video: {
+      facingMode: "environment",
+      height: { min: 360, ideal: 720 },
+      width: { min: 480, ideal: 1280 },
+    },
   }
+
+  const [stream, getUserMedia] = useUserMedia(constraints)
 
   /**
    * Create video ref using hook
    */
-  const videoRef = useVideo()
-
-  /**
-   * Store video width and height
-   */
-  useEffect(() => {
-    const { videoHeight, videoWidth } = videoRef.current
-    if (videoHeight > 0 && videoWidth > 0) {
-      setVideoDimensions({
-        height: videoHeight,
-        width: videoWidth,
-      })
-    }
-  }, [videoRef])
-
-  /**
-   * Configure canvas hook
-   */
-  const useCanvas = () => {
-    const canvasRef = useRef(null)
-
-    /**
-     * Expose canvas to browser once
-     */
-    useEffect(() => {
-      window.canvas = canvasRef.current
-    }, [canvasRef])
-
-    return canvasRef
-  }
+  const [videoRef, videoDimensions] = useVideoRef()
 
   /**
    * Create canvas ref using hook
    */
-  const canvasRef = useCanvas()
-
-  /**
-   * Get canvas width and height from video
-   */
-  useEffect(() => {
-    canvasRef.current.width = videoDimensions.width
-    canvasRef.current.height = videoDimensions.height
-  }, [canvasRef, videoDimensions])
-
-  /**
-   * Get user media stream
-   */
-  useEffect(() => {
-    const constraints = {
-      audio: false,
-      video: {
-        facingMode: "environment",
-        height: { min: 360, ideal: 720 },
-        width: { min: 480, ideal: 1280 },
-      },
-    }
-
-    const handleSuccess = (responseStream) => {
-      setStream(responseStream)
-    }
-    const handleError = (error) => console.error(error)
-
-    navigator.mediaDevices
-      .getUserMedia(constraints)
-      .then(handleSuccess)
-      .catch(handleError)
-  }, [videoRef])
-
-  /**
-   * Set this stream to video source
-   */
-  useEffect(() => {
-    videoRef.current.srcObject = stream
-  }, [stream, videoRef])
-
-  /**
-   * Expose this stream to browser
-   */
-  useEffect(() => {
-    window.stream = stream
-  }, [stream])
+  const canvasRef = useCanvasRef()
 
   /**
    * Send this stream to canvas
    */
   const handleClick = () => {
+    console.log("Capturing photo...")
     canvasRef.current
       .getContext("2d")
       .drawImage(
@@ -131,21 +48,70 @@ const TakeCarFrontPhotoStep = () => {
       )
   }
 
+  const handleAskCameraPermission = () => {
+    console.log("Asking camera permission....")
+    getUserMedia()
+  }
+
+  /**
+   * Get canvas width and height from video
+   */
+  useEffect(() => {
+    if (videoDimensions.width > 0 && videoDimensions.height > 0) {
+      console.log("Updating video dimensions...", videoDimensions)
+      canvasRef.current.width = videoDimensions.width
+      canvasRef.current.height = videoDimensions.height
+    }
+  }, [canvasRef, videoDimensions])
+
+  /**
+   * Set this stream to video source
+   */
+  useEffect(() => {
+    videoRef.current.srcObject = stream
+  }, [stream, videoRef])
+
   return (
     <>
-      <video
-        autoPlay={true}
-        controls={false}
-        controlsList={"nodownload"}
-        disablePictureInPicture={true}
-        muted={true}
-        playsInline={true}
-        ref={videoRef}
-        style={{ maxWidth: "100%", height: "auto" }}
-      >
-        <track />
-      </video>
-      <Button onClick={handleClick}>Capturar</Button>
+      {!stream && (
+        <Card>
+          <CardContent>Por favor, libere acesso à sua câmera</CardContent>
+          <CardActions>
+            <Button onClick={handleAskCameraPermission}>Usar câmera</Button>
+          </CardActions>
+        </Card>
+      )}
+
+      <div style={{ position: "relative" }}>
+        <video
+          autoPlay={true}
+          controls={false}
+          controlsList={"nodownload"}
+          disablePictureInPicture={true}
+          muted={true}
+          playsInline={true}
+          ref={videoRef}
+          style={{ maxWidth: "100%", height: "auto" }}
+        >
+          <track />
+        </video>
+        <Fab
+          onClick={handleClick}
+          style={{
+            position: "absolute",
+            bottom: "0px",
+            left: "50%",
+            transform: "translate(-50%, 50%)",
+          }}
+          variant={"extended"}
+        >
+          <CameraAltIcon />
+          &nbsp;Tirar foto
+        </Fab>
+      </div>
+
+      <Skeleton style={{ maxWidth: "100%", height: "auto" }} variant="rect" />
+
       <canvas ref={canvasRef} style={{ maxWidth: "100%", height: "auto" }} />
     </>
   )
