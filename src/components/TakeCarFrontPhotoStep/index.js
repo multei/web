@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import Button from "@material-ui/core/Button"
 import useUserMedia from "../../hooks/useUserMedia"
 import useVideoRef from "../../hooks/useVideoRef"
