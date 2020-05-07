@@ -30,6 +30,7 @@ const useFeatureToggle = (key) => {
 
     const keys = {
       GET_USER_MEDIA: process.env.GATSBY_TOGGLE_GET_USER_MEDIA,
+      PLATE_CONFIRMATION_STEP: process.env.GATSBY_TOGGLE_PLATE_CONFIRMATION_STEP,
       PARKING_CHECK: process.env.GATSBY_TOGGLE_PARKING_CHECK,
       PARKING_REPORT: process.env.GATSBY_TOGGLE_PARKING_REPORT,
     }
