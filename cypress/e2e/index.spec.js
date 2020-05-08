@@ -36,7 +36,7 @@ describe("Parking report page", () => {
     cy.get("head link[rel=canonical]").should(
       "have.attr",
       "href",
-      "https://multei.com.br/denunciar/"
+      "https://multei.com.br/denunciar"
     )
   })
   it("should have site header present on header", () => {

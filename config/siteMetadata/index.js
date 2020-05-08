@@ -10,7 +10,7 @@ const siteMetadata = {
   display: "standalone",
   lang: "pt-br",
   icon: "src/images/icon.png",
-  googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || "",
+  googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || "0",
   siteName: "Multei!",
   siteUrl: "https://multei.com.br",
   startUrl: "/",
