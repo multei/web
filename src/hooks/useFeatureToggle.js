@@ -1,5 +1,10 @@
 import { useDebugValue, useEffect, useState } from "react"
 
+/**
+ * @todo Extract useFeatureToggle to external library
+ * @param key
+ * @return {[unknown]}
+ */
 const useFeatureToggle = (key) => {
   const [value, setValue] = useState(null)
 
