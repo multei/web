@@ -94,7 +94,7 @@
     "netlify-cli": "2.50.0",
     "prettier": "2.0.5",
     "react-test-renderer": "16.13.1",
-    "wait-on": "4.0.2"
+    "wait-on": "5.0.0"
   },
   "engines": {
     "node": ">=10.13.0"
