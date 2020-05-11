@@ -1,3 +1,5 @@
+require("@testing-library/jest-dom/extend-expect")
+
 expect.extend({
   toBeHexColor(received) {
     const hexadecimal = /^#[a-f0-9]{6}$/i

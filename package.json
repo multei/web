@@ -78,6 +78,7 @@
   "devDependencies": {
     "@hot-loader/react-dom": "16.13.0",
     "@testing-library/cypress": "6.0.0",
+    "@testing-library/jest-dom": "^5.7.0",
     "axe-core": "3.5.3",
     "axios": "0.19.2",
     "babel-jest": "25.5.1",
