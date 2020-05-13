@@ -1,11 +1,14 @@
-const useGlobalMock = () => [{
+const useGlobalMock = () => [
+  {
     currentParkingReportingData: {
-        carFrontPhotoPreviewUrl: null,
-        carPlate: "",
+      carFrontPhotoPreviewUrl: null,
+      carPlate: "",
     },
     currentPosition: null,
     loading: null,
     parkingsData: [],
-}, {}]
+  },
+  {},
+]
 
 export default useGlobalMock
