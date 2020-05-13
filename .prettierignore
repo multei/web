@@ -1,6 +1,8 @@
 .cache
+.stryker-tmp
 coverage
 node_modules
 package.json
 package-lock.json
 public
+reports
