@@ -27,6 +27,12 @@ const useFeatureToggle = (key) => {
   useDebugValue(value)
 
   useEffect(() => {
+    if (window.Cypress) {
+      setValue(valueSanitizer(window.Cypress.env[key]))
+    }
+  }, [key])
+
+  useEffect(() => {
     console.log("Value is", value)
   }, [value])
 
