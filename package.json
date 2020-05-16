@@ -30,7 +30,7 @@
     "develop": "gatsby develop --host ${npm_package_config_localhost} --port ${npm_package_config_port}",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "hook:precommit": "sh ./scripts/test-staged.sh",
-    "hook:prepush": "npm test && npm run build:local && npm run test:e2e:prepush",
+    "hook:prepush": "npm test && npm run test:e2e:prepush",
     "open:local": "open http://${npm_package_config_localhost}:${npm_package_config_port}",
     "ports": "lsof -iTCP -sTCP:LISTEN -n -P",
     "serve": "gatsby serve",
