@@ -36,7 +36,7 @@
     "start": "npm run develop",
     "test": "jest",
     "test:e2e:ci": "npm run develop & wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:run",
-    "test:e2e:prepush": "npm run develop & npm run cy:open",
+    "test:e2e:prepush": "npm run develop & npm run cy:run",
     "testc": "jest --coverage",
     "testu": "jest -u",
     "testw": "jest --watch"
