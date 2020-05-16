@@ -31,8 +31,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "open:local": "open http://${npm_package_config_localhost}:${npm_package_config_port}",
     "ports": "lsof -iTCP -sTCP:LISTEN -n -P",
-    "precommit": "sh ./scripts/test-staged.sh",
-    "prepush": "npm test && npm run test:e2e:ci",
+    "hook:precommit": "sh ./scripts/test-staged.sh",
+    "hook:prepush": "npm test && npm run test:e2e:ci",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "jest",
@@ -85,7 +85,7 @@
     "@testing-library/react": "10.0.4",
     "axe-core": "3.5.3",
     "axios": "0.19.2",
-    "babel-jest": "25.5.1",
+    "babel-jest": "26.0.1",
     "babel-preset-gatsby": "0.4.2",
     "codecov": "3.6.5",
     "cypress": "4.5.0",
@@ -94,7 +94,7 @@
     "dotenv": "8.2.0",
     "husky": "4.2.5",
     "identity-obj-proxy": "3.0.0",
-    "jest": "25.5.4",
+    "jest": "26.0.1",
     "netlify-cli": "2.51.0",
     "prettier": "2.0.5",
     "react-test-renderer": "16.13.1",
@@ -105,9 +105,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precommit",
-      "pre-push": "npm run prepush",
-      "post-update": "npm install"
+      "pre-commit": "npm run hook:precommit",
+      "pre-push": "npm run hook:prepush"
     }
   }
 }
