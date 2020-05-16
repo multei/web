@@ -18,8 +18,7 @@ describe("Home page", () => {
       "https://multei.com.br/"
     )
   })
-  it("should have site header present on header", () => {
-    cy.visit("/")
+  it("should have site title present on header", () => {
     cy.get('header[role="banner"] h1 a').contains("Multei!")
   })
 })
@@ -30,7 +29,7 @@ describe("Parking report page", () => {
     cy.setFeatureToggle("PARKING_CHECK", false)
     cy.setFeatureToggle("PARKING_REPORT", true)
   })
-  it("should be with correct url", () => {
+  it("should be with correct URL", () => {
     cy.visit("/denunciar")
     cy.url().should("contain", "/denunciar")
   })
@@ -46,7 +45,7 @@ describe("Parking report page", () => {
       expect(href).to.match(new RegExp("https://multei.com.br"))
     })
   })
-  it("should have site header present on header", () => {
+  it("should have site title present on header", () => {
     cy.get('header[role="banner"] h1 a').contains("Multei!")
   })
 })
