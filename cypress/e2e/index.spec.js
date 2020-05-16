@@ -2,8 +2,13 @@
 /// <reference types="cypress-axe" />
 
 describe("Home page", () => {
+  before(() => {
+    cy.routePageDataRequests()
+  })
   it("should be with correct url", () => {
     cy.visit("/")
+    cy.wait("@appData")
+    cy.wait("@indexPageData")
     cy.url().should("contain", "/")
   })
   it("should have no detectable accessibility violations on load", () => {
@@ -25,12 +30,15 @@ describe("Home page", () => {
 
 describe("Parking report page", () => {
   before(() => {
+    cy.routePageDataRequests()
     cy.setFeatureToggle("GET_USER_MEDIA", false)
     cy.setFeatureToggle("PARKING_CHECK", false)
     cy.setFeatureToggle("PARKING_REPORT", true)
   })
   it("should be with correct URL", () => {
     cy.visit("/denunciar")
+    cy.wait("@appData")
+    cy.wait("@indexPageData")
     cy.url().should("contain", "/denunciar")
   })
   it("should have no detectable accessibility violations on load", () => {
