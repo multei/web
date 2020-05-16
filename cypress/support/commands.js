@@ -8,3 +8,17 @@ const setFeatureToggle = (key, value) => {
 }
 
 Cypress.Commands.add("setFeatureToggle", setFeatureToggle)
+
+const routePageDataRequests = () => {
+  cy.server()
+  cy.route({
+    method: "GET",
+    url: "/page-data/app-data.json",
+  }).as("appData")
+  cy.route({
+    method: "GET",
+    url: "/page-data/index/page-data.json",
+  }).as("indexPageData")
+}
+
+Cypress.Commands.add("routePageDataRequests", routePageDataRequests)
