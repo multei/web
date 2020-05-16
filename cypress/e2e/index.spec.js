@@ -2,8 +2,9 @@
 /// <reference types="cypress-axe" />
 
 describe("Home page", () => {
-  before(() => {
+  it("should be with correct url", () => {
     cy.visit("/")
+    cy.url().should("contain", "/")
   })
   it("should have no detectable accessibility violations on load", () => {
     cy.injectAxe()
@@ -25,15 +26,13 @@ describe("Home page", () => {
 
 describe("Parking report page", () => {
   before(() => {
-    /**
-     * @todo: Use or create Cypress command to change environment values
-     */
-    localStorage.setItem("TOGGLE_PARKING_REPORT", "false")
-    Cypress.env("GATSBY_TOGGLE_PARKING_REPORT", "false")
-    localStorage.setItem("TOGGLE_GET_USER_MEDIA", "false")
-    Cypress.env("GATSBY_TOGGLE_GET_USER_MEDIA", "false")
-    cy.reload()
+    cy.setFeatureToggle("GET_USER_MEDIA", false)
+    cy.setFeatureToggle("PARKING_CHECK", false)
+    cy.setFeatureToggle("PARKING_REPORT", true)
+  })
+  it("should be with correct url", () => {
     cy.visit("/denunciar")
+    cy.url().should("contain", "/denunciar")
   })
   it("should have no detectable accessibility violations on load", () => {
     cy.injectAxe()
@@ -48,7 +47,6 @@ describe("Parking report page", () => {
     })
   })
   it("should have site header present on header", () => {
-    cy.visit("/")
     cy.get('header[role="banner"] h1 a').contains("Multei!")
   })
 })
