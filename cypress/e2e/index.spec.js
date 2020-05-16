@@ -38,7 +38,7 @@ describe("Parking report page", () => {
   it("should be with correct URL", () => {
     cy.visit("/denunciar")
     cy.wait("@appData")
-    cy.wait("@indexPageData")
+    cy.wait("@reportPageData")
     cy.url().should("contain", "/denunciar")
   })
   it("should have no detectable accessibility violations on load", () => {
