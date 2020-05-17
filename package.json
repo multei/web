@@ -19,8 +19,9 @@
   "private": true,
   "scripts": {
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build:ci": "CI=true gatsby build",
     "build:local": "gatsby build",
-    "ci": "npm run build && npm run testc && npm run codecov && npm run test:e2e:ci",
+    "ci": "npm run build:ci && npm run testc && npm run codecov && npm run test:e2e:ci",
     "clean": "gatsby clean",
     "clean:install": "rm -rf node_modules/sharp && npm install",
     "codecov": "codecov",
@@ -101,7 +102,7 @@
     "wait-on": "5.0.0"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=12.6.0"
   },
   "husky": {
     "hooks": {
