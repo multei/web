@@ -36,12 +36,12 @@
     "ports": "lsof -iTCP -sTCP:LISTEN -n -P",
     "serve": "gatsby serve",
     "start": "npm run develop",
-    "test": "NODE_ENV=test jest",
-    "test:e2e:ci": "NODE_ENV=test npm run develop & wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:run",
-    "test:e2e:prepush": "NODE_ENV=test npm run develop & npm run cy:run",
-    "testc": "NODE_ENV=test jest --coverage",
-    "testu": "NODE_ENV=test jest -u",
-    "testw": "NODE_ENV=test jest --watch"
+    "test": "jest",
+    "test:e2e:ci": "npm run develop & wait-on http://${npm_package_config_localhost}:${npm_package_config_port} && npm run cy:run",
+    "test:e2e:prepush": "npm run develop & npm run cy:run",
+    "testc": "jest --coverage",
+    "testu": "jest -u",
+    "testw": "jest --watch"
   },
   "config": {
     "localhost": "localhost",
