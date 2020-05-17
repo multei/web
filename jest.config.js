@@ -12,7 +12,7 @@ module.exports = {
    * Define expect in setup file
    * @see https://github.com/FormidableLabs/enzyme-matchers/issues/86#issuecomment-312489052
    */
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/config/jest/setup.js"],
   testEnvironment: "jsdom",
   testPathIgnorePatterns: [
     `node_modules`,
