@@ -1,40 +1,45 @@
 import React from "react"
 import CarFrontPhotoStep from "../../components/CarFrontPhotoStep"
-import useGlobal from "../../hooks/useGlobal"
 import TakeCarFrontPhotoStep from "../../components/TakeCarFrontPhotoStep"
 import useFeatureToggle from "../../hooks/useFeatureToggle"
+import { useSetLoadingState } from "../../hooks/useLoadingState"
+import { useParkingReportState } from "../../hooks/useParkingReportState"
 
 export default ({ onSubmit, ...props }) => {
-  const [globalState, globalActions] = useGlobal()
+  const setLoading = useSetLoadingState()
+  const [parkingReportState, setParkingReportState] = useParkingReportState()
 
   const handleFileUpload = (event) => {
     event.persist()
-    globalActions.setLoading(true)
+    setLoading(true)
 
     if (typeof event.target.files[0] === "undefined") {
-      globalActions.setLoading(false)
-      globalActions.setCurrentParkingReportingData({
-        ...globalState.currentParkingReportingData,
+      setLoading(false)
+
+      setParkingReportState((oldParkingReportState) => ({
+        ...oldParkingReportState,
         carFrontPhotoPreviewUrl: null,
-      })
+      }))
+
       return false
     }
 
     const file = event.target.files[0]
-    globalActions.setCurrentParkingReportingData({
-      ...globalState.currentParkingReportingData,
-      carFrontPhotoPreviewUrl: URL.createObjectURL(file),
-    })
 
-    globalActions.setLoading(false)
+    setParkingReportState((oldParkingReportState) => ({
+      ...oldParkingReportState,
+      carFrontPhotoPreviewUrl: URL.createObjectURL(file),
+    }))
+
+    setLoading(false)
   }
   const handleSubmit = (event) => {
     event.persist()
     event.preventDefault()
-    globalActions.setLoading(true)
+    setLoading(true)
     onSubmit()
   }
-  const { carFrontPhotoPreviewUrl } = globalState.currentParkingReportingData
+  const { carFrontPhotoPreviewUrl } = parkingReportState
 
   props = {
     onChange: handleFileUpload,
