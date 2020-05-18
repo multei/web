@@ -45,6 +45,16 @@
         "bug",
         "a11y"
       ]
+    },
+    {
+      "login": "heitorbffi",
+      "name": "Heitor B. F. Fernandes Inhaquites",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/44254995?v=4",
+      "profile": "https://github.com/heitorbffi",
+      "contributions": [
+        "maintenance",
+        "projectManagement"
+      ]
     }
   ],
   "contributorsPerLine": 7,
