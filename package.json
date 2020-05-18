@@ -110,5 +110,8 @@
       "pre-commit": "npm run hook:precommit",
       "pre-push": "npm run hook:prepush"
     }
+  },
+  "resolutions": {
+    "http-proxy": ">=1.18.1"
   }
 }
