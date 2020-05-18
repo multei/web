@@ -7,6 +7,7 @@ import { useParkingReportState } from "../../hooks/useParkingReportState"
 
 export default ({ onSubmit, ...props }) => {
   const setLoading = useSetLoadingState()
+
   const [parkingReportState, setParkingReportState] = useParkingReportState()
 
   const handleFileUpload = (event) => {
