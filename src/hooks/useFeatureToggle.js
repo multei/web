@@ -33,12 +33,6 @@ const useFeatureToggle = (key) => {
   }, [key])
 
   useEffect(() => {
-    console.log("Value is", value)
-  }, [value])
-
-  useEffect(() => {
-    console.info("Getting value from env variable", key)
-
     const keys = {
       GET_USER_MEDIA: process.env.GATSBY_TOGGLE_GET_USER_MEDIA,
       PLATE_CONFIRMATION_STEP:
@@ -49,7 +43,6 @@ const useFeatureToggle = (key) => {
 
     if (keys[key]) {
       const envValue = valueSanitizer(keys[key])
-      console.info("Env value is", envValue)
       setValue(envValue)
     }
   }, [key])
@@ -57,11 +50,8 @@ const useFeatureToggle = (key) => {
   const localStorageKey = `TOGGLE_${key}`
 
   useEffect(() => {
-    console.info("Getting value from local storage")
-
     if (localStorage.getItem(localStorageKey)) {
       const localValue = valueSanitizer(localStorage.getItem(localStorageKey))
-      console.info("Local storage value is", localValue)
       setValue(localValue)
     }
   }, [localStorageKey])
@@ -70,7 +60,6 @@ const useFeatureToggle = (key) => {
     const listener = (event) => {
       if (event.key === localStorageKey) {
         const localChangedValue = valueSanitizer(event.newValue)
-        console.info("Local storage changed value is", localChangedValue)
         setValue(localChangedValue)
       }
     }
