@@ -1,6 +1,6 @@
 # Multei web app
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![End-to-end tests](https://github.com/multei/web/workflows/End-to-end%20tests/badge.svg)
@@ -41,6 +41,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/heitorbffi"><img src="https://avatars2.githubusercontent.com/u/44254995?v=4" width="100px;" alt=""/><br /><sub><b>Heitor B. F. Fernandes Inhaquites</b></sub></a><br /><a href="#maintenance-heitorbffi" title="Maintenance">🚧</a> <a href="#projectManagement-heitorbffi" title="Project Management">📆</a></td>
     <td align="center"><a href="http://tuliooassis.github.io"><img src="https://avatars1.githubusercontent.com/u/17442350?v=4" width="100px;" alt=""/><br /><sub><b>Túlio Assis</b></sub></a><br /><a href="https://github.com/multei/web/commits?author=tuliooassis" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/lemenezes"><img src="https://avatars3.githubusercontent.com/u/8173652?v=4" width="100px;" alt=""/><br /><sub><b>Leandro Menezes Miglioli</b></sub></a><br /><a href="https://github.com/multei/web/commits?author=lemenezes" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/carlamartinezribeiro"><img src="https://avatars2.githubusercontent.com/u/51760937?v=4" width="100px;" alt=""/><br /><sub><b>carlamartinezribeiro</b></sub></a><br /><a href="#ideas-carlamartinezribeiro" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
