@@ -1,9 +1,9 @@
 import React from "react"
+import { RecoilRoot } from "recoil"
 import { render, screen } from "@testing-library/react"
 import useFeatureToggle from "../../hooks/useFeatureToggle"
 import CarReportingWizard from "."
 
-jest.mock("../../hooks/useGlobal")
 jest.mock("../../hooks/useFeatureToggle")
 
 describe("<CarReportingWizard /> container", () => {
@@ -21,7 +21,11 @@ describe("<CarReportingWizard /> container", () => {
       })
     )
 
-    render(<CarReportingWizard />)
+    render(
+      <RecoilRoot>
+        <CarReportingWizard />
+      </RecoilRoot>
+    )
 
     const label = await screen.getByText("Confirmar placa")
     expect(label).toBeTruthy()
@@ -35,7 +39,11 @@ describe("<CarReportingWizard /> container", () => {
       })
     )
 
-    render(<CarReportingWizard />)
+    render(
+      <RecoilRoot>
+        <CarReportingWizard />
+      </RecoilRoot>
+    )
 
     const label = await screen.queryByText("Confirmar placa")
     expect(label).toBeFalsy()
