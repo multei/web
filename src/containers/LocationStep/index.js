@@ -1,7 +1,8 @@
-import React, { useDebugValue, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import usePosition from "../../hooks/usePosition"
 import LocationStep from "../../components/LocationStep"
-import useGlobal from "../../hooks/useGlobal"
+import { useSetParkingReportState } from "../../hooks/useParkingReportState"
+import { useSetLoadingState } from "../../hooks/useLoadingState"
 
 export default () => {
   const {
@@ -14,28 +15,33 @@ export default () => {
     permissionDenied,
   } = usePosition()
 
-  const [globalState, globalActions] = useGlobal()
+  const setLoading = useSetLoadingState()
   const [loadingMap, setLoadingMap] = useState(null)
-
-  useDebugValue(globalState.currentPosition)
+  const setParkingReportState = useSetParkingReportState()
 
   useEffect(() => {
     if (Boolean(currentPosition)) {
       setLoadingMap(true)
+      setLoading(true)
     }
-  }, [currentPosition])
+  }, [currentPosition, setLoading])
 
   useEffect(() => {
-    globalActions.setCurrentPosition(currentPosition)
-  }, [currentPosition, globalActions])
+    setParkingReportState((oldParkingReportState) => ({
+      ...oldParkingReportState,
+      currentPosition,
+    }))
+  }, [currentPosition, setParkingReportState])
 
   const handleMapLoaded = () => {
     setLoadingMap(false)
+    setLoading(false)
   }
 
   const handleGetLocationClick = () => {
     getCurrentPosition()
     setLoadingMap(true)
+    setLoading(true)
   }
 
   return (
