@@ -19,8 +19,6 @@ import ThemeProvider from "@material-ui/styles/ThemeProvider"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import useSiteMetadata from "../hooks/useSiteMetadata.js"
 import factory from "../themes/factory"
-import { LinearProgress } from "@material-ui/core"
-import useGlobal from "../hooks/useGlobal"
 import { MainContent } from "muy"
 import Paper from "@material-ui/core/Paper"
 import useStandalone from "../hooks/useStandalone"
@@ -31,12 +29,9 @@ const Layout = ({ children }) => {
   const dynamicTheme = useMemo(factory(prefersDarkMode), [prefersDarkMode])
   const { title } = useSiteMetadata()
 
-  const [globalState] = useGlobal()
-
   return (
     <ThemeProvider theme={dynamicTheme}>
       <CssBaseline />
-      {globalState.loading && <LinearProgress />}
       <Header siteTitle={title} />
       <Paper>
         <Container>
