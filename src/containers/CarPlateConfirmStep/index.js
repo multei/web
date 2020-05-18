@@ -1,19 +1,18 @@
-import React, { useState } from "react"
+import React from "react"
 import CarPlateConfirmStep from "../../components/CarPlateConfirmStep"
-import useGlobal from "../../hooks/useGlobal"
+import { useParkingReportState } from "../../hooks/useParkingReportState"
 
 export default () => {
-  const [globalState, globalActions] = useGlobal()
-  const [carPlate, setCarPlate] = useState(
-    globalState.currentParkingReportingData.carPlate
-  )
+  const [parkingReportState, setParkingReportState] = useParkingReportState()
 
-  const handleChange = (event) => {
-    setCarPlate(event.target.value)
-    globalActions.setCurrentParkingReportingData({
-      carPlate: event.target.value,
-    })
+  const handleChange = ({ target: { value } }) => {
+    setParkingReportState((oldParkingReportState) => ({
+      ...oldParkingReportState,
+      carPlate: value,
+    }))
   }
+
+  const { carPlate } = parkingReportState
 
   return <CarPlateConfirmStep carPlate={carPlate} onChange={handleChange} />
 }
