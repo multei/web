@@ -74,6 +74,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-helmet": "6.0.0",
+    "recoil": "0.0.7",
     "use-global-hook": "0.1.12"
   },
   "devDependencies": {
