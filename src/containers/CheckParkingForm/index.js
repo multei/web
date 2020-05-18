@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from "react"
 import CheckParkingForm from "../../components/CheckParkingForm"
-import useGlobal from "../../hooks/useGlobal"
 import { getParkingsByCarPlate } from "../../services/parkings"
+import { useSetReportedParkingsState } from "../../hooks/useReportedParkingsState"
 
 export default ({ carPlate }) => {
   const initialState = {
@@ -36,9 +36,9 @@ export default ({ carPlate }) => {
     }
   }
 
-  const [, globalActions] = useGlobal()
   const [state, dispatch] = useReducer(reducer, initialState)
   const [stateCarPlate, setCarPlate] = useState(carPlate)
+  const setReportedParkingsState = useSetReportedParkingsState()
 
   useEffect(() => {
     window.history.pushState(
@@ -55,8 +55,10 @@ export default ({ carPlate }) => {
   const handleApiResponse = (response) => {
     dispatch({ type: "api_success" })
 
-    const { data } = response.data
-    globalActions.setParkingsData(data.parkings)
+    const {
+      data: { parkings },
+    } = response.data
+    setReportedParkingsState(parkings)
   }
 
   const handleApiError = (error) => {
@@ -64,11 +66,11 @@ export default ({ carPlate }) => {
       typeof error.response !== "undefined" && error.response.status === 404
     if (isNotFoundError) {
       dispatch({ type: "not_found_error" })
-      globalActions.setParkingsData([])
+      setReportedParkingsState([])
       return
     }
     dispatch({ type: "api_error" })
-    globalActions.setParkingsData(null)
+    setReportedParkingsState(null)
   }
 
   const handleSubmit = async (event) => {
