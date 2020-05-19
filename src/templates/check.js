@@ -14,7 +14,7 @@ const CheckTemplate = ({ location }) => {
   const carPlate = parsedQueryString["car_plate"]
   const [parkingCheckToggle] = useFeatureToggle("PARKING_CHECK")
 
-  const underConstruction = (
+  const renderUnderConstruction = () => (
     <Alert severity={"info"}>
       <AlertTitle>
         Em breve, você poderá consultar se seu veículo foi denunciado aqui.
@@ -24,7 +24,7 @@ const CheckTemplate = ({ location }) => {
     </Alert>
   )
 
-  const form = (
+  const renderForm = () => (
     <>
       <CheckParkingForm carPlate={carPlate} />
       <ParkingsAlerts />
@@ -39,7 +39,7 @@ const CheckTemplate = ({ location }) => {
         description="Consulte denúncias de estacionamento irregular buscando por placa"
       />
       <H1 gutterBottom={true}>Confira se seu veículo foi denunciado</H1>
-      {parkingCheckToggle ? form : underConstruction}
+      {parkingCheckToggle ? renderForm() : renderUnderConstruction()}
     </Article>
   )
 }
