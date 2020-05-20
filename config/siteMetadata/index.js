@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+export const siteName = "Multei!"
+
 const siteMetadata = {
   applicationName: "Multei!",
   backgroundColor: "#f6f4f3",
@@ -11,13 +13,13 @@ const siteMetadata = {
   lang: "pt-br",
   icon: "src/images/icon.png",
   googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || "0",
-  siteName: "Multei!",
+  siteName,
   siteUrl: "https://multei.com.br",
   startUrl: "/",
   statusBarStyle: "black-translucent",
   themeColor: "#623CEA",
-  title: "Multei!",
-  titleTemplate: "%s | Multei!",
+  title: siteName,
+  titleTemplate: `%s | ${siteName}`,
 }
 
 module.exports = siteMetadata
