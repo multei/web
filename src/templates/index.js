@@ -14,7 +14,10 @@ const IndexTemplate = () => {
   const [parkingReportToggle] = useFeatureToggle("PARKING_REPORT")
   return (
     <Article>
-      <SEO title="Denunciar estacionamento irregular" />
+      <SEO
+        title="Denunciar estacionamento irregular"
+        titleTemplate={"Multei! %s"}
+      />
       <Container maxWidth="xs">
         <H1 align="center" gutterBottom={true} variant="h2">
           Denuncie quem estaciona em&nbsp;vagas preferenciais
