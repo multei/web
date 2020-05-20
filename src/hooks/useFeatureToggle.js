@@ -34,11 +34,11 @@ const useFeatureToggle = (key) => {
 
   useEffect(() => {
     const keys = {
+      CAR_REPORT_PHOTO_INSTRUCTIONS: process.env.GATSBY_TOGGLE_CAR_REPORT_PHOTO_INSTRUCTIONS,
       GET_USER_MEDIA: process.env.GATSBY_TOGGLE_GET_USER_MEDIA,
-      PLATE_CONFIRMATION_STEP:
-        process.env.GATSBY_TOGGLE_PLATE_CONFIRMATION_STEP,
       PARKING_CHECK: process.env.GATSBY_TOGGLE_PARKING_CHECK,
       PARKING_REPORT: process.env.GATSBY_TOGGLE_PARKING_REPORT,
+      PLATE_CONFIRMATION_STEP: process.env.GATSBY_TOGGLE_PLATE_CONFIRMATION_STEP,
     }
 
     if (keys[key]) {
