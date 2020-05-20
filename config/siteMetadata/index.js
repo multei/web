@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-export const siteName = "Multei!"
+const siteName = "Multei!"
 
 const siteMetadata = {
   applicationName: "Multei!",
