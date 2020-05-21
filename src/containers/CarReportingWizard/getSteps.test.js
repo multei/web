@@ -1,16 +1,14 @@
 import React from "react"
-
-// import useFeatureToggle from "../../hooks/useFeatureToggle"
 import { getSteps } from "./getSteps"
 
-// jest.mock("../../hooks/useFeatureToggle")
-
 describe("<getSteps />", () => {
-    const numberOfSteps = 4;
 
     it("should return all steps", async () => {
+        const numberOfSteps = 5
+
         const featureToggle = {
             getPlateConfirmationStepToggle: true,
+            carReportPhotoInstructions: true,
         };
 
         const [steps, maxSteps] = getSteps(featureToggle);
@@ -19,7 +17,7 @@ describe("<getSteps />", () => {
         expect(maxSteps).toBe(numberOfSteps);
     })
 
-    it("should not return Confirm Plate step", async () => {
+    it("should not return confirm plate step", async () => {
         const featureToggle = {
             getPlateConfirmationStepToggle: false,
         };
@@ -27,7 +25,15 @@ describe("<getSteps />", () => {
         const [steps, maxSteps] = getSteps(featureToggle);
 
         expect(steps.includes(<>Confirmar placa</>)).toBeFalsy()
-        expect(maxSteps).toBe(numberOfSteps - 1);
     })
 
+    it("should not return car report photo instructions", async () => {
+          const featureToggle = {
+          carReportPhotoInstructions: false,
+        };
+
+        const [steps, maxSteps] = getSteps(featureToggle);
+
+        expect(steps.includes(<>Instruções</>)).toBeFalsy()
+    })
 })
