@@ -32,7 +32,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "format:staged": "sh ./scripts/format-staged.sh",
     "hook:precommit": "npm run format:staged && sh ./scripts/test-staged.sh",
-    "hook:prepush": "npm test && npm run test:e2e:prepush",
+    "hook:prepush": "npm run format && npm test && npm run test:e2e:prepush",
     "open:local": "open http://${npm_package_config_localhost}:${npm_package_config_port}",
     "ports": "lsof -iTCP -sTCP:LISTEN -n -P",
     "serve": "gatsby serve",
