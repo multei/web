@@ -1,6 +1,9 @@
 # Multei web app
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![End-to-end tests](https://github.com/multei/web/workflows/End-to-end%20tests/badge.svg)
@@ -10,7 +13,7 @@
 ### Start developing
 
 1. Navigate into root directory;
-2. Run `npm start`. Site will open at `http://localhost:8000`. You'll also see a second link for GraphQL: http://localhost:8000/___graphql. 
+2. Run `npm start`. Site will open at `http://localhost:8000`. You'll also see a second link for GraphQL: http://localhost:8000/___graphql.
 3. Open the source code and start editing!
    Save your changes and the browser will update in real time!
 
@@ -49,6 +52,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
@@ -94,4 +98,3 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 12. **`README.md`**: A text file containing useful reference information about your project.
-
