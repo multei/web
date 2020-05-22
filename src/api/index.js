@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export default function api() {
+export default function api(endpoint = "/") {
   const baseURL = process.env.GATSBY_MULTEI_API_BASEURL
 
   if (typeof baseURL === "undefined") {
@@ -10,6 +10,6 @@ export default function api() {
   }
 
   return axios.create({
-    baseURL: `${baseURL}/v1`,
+    baseURL: `${baseURL}${endpoint}`,
   })
 }

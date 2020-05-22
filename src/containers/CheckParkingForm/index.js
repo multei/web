@@ -2,8 +2,17 @@ import React, { useEffect, useReducer, useState } from "react"
 import CheckParkingForm from "../../components/CheckParkingForm"
 import { getParkingsByCarPlate } from "../../services/parkings"
 import { useSetReportedParkingsState } from "../../hooks/useReportedParkingsState"
+import useLoadingState from "../../hooks/useLoadingState"
+import { getHealthCheckResponse } from "../../services/healthcheck"
+import Alert from "@material-ui/lab/Alert"
+import AlertTitle from "@material-ui/lab/AlertTitle"
+import Button from "@material-ui/core/Button"
+import Link from "@material-ui/core/Link"
 
 export default ({ carPlate }) => {
+  const [loading, setLoading] = useLoadingState()
+  const [apiError, setApiError] = useState(false)
+
   const initialState = {
     carPlate: "",
     loading: false,
@@ -75,6 +84,7 @@ export default ({ carPlate }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setLoading(true)
 
     dispatch({ type: "api_request" })
 
@@ -86,12 +96,43 @@ export default ({ carPlate }) => {
     }
   }
 
+  const handleHealthCheck = () => {
+    getHealthCheckResponse()
+      .then(() => {
+        setLoading(false)
+      })
+      .catch(() => {
+        setApiError(true)
+      })
+  }
+
+  useEffect(() => {
+    handleHealthCheck()
+  }, [])
+
   return (
-    <CheckParkingForm
-      carPlate={stateCarPlate}
-      loading={state.loading}
-      onCarPlateChange={handleCarPlateChange}
-      onSubmit={handleSubmit}
-    />
+    <>
+      {apiError ? (
+        <Alert severity={"error"}>
+          <AlertTitle>
+            Ops! Não é possível consultar denúncias agora.
+          </AlertTitle>
+          Nosso sistema de consulta de denúncias parece estar fora do ar.
+          <br />
+          Você pode{" "}
+          <Button color="inherit" component={Link} onClick={handleHealthCheck}>
+            tentar novamente
+          </Button>{" "}
+          em alguns instantes.
+        </Alert>
+      ) : (
+        <CheckParkingForm
+          // carPlate={stateCarPlate}
+          loading={loading}
+          // onCarPlateChange={handleCarPlateChange}
+          onSubmit={handleSubmit}
+        />
+      )}
+    </>
   )
 }
