@@ -6,17 +6,12 @@ describe("Reporting wizard steps", () => {
     expect(steps).toBeInstanceOf(Array)
   })
 
-  xit("should return array with at least one object", () => {
+  xit("should have at least one step with label and render properties", () => {
     const steps = useReportingWizardSteps()
-    expect(steps.length > 0).toBeTrue()
-  })
-
-  xit("should return an array of objects with label and render properties", () => {
-    const steps = useReportingWizardSteps()
-    expect(
-      steps.every(
-        (step) => step.label !== undefined && step.render !== undefined
-      )
-    ).toBeTrue()
+    expect(steps.length).toBeGreaterThan(0)
+    steps.every((step) => {
+      expect(step.label).toBeDefined()
+      expect(step.render).toBeDefined()
+    })
   })
 })
