@@ -100,15 +100,14 @@ export default ({ carPlate }) => {
     getHealthCheckResponse()
       .then(() => {
         setLoading(false)
+        setApiError(false)
       })
       .catch(() => {
         setApiError(true)
       })
   }
 
-  useEffect(() => {
-    handleHealthCheck()
-  }, [])
+  useEffect(handleHealthCheck, [])
 
   return (
     <>
@@ -127,9 +126,9 @@ export default ({ carPlate }) => {
         </Alert>
       ) : (
         <CheckParkingForm
-          // carPlate={stateCarPlate}
+          carPlate={stateCarPlate}
           loading={loading}
-          // onCarPlateChange={handleCarPlateChange}
+          onCarPlateChange={handleCarPlateChange}
           onSubmit={handleSubmit}
         />
       )}
