@@ -1,1 +1,1 @@
-export const useReportingWizardSteps = () => ({})
+export const useReportingWizardSteps = () => ([])
