@@ -1,7 +1,7 @@
 import { useReportingWizardSteps } from "./useReportingWizardSteps"
 
 describe("Reporting wizard steps", () => {
-  xit("should", () => {
+  it("should return an object", () => {
     const steps = useReportingWizardSteps()
     expect(steps).toBeInstanceOf(Object)
   })

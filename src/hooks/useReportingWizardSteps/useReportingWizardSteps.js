@@ -1,1 +1,1 @@
-export const useReportingWizardSteps = () => null
+export const useReportingWizardSteps = () => ({})
