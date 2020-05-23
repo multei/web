@@ -90,7 +90,7 @@
     "axios": "0.19.2",
     "babel-jest": "26.0.1",
     "babel-preset-gatsby": "0.4.2",
-    "codecov": "3.6.5",
+    "codecov": "3.7.0",
     "cypress": "4.5.0",
     "cypress-axe": "0.8.1",
     "cypress-file-upload": "4.0.6",
