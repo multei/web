@@ -1,3 +1,4 @@
+import { Component } from "react"
 import { useReportingWizardSteps } from "./useReportingWizardSteps"
 
 describe("Reporting wizard steps", () => {
@@ -12,6 +13,13 @@ describe("Reporting wizard steps", () => {
     steps.every((step) => {
       expect(step.label).toBeDefined()
       expect(step.render).toBeDefined()
+    })
+  })
+
+  xit("render property should be Component instance", () => {
+    const steps = useReportingWizardSteps()
+    steps.every((step) => {
+      expect(step.render).toBeInstanceOf(Component)
     })
   })
 })
