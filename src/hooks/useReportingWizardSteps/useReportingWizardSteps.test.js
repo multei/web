@@ -1,4 +1,4 @@
-import { Component } from "react"
+import React from "react"
 import { useReportingWizardSteps } from "./useReportingWizardSteps"
 
 describe("Reporting wizard steps", () => {
@@ -7,19 +7,20 @@ describe("Reporting wizard steps", () => {
     expect(steps).toBeInstanceOf(Array)
   })
 
-  it("should have at least one step with label and render properties", () => {
+  it('should have at least one step with "label" and "component" properties', () => {
     const steps = useReportingWizardSteps()
     expect(steps.length).toBeGreaterThan(0)
     steps.every((step) => {
       expect(step.label).toBeDefined()
-      expect(step.render).toBeDefined()
+      expect(step.component).toBeDefined()
     })
   })
 
-  xit("render property should be Component instance", () => {
+  it("component property should be Component instance", () => {
     const steps = useReportingWizardSteps()
     steps.every((step) => {
-      expect(step.render).toBeInstanceOf(Component)
+      const componentElement = <step.component />
+      expect(React.isValidElement(componentElement)).toBe(true)
     })
   })
 })

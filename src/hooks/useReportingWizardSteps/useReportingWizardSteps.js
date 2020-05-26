@@ -1,6 +1,9 @@
+import React from 'react'
+import CarFrontPhotoStep from "../../containers/CarFrontPhotoStep"
+
 export const useReportingWizardSteps = () => [
-    {
-        label: '',
-        render: ''
-    }
+  {
+      label: "",
+      component: CarFrontPhotoStep
+  }
 ]
