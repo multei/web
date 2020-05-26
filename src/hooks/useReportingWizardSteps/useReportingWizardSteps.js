@@ -1,1 +1,6 @@
-export const useReportingWizardSteps = () => []
+export const useReportingWizardSteps = () => [
+    {
+        label: '',
+        render: ''
+    }
+]

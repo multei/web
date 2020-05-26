@@ -6,7 +6,7 @@ describe("Reporting wizard steps", () => {
     expect(steps).toBeInstanceOf(Array)
   })
 
-  xit("should have at least one step with label and render properties", () => {
+  it("should have at least one step with label and render properties", () => {
     const steps = useReportingWizardSteps()
     expect(steps.length).toBeGreaterThan(0)
     steps.every((step) => {
