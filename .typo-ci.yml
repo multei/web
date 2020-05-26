@@ -32,3 +32,4 @@ excluded_words:
   - testc
   - testu
   - testw
+  - xit
