@@ -3,7 +3,7 @@ import CarFrontPhotoStep from "../../containers/CarFrontPhotoStep"
 
 export const useReportingWizardSteps = () => [
   {
-      label: "",
+      label: "Enviar foto da frente",
       component: CarFrontPhotoStep
   }
 ]

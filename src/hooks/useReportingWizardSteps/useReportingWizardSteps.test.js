@@ -23,4 +23,11 @@ describe("Reporting wizard steps", () => {
       expect(React.isValidElement(componentElement)).toBe(true)
     })
   })
+
+  it("label property should not be empty", () => {
+    const steps = useReportingWizardSteps()
+    steps.every((step) => {
+      expect(step.label.trim().length).toBeGreaterThan(0)
+    })
+  })
 })
