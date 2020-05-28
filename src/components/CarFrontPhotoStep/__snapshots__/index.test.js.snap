@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CarFrontPhotoStep renders correctly 1`] = `
+<form
+  className="MuiBox-root MuiBox-root-2"
+  data-name="form"
+  id="form"
+  name="form"
+  onSubmit={[Function]}
+>
+  <fieldset
+    className="MuiBox-root MuiBox-root-6 makeStyles-root-5"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom"
+    >
+      Tire uma foto da frente do carro, com a placa visível
+    </h2>
+    <p
+      className="MuiTypography-root MuiTypography-body2 MuiTypography-paragraph"
+    >
+      A foto precisa mostrar o painel do veículo e provar que não há uma credencial visível.
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph"
+    >
+      <label
+        aria-disabled={false}
+        aria-label="Adicionar foto da frente"
+        className="MuiButtonBase-root MuiFab-root MuiFab-extended MuiFab-primary"
+        htmlFor="carFrontImageUploadField"
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role={null}
+        tabIndex={0}
+      >
+        <span
+          className="MuiFab-label"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 4V1h2v3h3v2H5v3H3V6H0V4h3zm3 6V7h3V4h7l1.83 2H21c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V10h3zm7 9c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-3.2-5c0 1.77 1.43 3.2 3.2 3.2s3.2-1.43 3.2-3.2-1.43-3.2-3.2-3.2-3.2 1.43-3.2 3.2z"
+            />
+          </svg>
+           
+          Adicionar foto
+        </span>
+      </label>
+      <span
+        className="MuiTypography-root MuiTypography-srOnly"
+      >
+        <input
+          accept="image/*"
+          capture={false}
+          data-test-id="carFrontImageUploadField"
+          id="carFrontImageUploadField"
+          name="carFrontImage"
+          onChange={[Function]}
+          required={true}
+          tabIndex={-1}
+          type="file"
+        />
+      </span>
+    </p>
+    <div
+      className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+      style={
+        Object {
+          "opacity": 0,
+          "visibility": "hidden",
+        }
+      }
+    >
+      <figure
+        className="MuiBox-root MuiBox-root-87"
+      >
+        <div
+          className="MuiTypography-root MuiTypography-srOnly"
+        >
+          <figcaption
+            className="MuiBox-root MuiBox-root-88"
+          >
+            Prévia da frente do veículo
+          </figcaption>
+        </div>
+        <img
+          alt="Prévia da frente do veículo"
+          className="makeStyles-root-89"
+          loading="lazy"
+          src={null}
+        />
+      </figure>
+    </div>
+  </fieldset>
+</form>
+`;
