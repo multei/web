@@ -20,6 +20,8 @@ excluded_words:
   - automerge
   - contributorsrc
   - dev
+  - fieldset
+  - figcaption
   - filesystem
   - gatsby
   - gatsby-source-filesystem
