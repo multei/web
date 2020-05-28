@@ -66,6 +66,7 @@ const CarFrontPhotoStep = ({
             name="carFrontImage"
             required={true}
             tabIndex={-1}
+            capture={false}
           />
         </Typography>
       </Paragraph>
