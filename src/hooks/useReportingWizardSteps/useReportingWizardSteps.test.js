@@ -4,8 +4,17 @@ import CarFrontPhotoStep from  "./../../containers/CarFrontPhotoStep"
 import CarPlateConfirmStep from "./../../containers/CarPlateConfirmStep"
 import LocationStep from "./../../containers/LocationStep"
 import SuccessStep from "./../../components/SuccessStep"
+import useFeatureToggle from "../useFeatureToggle"
+
+jest.mock("../useFeatureToggle")
 
 describe("Reporting wizard steps", () => {
+
+  const featureToggleImplementation = (keys) => (key) => {
+    if (keys[key] !== undefined) return [keys[key]]
+    return [false]
+  }
+
   it("should return an array", () => {
     const steps = useReportingWizardSteps()
     expect(steps).toBeInstanceOf(Array)
@@ -49,5 +58,25 @@ describe("Reporting wizard steps", () => {
 
     expect(steps[3].label).toBe("Denúncia realizada")
     expect(steps[3].component).toBe(SuccessStep)
+  })
+
+  xit("should not return steps that are toggled off", () => {
+    useFeatureToggle.mockImplementation(
+      featureToggleImplementation({
+        // CAR_REPORT_PHOTO_INSTRUCTIONS: false,
+        PLATE_CONFIRMATION_STEP: false,
+      })
+    )
+
+    const steps = useReportingWizardSteps()
+
+    expect(steps[0].label).toBe("Enviar foto da frente")
+    expect(steps[0].component).toBe(CarFrontPhotoStep)
+
+    expect(steps[1].label).toBe("Enviar localização")
+    expect(steps[1].component).toBe(LocationStep)
+
+    expect(steps[2].label).toBe("Denúncia realizada")
+    expect(steps[2].component).toBe(SuccessStep)
   })
 })
