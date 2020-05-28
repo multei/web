@@ -1,6 +1,6 @@
 import React from "react"
 import { useReportingWizardSteps } from "./useReportingWizardSteps"
-import CarFrontPhotoStep from  "./../../containers/CarFrontPhotoStep"
+import CarFrontPhotoStep from "./../../containers/CarFrontPhotoStep"
 import CarPlateConfirmStep from "./../../containers/CarPlateConfirmStep"
 import LocationStep from "./../../containers/LocationStep"
 import SuccessStep from "./../../components/SuccessStep"
@@ -9,7 +9,6 @@ import useFeatureToggle from "../useFeatureToggle"
 jest.mock("../useFeatureToggle")
 
 describe("Reporting wizard steps", () => {
-
   const featureToggleImplementation = (keys) => (key) => {
     if (keys[key] !== undefined) return [keys[key]]
     return [false]

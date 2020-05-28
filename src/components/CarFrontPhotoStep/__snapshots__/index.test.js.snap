@@ -65,7 +65,7 @@ exports[`CarFrontPhotoStep renders correctly 1`] = `
       >
         <input
           accept="image/*"
-          capture={false}
+          capture={null}
           data-test-id="carFrontImageUploadField"
           id="carFrontImageUploadField"
           name="carFrontImage"
