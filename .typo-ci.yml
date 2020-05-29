@@ -19,6 +19,7 @@ excluded_words:
   - adalbertomaia
   - automerge
   - contributorsrc
+  - data-testid
   - dev
   - fieldset
   - figcaption
