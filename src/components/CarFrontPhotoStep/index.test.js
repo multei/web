@@ -5,14 +5,13 @@ import CarFrontPhotoStep from "."
 
 describe("CarFrontPhotoStep", () => {
   let props
-  
+
   beforeEach(() => {
     props = {
       onChange: () => {},
       onSubmit: () => {},
       photoPreviewURL: null,
     }
-
   })
 
   it("renders correctly", () => {
@@ -21,17 +20,17 @@ describe("CarFrontPhotoStep", () => {
   })
 
   it("should not show the photo preview", () => {
-    render( <CarFrontPhotoStep {...props} />)
+    render(<CarFrontPhotoStep {...props} />)
 
     const element = screen.getByTestId("previewFade")
-    expect(element.style).toHaveProperty('visibility', 'hidden')
+    expect(element.style).toHaveProperty("visibility", "hidden")
   })
 
   it("should show the photo preview", () => {
-    props.photoPreviewURL = 'someURL'
-    render( <CarFrontPhotoStep {...props} />)
+    props.photoPreviewURL = "someURL"
+    render(<CarFrontPhotoStep {...props} />)
 
     const element = screen.getByTestId("previewFade")
-    expect(element.style).not.toHaveProperty('visibility', 'hidden')
+    expect(element.style).not.toHaveProperty("visibility", "hidden")
   })
 })
