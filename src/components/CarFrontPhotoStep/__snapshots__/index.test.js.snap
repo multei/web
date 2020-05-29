@@ -78,6 +78,7 @@ exports[`CarFrontPhotoStep renders correctly 1`] = `
     </p>
     <div
       className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+      data-testid="previewFade"
       style={
         Object {
           "opacity": 0,

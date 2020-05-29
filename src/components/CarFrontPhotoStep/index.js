@@ -70,7 +70,7 @@ const CarFrontPhotoStep = ({
           />
         </Typography>
       </Paragraph>
-      <Fade in={Boolean(photoPreviewURL)}>
+      <Fade in={Boolean(photoPreviewURL)} data-testid="previewFade">
         <Paper>
           <Figure>
             <Typography component={"div"} variant={"srOnly"}>
