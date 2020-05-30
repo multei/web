@@ -86,7 +86,7 @@
     "@testing-library/cypress": "6.0.0",
     "@testing-library/jest-dom": "5.8.0",
     "@testing-library/react": "10.0.4",
-    "axe-core": "3.5.3",
+    "axe-core": "3.5.4",
     "axios": "0.19.2",
     "babel-jest": "26.0.1",
     "babel-preset-gatsby": "0.4.7",
