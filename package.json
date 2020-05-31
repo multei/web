@@ -70,7 +70,7 @@
     "gatsby-source-filesystem": "2.3.8",
     "gatsby-transformer-sharp": "2.5.3",
     "metax": "1.1.0",
-    "muy": "1.0.7",
+    "muy": "1.1.0",
     "prop-types": "15.7.2",
     "query-string": "6.12.1",
     "react": "16.13.1",
