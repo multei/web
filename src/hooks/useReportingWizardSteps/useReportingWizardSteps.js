@@ -2,6 +2,7 @@ import CarFrontPhotoStep from "../../containers/CarFrontPhotoStep"
 import CarPlateConfirmStep from "../../containers/CarPlateConfirmStep"
 import LocationStep from "../../containers/LocationStep"
 import SuccessStep from "../../components/SuccessStep"
+import useFeatureToggle from "../useFeatureToggle"
 
 const steps = Object.freeze([
   {
@@ -11,6 +12,7 @@ const steps = Object.freeze([
   {
     label: "Confirmar placa",
     component: CarPlateConfirmStep,
+    featureToggle: "PLATE_CONFIRMATION_STEP"
   },
   {
     label: "Enviar localização",
@@ -22,4 +24,20 @@ const steps = Object.freeze([
   },
 ])
 
-export const useReportingWizardSteps = () => steps
+export const useReportingWizardSteps = () => {
+  let toReturn = []
+
+  steps.forEach(step => {
+    if (isEnabled(step)) {
+      toReturn.push(step)
+    }
+  })
+
+  return toReturn
+}
+
+const isEnabled = (step) => {
+  const [ featureToggle ] = useFeatureToggle(step.featureToggle)
+
+  return step.featureToggle ? featureToggle : true
+}

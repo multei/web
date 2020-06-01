@@ -14,6 +14,14 @@ describe("Reporting wizard steps", () => {
     return [false]
   }
 
+  beforeEach(() => {
+    useFeatureToggle.mockImplementation(
+      featureToggleImplementation({
+        PLATE_CONFIRMATION_STEP: true,
+      })
+    )
+  })
+
   it("should return an array", () => {
     const steps = useReportingWizardSteps()
     expect(steps).toBeInstanceOf(Array)
@@ -59,7 +67,7 @@ describe("Reporting wizard steps", () => {
     expect(steps[3].component).toBe(SuccessStep)
   })
 
-  xit("should not return steps that are toggled off", () => {
+  it("should not return steps that are toggled off", () => {
     useFeatureToggle.mockImplementation(
       featureToggleImplementation({
         // CAR_REPORT_PHOTO_INSTRUCTIONS: false,
