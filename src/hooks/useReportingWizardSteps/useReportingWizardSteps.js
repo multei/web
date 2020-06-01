@@ -12,7 +12,7 @@ const steps = Object.freeze([
   {
     label: "Confirmar placa",
     component: CarPlateConfirmStep,
-    featureToggle: "PLATE_CONFIRMATION_STEP"
+    featureToggle: "PLATE_CONFIRMATION_STEP",
   },
   {
     label: "Enviar localização",
@@ -27,7 +27,7 @@ const steps = Object.freeze([
 export const useReportingWizardSteps = () => {
   let toReturn = []
 
-  steps.forEach(step => {
+  steps.forEach((step) => {
     if (isEnabled(step)) {
       toReturn.push(step)
     }
@@ -37,7 +37,7 @@ export const useReportingWizardSteps = () => {
 }
 
 const isEnabled = (step) => {
-  const [ featureToggle ] = useFeatureToggle(step.featureToggle)
+  const [featureToggle] = useFeatureToggle(step.featureToggle)
 
   return step.featureToggle ? featureToggle : true
 }

@@ -53,7 +53,7 @@ describe("Reporting wizard steps", () => {
 
   xit("should return right steps", () => {
     const steps = useReportingWizardSteps()
-    
+
     expect(steps[0].label).toBe("Instruções")
     expect(steps[0].component).toBe(CarPhotoInstructions)
 
