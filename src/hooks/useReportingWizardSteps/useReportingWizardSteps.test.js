@@ -1,10 +1,11 @@
 import React from "react"
+import useFeatureToggle from "../useFeatureToggle"
 import { useReportingWizardSteps } from "./useReportingWizardSteps"
 import CarFrontPhotoStep from "./../../containers/CarFrontPhotoStep"
 import CarPlateConfirmStep from "./../../containers/CarPlateConfirmStep"
 import LocationStep from "./../../containers/LocationStep"
+import { CarPhotoInstructionsStep } from "./../../components/CarPhotoInstructionsStep"
 import SuccessStep from "./../../components/SuccessStep"
-import useFeatureToggle from "../useFeatureToggle"
 
 jest.mock("../useFeatureToggle")
 
@@ -17,6 +18,7 @@ describe("Reporting wizard steps", () => {
   beforeEach(() => {
     useFeatureToggle.mockImplementation(
       featureToggleImplementation({
+        CAR_REPORT_PHOTO_INSTRUCTIONS: true,
         PLATE_CONFIRMATION_STEP: true,
       })
     )
@@ -51,11 +53,11 @@ describe("Reporting wizard steps", () => {
     })
   })
 
-  xit("should return right steps", () => {
+  it("should return right steps", () => {
     const steps = useReportingWizardSteps()
 
     expect(steps[0].label).toBe("Instruções")
-    expect(steps[0].component).toBe(CarPhotoInstructions)
+    expect(steps[0].component).toBe(CarPhotoInstructionsStep)
 
     expect(steps[1].label).toBe("Enviar foto da frente")
     expect(steps[1].component).toBe(CarFrontPhotoStep)
