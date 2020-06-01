@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CarFrontPhotoStep renders correctly 1`] = `
+exports[`CarFrontPhotoStep should render correctly 1`] = `
 <form
   className="MuiBox-root MuiBox-root-2"
   data-name="form"

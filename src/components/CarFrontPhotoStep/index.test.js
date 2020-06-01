@@ -14,19 +14,19 @@ describe("CarFrontPhotoStep", () => {
     }
   })
 
-  it("renders correctly", () => {
+  it("should render correctly", () => {
     const tree = renderer.create(<CarFrontPhotoStep {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-  it("should not show the photo preview", () => {
+  it("should hide the photo preview while no car front photo is uploaded", () => {
     render(<CarFrontPhotoStep {...props} />)
 
     const element = screen.getByTestId("previewFade")
     expect(element.style).toHaveProperty("visibility", "hidden")
   })
 
-  it("should show the photo preview", () => {
+  it("should show the photo preview when a car front photo is uploaded", () => {
     props.photoPreviewURL = "someURL"
     render(<CarFrontPhotoStep {...props} />)
 
