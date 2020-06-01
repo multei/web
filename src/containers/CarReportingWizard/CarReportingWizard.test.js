@@ -2,7 +2,7 @@ import React from "react"
 import { RecoilRoot } from "recoil"
 import { render, screen } from "@testing-library/react"
 import useFeatureToggle from "../../hooks/useFeatureToggle"
-import CarReportingWizard from "."
+import CarReportingWizard from "./CarReportingWizard"
 
 jest.mock("../../hooks/useFeatureToggle")
 
