@@ -2,6 +2,7 @@
   "extends": ["config:base"],
   "assignees": ["jimmyandrade"],
   "enabled": true,
+  "ignoreDeps": ["recoil"],
   "labels": ["dependencies", "renovate"],
   "packageRules": [
     {
@@ -14,7 +15,7 @@
     }
   ],
   "semanticCommits": true,
-  "schedule": "before 3am on the first day of the month",
+  "schedule": ["before 3am on the first day of the month"],
   "unicodeEmoji": true,
   "updateLockFiles": true
 }
