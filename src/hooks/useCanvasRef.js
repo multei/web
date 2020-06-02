@@ -10,7 +10,9 @@ const useCanvasRef = () => {
    * Expose canvas to browser once
    */
   useEffect(() => {
-    window.canvas = canvasRef.current
+    if (typeof window !== "undefined") {
+      window.canvas = canvasRef.current
+    }
   }, [canvasRef])
 
   return canvasRef

@@ -27,7 +27,7 @@ const useFeatureToggle = (key) => {
   useDebugValue(value)
 
   useEffect(() => {
-    if (window.Cypress) {
+    if (typeof window !== "undefined" && window.Cypress) {
       setValue(valueSanitizer(window.Cypress.env[key]))
     }
   }, [key])
@@ -65,8 +65,12 @@ const useFeatureToggle = (key) => {
         setValue(localChangedValue)
       }
     }
-    window.addEventListener("storage", listener)
-    return () => window.removeEventListener("storage", listener)
+    if (typeof window !== "undefined") {
+      window.addEventListener("storage", listener)
+    }
+    return () =>
+      typeof window !== "undefined" &&
+      window.removeEventListener("storage", listener)
   }, [localStorageKey])
 
   return [value]

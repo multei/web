@@ -26,8 +26,9 @@ const useUserMedia = (constraints) => {
    * Expose this stream to browser
    */
   useEffect(() => {
-    console.info("Exposing stream to browser...")
-    window.stream = stream
+    if (typeof window !== "undefined") {
+      window.stream = stream
+    }
   }, [stream])
 
   return [stream, getUserMedia]

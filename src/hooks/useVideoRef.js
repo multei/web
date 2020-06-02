@@ -18,7 +18,9 @@ const useVideoRef = () => {
    * Expose video to browser once
    */
   useEffect(() => {
-    window.video = videoRef.current
+    if (typeof window !== "undefined") {
+      window.video = videoRef.current
+    }
   }, [videoRef])
 
   /**
