@@ -9,7 +9,7 @@ const steps = Object.freeze([
   {
     label: "Instruções",
     component: CarPhotoInstructionsStep,
-    featureToggle: "CAR_REPORT_PHOTO_INSTRUCTIONS"
+    featureToggle: "CAR_REPORT_PHOTO_INSTRUCTIONS",
   },
   {
     label: "Enviar foto da frente",

@@ -1,3 +1,3 @@
-import CarReportingWizard from './CarReportingWizard'
+import CarReportingWizard from "./CarReportingWizard"
 
 export default CarReportingWizard
