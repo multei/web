@@ -45,7 +45,7 @@ export default ({ carPlate }) => {
     }
   }
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [, dispatch] = useReducer(reducer, initialState)
   const [stateCarPlate, setCarPlate] = useState(carPlate)
   const setReportedParkingsState = useSetReportedParkingsState()
 
