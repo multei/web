@@ -1,5 +1,9 @@
-import { reportedParkingsState } from "../recoil/atoms/reportedParkingsState"
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
+import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
+
+export const reportedParkingsState = atom({
+  key: "reportedParkingState",
+  default: [],
+})
 
 export const useReportedParkingsState = () =>
   useRecoilState(reportedParkingsState)
