@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<footer
+  className="MuiBox-root MuiBox-root-2"
+  itemScope={true}
+  itemType="https://schema.org/WPFooter"
+  role="contentinfo"
+>
+  <div
+    className="MuiContainer-root MuiContainer-maxWidthSm"
+  >
+    <ul
+      className="MuiList-root makeStyles-root-11 MuiBox-root MuiBox-root-12 makeStyles-root-11"
+    >
+      <li
+        className="MuiListItem-root MuiListItem-gutters"
+        disabled={false}
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph"
+        >
+          <small>
+            © 
+            2020
+             
+            <strong>
+              Test site title
+            </strong>
+          </small>
+        </p>
+      </li>
+      <li
+        className="MuiListItem-root MuiListItem-gutters"
+        disabled={false}
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorInherit"
+          href="/ajuda"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Ajuda
+        </a>
+      </li>
+      <li
+        className="MuiListItem-root MuiListItem-gutters"
+        disabled={false}
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorInherit"
+          href="/privacidade"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Privacidade
+        </a>
+      </li>
+      <li
+        className="MuiListItem-root MuiListItem-gutters"
+        disabled={false}
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorInherit"
+          href="/termos"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Termos de uso
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+`;
