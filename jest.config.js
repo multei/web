@@ -1,4 +1,13 @@
 module.exports = {
+  collectCoverage: true,
+  coverageThreshold: {
+    global: {
+      branches: 32.54,
+      functions: 35.51,
+      lines: 49.87,
+      statements: 49.63,
+    },
+  },
   globals: {
     __DEV__: true,
     __PATH_PREFIX__: ``,

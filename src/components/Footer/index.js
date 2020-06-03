@@ -5,6 +5,7 @@ import Link from "@material-ui/core/Link"
 import ListItem from "@material-ui/core/ListItem"
 import Container from "@material-ui/core/Container"
 import { HorizontalList, PageFooter } from "muy"
+import { CopyrightText } from "../CopyrightText"
 
 export default ({ siteTitle }) => {
   return (
@@ -12,14 +13,7 @@ export default ({ siteTitle }) => {
       <Container maxWidth="sm">
         <HorizontalList>
           <ListItem>
-            <Link
-              color="inherit"
-              component={GatsbyLink}
-              to="/"
-              underline="always"
-            >
-              © {new Date().getFullYear()} {siteTitle}
-            </Link>
+            <CopyrightText siteTitle={siteTitle} />
           </ListItem>
           <ListItem>
             <Link

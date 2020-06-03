@@ -1,11 +1,11 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import { Header } from "."
+import { CopyrightText } from "."
 
 describe("Header", () => {
-  it("renders correctly", () => {
+  it("renders correctly with site title", () => {
     const tree = renderer
-      .create(<Header siteTitle="Test site title" />)
+      .create(<CopyrightText siteTitle="Test site name" />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })

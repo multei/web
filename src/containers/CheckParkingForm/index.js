@@ -45,16 +45,18 @@ export default ({ carPlate }) => {
     }
   }
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [, dispatch] = useReducer(reducer, initialState)
   const [stateCarPlate, setCarPlate] = useState(carPlate)
   const setReportedParkingsState = useSetReportedParkingsState()
 
   useEffect(() => {
-    window.history.pushState(
-      { carPlate },
-      null,
-      `/consultar?car_plate=${carPlate}`
-    )
+    if (typeof window !== "undefined") {
+      window.history.pushState(
+        { carPlate },
+        null,
+        `/consultar?car_plate=${carPlate}`
+      )
+    }
   })
 
   const handleCarPlateChange = (event) => {

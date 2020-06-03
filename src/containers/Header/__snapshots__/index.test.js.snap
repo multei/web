@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> container should render 1`] = `
+<header
+  className="MuiBox-root MuiBox-root-42 MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
+  itemScope={true}
+  itemType="https://schema.org/WPHeader"
+  role="banner"
+>
+  <div
+    className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+  >
+    <h1
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      <a
+        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+        href="/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        target="_self"
+      >
+        
+      </a>
+    </h1>
+  </div>
+</header>
+`;

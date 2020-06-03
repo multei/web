@@ -27,7 +27,7 @@ const useFeatureToggle = (key) => {
   useDebugValue(value)
 
   useEffect(() => {
-    if (window.Cypress) {
+    if (typeof window !== "undefined" && window.Cypress) {
       setValue(valueSanitizer(window.Cypress.env[key]))
     }
   }, [key])
@@ -37,6 +37,7 @@ const useFeatureToggle = (key) => {
       CAR_REPORT_PHOTO_INSTRUCTIONS:
         process.env.GATSBY_TOGGLE_CAR_REPORT_PHOTO_INSTRUCTIONS,
       GET_USER_MEDIA: process.env.GATSBY_TOGGLE_GET_USER_MEDIA,
+      NAVIGATION_DRAWER: process.env.GATSBY_TOGGLE_NAVIGATION_DRAWER,
       PARKING_CHECK: process.env.GATSBY_TOGGLE_PARKING_CHECK,
       PARKING_REPORT: process.env.GATSBY_TOGGLE_PARKING_REPORT,
       PLATE_CONFIRMATION_STEP:
@@ -65,8 +66,12 @@ const useFeatureToggle = (key) => {
         setValue(localChangedValue)
       }
     }
-    window.addEventListener("storage", listener)
-    return () => window.removeEventListener("storage", listener)
+    if (typeof window !== "undefined") {
+      window.addEventListener("storage", listener)
+    }
+    return () =>
+      typeof window !== "undefined" &&
+      window.removeEventListener("storage", listener)
   }, [localStorageKey])
 
   return [value]

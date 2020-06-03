@@ -112,7 +112,11 @@ const TakeCarFrontPhotoStep = () => {
 
       <Skeleton style={{ maxWidth: "100%", height: "auto" }} variant="rect" />
 
-      <canvas ref={canvasRef} style={{ maxWidth: "100%", height: "auto" }} />
+      <canvas
+        aria-label={"Prévia da foto que você acabou de tirar"}
+        ref={canvasRef}
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
     </>
   )
 }
