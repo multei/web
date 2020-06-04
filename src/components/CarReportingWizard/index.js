@@ -45,10 +45,10 @@ const CarReportingWizard = ({
       <Hidden implementation="css" xsDown={true}>
         {showBackButton && backButton}
         <Stepper activeStep={activeStep} orientation={"vertical"}>
-          {steps.map((label, index) => {
+          {steps.map((step, index) => {
             return (
               <Step key={`car-reporting-wizard-step-${index}`}>
-                <StepLabel>{label}</StepLabel>
+                <StepLabel>{step.label}</StepLabel>
                 {activeStep === index && (
                   <StepContent>
                     {children}

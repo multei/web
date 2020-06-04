@@ -1,18 +1,20 @@
 import React from "react"
 import CarReportingWizard from "../../components/CarReportingWizard"
 import { renderStepContent } from "./renderStepContent"
-import { getSteps } from "./getSteps"
 import useFeatureToggle from "../../hooks/useFeatureToggle"
 import { useParkingReportValue } from "../../hooks/useParkingReportState"
 import { useStepsNavigation } from "../../hooks/useStepsNavigation"
 import activeStepHasValidData from "../../validators/activeStepHasValidData"
+import { useReportingWizardSteps } from "../../hooks/useReportingWizardSteps"
 
 export default () => {
   const [getPlateConfirmationStepToggle] = useFeatureToggle(
     "PLATE_CONFIRMATION_STEP"
   )
 
-  const [steps, maxSteps] = getSteps({ getPlateConfirmationStepToggle })
+  const steps = useReportingWizardSteps()
+  const maxSteps = steps.length()
+
   const {
     activeStepIndex,
     handleBack,
