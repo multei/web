@@ -60,7 +60,7 @@ export default () => {
       steps={steps}
     >
       {renderStepContent({
-        getPlateConfirmationStepToggle,
+        steps,
         stepIndex: activeStepIndex,
       })}
     </CarReportingWizard>
