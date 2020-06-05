@@ -33,7 +33,7 @@ export const useReportingWizardSteps = ({ toggles }) => {
   ])
 
   steps.forEach((step) => {
-    if (step.featureToggle ? toggles[step.featureToggle]  : true) {
+    if (step.featureToggle ? toggles[step.featureToggle] : true) {
       result = [...result, step]
     }
   })

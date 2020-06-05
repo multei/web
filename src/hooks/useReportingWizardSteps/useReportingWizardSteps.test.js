@@ -11,7 +11,7 @@ describe("Reporting wizard steps", () => {
     toggles: {
       CAR_REPORT_PHOTO_INSTRUCTIONS: true,
       PLATE_CONFIRMATION_STEP: true,
-    }
+    },
   }
 
   it("should return an array", () => {
@@ -67,7 +67,7 @@ describe("Reporting wizard steps", () => {
       toggles: {
         CAR_REPORT_PHOTO_INSTRUCTIONS: false,
         PLATE_CONFIRMATION_STEP: false,
-      }
+      },
     })
 
     expect(steps[0].label).toBe("Enviar foto da frente")
