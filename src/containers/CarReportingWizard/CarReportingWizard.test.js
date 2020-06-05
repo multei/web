@@ -16,7 +16,6 @@ describe("<CarReportingWizard /> container", () => {
   it("should include carPlateConfirmStep when car plate toggle is enabled", async () => {
     useFeatureToggle.mockImplementation(
       featureToggleImplementation({
-        PARKING_REPORT: true,
         PLATE_CONFIRMATION_STEP: true,
       })
     )
@@ -34,7 +33,6 @@ describe("<CarReportingWizard /> container", () => {
   it("should not include carPlateConfirmStep when car plate toggle is disabled", async () => {
     useFeatureToggle.mockImplementation(
       featureToggleImplementation({
-        PARKING_REPORT: true,
         PLATE_CONFIRMATION_STEP: false,
       })
     )

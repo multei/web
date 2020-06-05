@@ -1,13 +1,11 @@
-import { useState } from "react"
 import CarFrontPhotoStep from "../../containers/CarFrontPhotoStep"
 import CarPlateConfirmStep from "../../containers/CarPlateConfirmStep"
 import { CarPhotoInstructionsStep } from "../../components/CarPhotoInstructionsStep"
 import LocationStep from "../../containers/LocationStep"
 import SuccessStep from "../../components/SuccessStep"
-import useFeatureToggle from "../useFeatureToggle"
 
-export const useReportingWizardSteps = () => {
-  const [value, setValue] = useState([])
+export const useReportingWizardSteps = ({ toggles }) => {
+  let result = []
 
   const steps = Object.freeze([
     {
@@ -34,17 +32,11 @@ export const useReportingWizardSteps = () => {
     },
   ])
 
-  const isEnabled = (step) => {
-    const [featureToggle] = useFeatureToggle(step.featureToggle)
-
-    return step.featureToggle ? featureToggle : true
-  }
-
   steps.forEach((step) => {
-    if (isEnabled(step)) {
-      setValue([...value, step])
+    if (step.featureToggle ? toggles[step.featureToggle]  : true) {
+      result = [...result, step]
     }
   })
 
-  return value
+  return result
 }

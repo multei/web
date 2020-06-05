@@ -12,8 +12,19 @@ export default () => {
     "PLATE_CONFIRMATION_STEP"
   )
 
-  const steps = useReportingWizardSteps()
-  const maxSteps = steps.length()
+  const toggles = {
+    toggles: {
+      CAR_REPORT_PHOTO_INSTRUCTIONS: useFeatureToggle(
+        "CAR_REPORT_PHOTO_INSTRUCTIONS"
+      )[0],
+      PLATE_CONFIRMATION_STEP: useFeatureToggle(
+        "PLATE_CONFIRMATION_STEP"
+      )[0],
+    }
+  }
+
+  const steps = useReportingWizardSteps(toggles)
+  const maxSteps = steps.length
 
   const {
     activeStepIndex,
