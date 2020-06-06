@@ -1,21 +1,34 @@
 {
-  "extends": ["config:base"],
-  "assignees": ["jimmyandrade"],
   "enabled": true,
-  "ignoreDeps": ["recoil"],
+  "extends": ["config:base"],
   "labels": ["dependencies", "renovate"],
+  "masterIssue": true,
+  "masterIssueAutoclose": true,
   "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
     {
       "updateTypes": ["major"],
       "automerge": false
     },
     {
-      "updateTypes": ["digest", "minor", "patch", "pin"],
-      "automerge": true
+      "packagePatterns": ["^cypress"],
+      "groupName": "cypress"
+    },
+    {
+      "packagePatterns": ["eslint"],
+      "labels": ["linting"]
     }
   ],
+  "reviewers": ["jimmyandrade"],
   "semanticCommits": true,
-  "schedule": ["before 3am on the first day of the month"],
+  "schedule": ["every weekend"],
+  "stabilityDays": 16,
   "unicodeEmoji": true,
-  "updateLockFiles": true
+  "updateLockFiles": true,
+  "vulnerabilityAlerts": {
+    "enabled": true
+  }
 }
