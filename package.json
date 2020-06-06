@@ -71,7 +71,7 @@
     "gatsby-plugin-sitemap": "2.4.3",
     "gatsby-source-filesystem": "2.3.8",
     "gatsby-transformer-sharp": "2.5.3",
-    "metax": "1.1.0",
+    "metax": "1.2.0",
     "muy": "1.1.0",
     "prop-types": "15.7.2",
     "query-string": "6.12.1",
