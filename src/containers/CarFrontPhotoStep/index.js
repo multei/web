@@ -13,12 +13,14 @@ export default ({ onSubmit, ...props }) => {
   const handleFileUpload = (event) => {
     event.persist()
     setLoading(true)
-    
+
     const file = event.target.files[0]
 
     setParkingReportState((oldParkingReportState) => ({
       ...oldParkingReportState,
-      carFrontPhotoPreviewUrl: file ? URL.createObjectURL(file) : oldParkingReportState.carFrontPhotoPreviewUrl
+      carFrontPhotoPreviewUrl: file
+        ? URL.createObjectURL(file)
+        : oldParkingReportState.carFrontPhotoPreviewUrl,
     }))
 
     setLoading(false)

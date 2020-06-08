@@ -11,15 +11,14 @@ jest.mock("./../../hooks/useFeatureToggle")
 jest.mock("./../../hooks/useLoadingState")
 jest.mock("./../../hooks/useParkingReportState")
 
-
 describe("CarFrontPhotoStep", () => {
   let props
 
   beforeEach(() => {
     props = {
-      onSubmit: () => { },
+      onSubmit: () => {},
     }
-    useSetLoadingState.mockReturnValue(() => { })
+    useSetLoadingState.mockReturnValue(() => {})
     useFeatureToggle.mockReturnValue([false])
 
     useParkingReportState.mockReturnValue([
