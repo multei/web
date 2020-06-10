@@ -61,7 +61,7 @@ const CarFrontPhotoStep = ({
         <Typography component={"span"} variant={"srOnly"}>
           <PhotoUploadField
             id="carFrontImageUploadField"
-            data-test-id="carFrontImageUploadField"
+            data-testid="carFrontImageUploadField"
             onChange={onChange}
             name="carFrontImage"
             required={true}

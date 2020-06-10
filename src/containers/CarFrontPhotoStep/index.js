@@ -14,22 +14,13 @@ export default ({ onSubmit, ...props }) => {
     event.persist()
     setLoading(true)
 
-    if (typeof event.target.files[0] === "undefined") {
-      setLoading(false)
-
-      setParkingReportState((oldParkingReportState) => ({
-        ...oldParkingReportState,
-        carFrontPhotoPreviewUrl: null,
-      }))
-
-      return false
-    }
-
     const file = event.target.files[0]
 
     setParkingReportState((oldParkingReportState) => ({
       ...oldParkingReportState,
-      carFrontPhotoPreviewUrl: URL.createObjectURL(file),
+      carFrontPhotoPreviewUrl: file
+        ? URL.createObjectURL(file)
+        : oldParkingReportState.carFrontPhotoPreviewUrl,
     }))
 
     setLoading(false)
