@@ -27,7 +27,6 @@ export const useReportingWizardSteps = ({ toggles }) => {
       component: CarPlateConfirmStep,
       featureToggle: "PLATE_CONFIRMATION_STEP",
       validator: isCarPlateValid,
-
     },
     {
       label: "Enviar localização",
