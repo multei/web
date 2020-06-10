@@ -4,6 +4,10 @@ import { CarPhotoInstructionsStep } from "../../components/CarPhotoInstructionsS
 import LocationStep from "../../containers/LocationStep"
 import SuccessStep from "../../components/SuccessStep"
 
+import { isCarFrontPhotoValid } from "../../validators/isCarFrontPhotoValid"
+import { isCarPlateValid } from "../../validators/isCarPlateValid"
+import { isCurrentPositionValid } from "../../validators/isCurrentPositionValid"
+
 export const useReportingWizardSteps = ({ toggles }) => {
   let result = []
 
@@ -16,15 +20,19 @@ export const useReportingWizardSteps = ({ toggles }) => {
     {
       label: "Enviar foto da frente",
       component: CarFrontPhotoStep,
+      validator: isCarFrontPhotoValid,
     },
     {
       label: "Confirmar placa",
       component: CarPlateConfirmStep,
       featureToggle: "PLATE_CONFIRMATION_STEP",
+      validator: isCarPlateValid,
+
     },
     {
       label: "Enviar localização",
       component: LocationStep,
+      validator: isCurrentPositionValid,
     },
     {
       label: "Denúncia realizada",

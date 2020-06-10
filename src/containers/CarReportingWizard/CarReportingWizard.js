@@ -8,10 +8,6 @@ import activeStepHasValidData from "../../validators/activeStepHasValidData"
 import { useReportingWizardSteps } from "../../hooks/useReportingWizardSteps"
 
 export default () => {
-  const [getPlateConfirmationStepToggle] = useFeatureToggle(
-    "PLATE_CONFIRMATION_STEP"
-  )
-
   const toggles = {
     toggles: {
       CAR_REPORT_PHOTO_INSTRUCTIONS: useFeatureToggle(
@@ -40,7 +36,7 @@ export default () => {
   const nextButtonDisabled = () =>
     !activeStepHasValidData({
       activeStepIndex,
-      getPlateConfirmationStepToggle,
+      steps,
       parkingReportState,
     })
 
