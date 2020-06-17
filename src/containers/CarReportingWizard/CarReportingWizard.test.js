@@ -46,4 +46,38 @@ describe("<CarReportingWizard /> container", () => {
     const label = await screen.queryByText("Confirmar placa")
     expect(label).toBeFalsy()
   })
+
+  it("should include CarPhotoInstructionsStep when car plate toggle is enabled", async () => {
+    useFeatureToggle.mockImplementation(
+      featureToggleImplementation({
+        CAR_REPORT_PHOTO_INSTRUCTIONS: true,
+      })
+    )
+
+    render(
+      <RecoilRoot>
+        <CarReportingWizard />
+      </RecoilRoot>
+    )
+
+    const label = await screen.getByText("Instruções")
+    expect(label).toBeTruthy()
+  })
+
+  it("should not include CarPhotoInstructionsStep when toggle is disabled", async () => {
+    useFeatureToggle.mockImplementation(
+      featureToggleImplementation({
+        CAR_REPORT_PHOTO_INSTRUCTIONS: false,
+      })
+    )
+
+    render(
+      <RecoilRoot>
+        <CarReportingWizard />
+      </RecoilRoot>
+    )
+
+    const label = await screen.queryByText("Instruções")
+    expect(label).toBeFalsy()
+  })
 })
