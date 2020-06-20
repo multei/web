@@ -1,6 +1,7 @@
 {
   "enabled": true,
   "extends": ["config:base"],
+  "ignoreDeps": ["recoil"],
   "labels": ["dependencies", "renovate"],
   "masterIssue": true,
   "masterIssueAutoclose": true,
