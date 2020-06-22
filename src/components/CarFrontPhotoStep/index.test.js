@@ -11,6 +11,7 @@ describe("CarFrontPhotoStep", () => {
       onChange: () => {},
       onSubmit: () => {},
       photoPreviewURL: null,
+      isCarFrontPhotoValid: true,
     }
   })
 
@@ -32,5 +33,14 @@ describe("CarFrontPhotoStep", () => {
 
     const element = screen.getByTestId("previewFade")
     expect(element.style).not.toHaveProperty("visibility", "hidden")
+  })
+
+  it("should show the warning when the photo is invalid", () => {
+    props.isCarFrontPhotoValid = false
+
+    render(<CarFrontPhotoStep {...props} />)
+
+    const element = screen.getByText("Por favor, envie uma foto da parte da frente do veículo.")
+    expect(element).toBeTruthy()
   })
 })

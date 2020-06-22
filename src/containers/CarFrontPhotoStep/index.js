@@ -31,9 +31,10 @@ export default ({ onSubmit, ...props }) => {
     setLoading(true)
     onSubmit()
   }
-  const { carFrontPhotoPreviewUrl } = parkingReportState
+  const { carFrontPhotoPreviewUrl, isCarFrontPhotoValid } = parkingReportState
 
   props = {
+    isCarFrontPhotoValid,
     onChange: handleFileUpload,
     onSubmit: handleSubmit,
     photoPreviewURL: carFrontPhotoPreviewUrl,

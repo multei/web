@@ -37,7 +37,7 @@ const CarFrontPhotoStep = ({
         A&nbsp;foto precisa mostrar o&nbsp;painel do&nbsp;veículo e&nbsp;provar
         que&nbsp;não&nbsp;há uma credencial visível.
       </Paragraph>
-      {!isCarFrontPhotoValid && false && (
+      {!isCarFrontPhotoValid && (
         <Alert severity="warning" variant="outlined">
           <AlertTitle>
             Por favor, envie uma foto da parte da frente do veículo.
