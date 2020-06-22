@@ -40,7 +40,9 @@ describe("CarFrontPhotoStep", () => {
 
     render(<CarFrontPhotoStep {...props} />)
 
-    const element = screen.getByText("Por favor, envie uma foto da parte da frente do veículo.")
+    const element = screen.getByText(
+      "Por favor, envie uma foto da parte da frente do veículo."
+    )
     expect(element).toBeTruthy()
   })
 })

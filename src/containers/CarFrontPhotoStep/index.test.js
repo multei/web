@@ -26,7 +26,7 @@ describe("CarFrontPhotoStep", () => {
         carFrontPhotoPreviewUrl: null,
         carPlate: "",
         currentPosition: null,
-        isCarFrontPhotoValid: true
+        isCarFrontPhotoValid: true,
       },
       jest.fn(),
     ])
