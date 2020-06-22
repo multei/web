@@ -23,18 +23,20 @@ describe("Parkings API", () => {
   })
 
   it("should call parkings API post with car photo", () => {
-    const carFrontPhotoPreviewUrl = 'photo-url'
+    const carFrontPhotoPreviewUrl = "photo-url"
     const parkingReportState = {
-      'carFrontPhotoPreviewUrl': carFrontPhotoPreviewUrl
+      carFrontPhotoPreviewUrl: carFrontPhotoPreviewUrl,
     }
     const version = 0
-    
-    const formData = new FormData();
-    formData.append("car_front_photo", carFrontPhotoPreviewUrl);
+
+    const formData = new FormData()
+    formData.append("car_front_photo", carFrontPhotoPreviewUrl)
 
     createParkingReport(parkingReportState, version)
 
-    expect(Api().post).toHaveBeenCalledWith(`/v${version}/parkings/`, expect.objectContaining(formData))
+    expect(Api().post).toHaveBeenCalledWith(
+      `/v${version}/parkings/`,
+      expect.objectContaining(formData)
+    )
   })
-
 })
