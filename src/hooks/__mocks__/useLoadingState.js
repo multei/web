@@ -1,3 +1,3 @@
 export const useSetLoadingState = () => jest.fn()
 
-export default {useSetLoadingState}
+export default { useSetLoadingState }
