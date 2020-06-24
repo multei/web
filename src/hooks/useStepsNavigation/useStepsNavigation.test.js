@@ -25,7 +25,7 @@ describe("useStepsNavigation", () => {
       steps = [
         {
           label: "Step 1",
-          component: Component
+          component: Component,
         },
         {
           label: "Step 2",
@@ -90,12 +90,12 @@ describe("useStepsNavigation", () => {
       steps = [
         {
           label: "Step 1",
-          component: Component
+          component: Component,
         },
         {
           label: "Step 2",
           component: Component,
-          handleNext: mockHandleNext
+          handleNext: mockHandleNext,
         },
         {
           label: "Step 3",
@@ -105,7 +105,7 @@ describe("useStepsNavigation", () => {
     })
 
     it("should go to the next step", () => {
-      mockHandleNext.mockImplementation(async () => { })
+      mockHandleNext.mockImplementation(async () => {})
 
       const { handleNext } = useStepsNavigation(steps, maxSteps)
 
@@ -114,5 +114,4 @@ describe("useStepsNavigation", () => {
       expect(mockHandleNext).toHaveBeenCalledTimes(1)
     })
   })
-
 })
