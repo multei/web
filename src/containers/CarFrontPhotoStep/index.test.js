@@ -4,8 +4,6 @@ import { RecoilRoot } from "recoil"
 
 import CarFrontPhotoStep from "."
 import useFeatureToggle from "./../../hooks/useFeatureToggle"
-import { useSetLoadingState } from "./../../hooks/useLoadingState"
-import { useParkingReportState } from "./../../hooks/useParkingReportState"
 
 jest.mock("./../../hooks/useFeatureToggle")
 jest.mock("./../../hooks/useLoadingState")
@@ -18,18 +16,7 @@ describe("CarFrontPhotoStep", () => {
     props = {
       onSubmit: () => {},
     }
-    useSetLoadingState.mockReturnValue(() => {})
     useFeatureToggle.mockReturnValue([false])
-
-    useParkingReportState.mockReturnValue([
-      {
-        carFrontPhotoPreviewUrl: null,
-        carPlate: "",
-        currentPosition: null,
-        isCarFrontPhotoValid: true,
-      },
-      jest.fn(),
-    ])
   })
 
   it("should render correctly", () => {
