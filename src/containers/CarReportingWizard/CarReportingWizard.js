@@ -29,7 +29,7 @@ export default () => {
     isLastStep,
     nextButtonLabel,
     transitionDirection,
-  } = useStepsNavigation(maxSteps)
+  } = useStepsNavigation(steps, maxSteps)
 
   const parkingReportState = useParkingReportValue()
 

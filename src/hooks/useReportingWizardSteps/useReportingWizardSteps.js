@@ -8,6 +8,8 @@ import { isCarFrontPhotoValid } from "../../validators/isCarFrontPhotoValid"
 import { isCarPlateValid } from "../../validators/isCarPlateValid"
 import { isCurrentPositionValid } from "../../validators/isCurrentPositionValid"
 
+import { createParkingReport } from "../../services/parkings"
+
 export const useReportingWizardSteps = ({ toggles }) => {
   let result = []
 
@@ -21,6 +23,7 @@ export const useReportingWizardSteps = ({ toggles }) => {
       label: "Enviar foto da frente",
       component: CarFrontPhotoStep,
       validator: isCarFrontPhotoValid,
+      handleNext: createParkingReport,
     },
     {
       label: "Confirmar placa",
