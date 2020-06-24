@@ -1,62 +1,63 @@
-import React, { useState } from 'react';
+import React from "react"
 
 import { useStepsNavigation } from "./useStepsNavigation"
 
 describe("useStepsNavigation", () => {
-    const maxSteps = 3;
-    const mockSetActiveStepIndex = jest.fn()
-    const mockSetTransitionDirection = jest.fn()
+  const maxSteps = 3
+  const mockSetActiveStepIndex = jest.fn()
+  const mockSetTransitionDirection = jest.fn()
 
-    beforeEach(() => {
-        jest.clearAllMocks()
-        jest
-            .spyOn(React, 'useState')
-            .mockImplementationOnce(() => [1, mockSetActiveStepIndex])
-            .mockImplementationOnce(() => ["left", mockSetTransitionDirection])
-    })
+  beforeEach(() => {
+    jest.clearAllMocks()
+    jest
+      .spyOn(React, "useState")
+      .mockImplementationOnce(() => [1, mockSetActiveStepIndex])
+      .mockImplementationOnce(() => ["left", mockSetTransitionDirection])
+  })
 
-    it("should go to the next step", () => {
-        const { handleNext } = useStepsNavigation(maxSteps)
+  it("should go to the next step", () => {
+    const { handleNext } = useStepsNavigation(maxSteps)
 
-        handleNext()
+    handleNext()
 
-        expect(mockSetActiveStepIndex).toHaveBeenCalledTimes(1)
-    })
+    expect(mockSetActiveStepIndex).toHaveBeenCalledTimes(1)
+  })
 
-    it("should set transition direction left", () => {
-        const { handleNext } = useStepsNavigation(maxSteps)
+  it("should set transition direction left", () => {
+    const { handleNext } = useStepsNavigation(maxSteps)
 
-        handleNext()
-        
-        expect(mockSetTransitionDirection).toHaveBeenCalledWith("left")
-    })
+    handleNext()
 
-    it("should back the step", () => {
-        const { handleBack } = useStepsNavigation(maxSteps)
+    expect(mockSetTransitionDirection).toHaveBeenCalledWith("left")
+  })
 
-        handleBack()
-        
-        expect(mockSetActiveStepIndex).toHaveBeenCalledTimes(1)
-    })
+  it("should back the step", () => {
+    const { handleBack } = useStepsNavigation(maxSteps)
 
-    it("should set transition direction right", () => {
-        const { handleBack } = useStepsNavigation(maxSteps)
+    handleBack()
 
-        handleBack()
-        
-        expect(mockSetTransitionDirection).toHaveBeenCalledWith("right")
-    })
+    expect(mockSetActiveStepIndex).toHaveBeenCalledTimes(1)
+  })
 
-    it("should keep in the same step", () => {
-        jest
-            .spyOn(React, 'useState').mockReset()
-            .mockImplementationOnce(() => [0, mockSetActiveStepIndex])
-            .mockImplementationOnce(() => ["left", mockSetTransitionDirection])
+  it("should set transition direction right", () => {
+    const { handleBack } = useStepsNavigation(maxSteps)
 
-        const { handleBack } = useStepsNavigation(maxSteps)
+    handleBack()
 
-        handleBack()
-        
-        expect(mockSetActiveStepIndex).toHaveBeenCalledTimes(0)
-    })
+    expect(mockSetTransitionDirection).toHaveBeenCalledWith("right")
+  })
+
+  it("should keep in the same step", () => {
+    jest
+      .spyOn(React, "useState")
+      .mockReset()
+      .mockImplementationOnce(() => [0, mockSetActiveStepIndex])
+      .mockImplementationOnce(() => ["left", mockSetTransitionDirection])
+
+    const { handleBack } = useStepsNavigation(maxSteps)
+
+    handleBack()
+
+    expect(mockSetActiveStepIndex).toHaveBeenCalledTimes(0)
+  })
 })
