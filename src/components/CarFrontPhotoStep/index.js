@@ -22,6 +22,7 @@ import Fade from "@material-ui/core/Fade"
 import Typography from "@material-ui/core/Typography"
 
 const CarFrontPhotoStep = ({
+  isLoading,
   isCarFrontPhotoValid,
   onChange,
   onSubmit,
@@ -85,6 +86,7 @@ const CarFrontPhotoStep = ({
         </Paper>
       </Fade>
     </Fieldset>
+    {isLoading && <progress />}
   </Form>
 )
 

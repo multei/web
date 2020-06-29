@@ -2,11 +2,11 @@ import React from "react"
 import CarFrontPhotoStep from "../../components/CarFrontPhotoStep"
 import TakeCarFrontPhotoStep from "../../components/TakeCarFrontPhotoStep"
 import useFeatureToggle from "../../hooks/useFeatureToggle"
-import { useSetLoadingState } from "../../hooks/useLoadingState"
+import { useLoadingState } from "../../hooks/useLoadingState"
 import { useParkingReportState } from "../../hooks/useParkingReportState"
 
 export default ({ onSubmit, ...props }) => {
-  const setLoading = useSetLoadingState()
+  const [loading, setLoading] = useLoadingState()
 
   const [parkingReportState, setParkingReportState] = useParkingReportState()
 
@@ -34,6 +34,7 @@ export default ({ onSubmit, ...props }) => {
   const { carFrontPhotoPreviewUrl, isCarFrontPhotoValid } = parkingReportState
 
   props = {
+    isLoading: loading,
     isCarFrontPhotoValid,
     onChange: handleFileUpload,
     onSubmit: handleSubmit,
