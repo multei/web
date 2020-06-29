@@ -8,11 +8,19 @@ describe("CarFrontPhotoStep", () => {
 
   beforeEach(() => {
     props = {
+      isLoading: true,
       onChange: () => {},
       onSubmit: () => {},
       photoPreviewURL: null,
       isCarFrontPhotoValid: true,
     }
+  })
+
+  it("should show loading", () => {
+    render(<CarFrontPhotoStep {...props} />)
+
+    const element = screen.getByRole("progressbar")
+    expect(element).toBeTruthy()
   })
 
   it("should render correctly", () => {

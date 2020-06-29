@@ -2,14 +2,14 @@
 
 exports[`CarFrontPhotoStep should render correctly 1`] = `
 <form
-  className="MuiBox-root MuiBox-root-2"
+  className="MuiBox-root MuiBox-root-102"
   data-name="form"
   id="form"
   name="form"
   onSubmit={[Function]}
 >
   <fieldset
-    className="MuiBox-root MuiBox-root-6 makeStyles-root-5"
+    className="MuiBox-root MuiBox-root-106 makeStyles-root-105"
   >
     <h2
       className="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom"
@@ -87,25 +87,26 @@ exports[`CarFrontPhotoStep should render correctly 1`] = `
       }
     >
       <figure
-        className="MuiBox-root MuiBox-root-87"
+        className="MuiBox-root MuiBox-root-187"
       >
         <div
           className="MuiTypography-root MuiTypography-srOnly"
         >
           <figcaption
-            className="MuiBox-root MuiBox-root-88"
+            className="MuiBox-root MuiBox-root-188"
           >
             Prévia da frente do veículo
           </figcaption>
         </div>
         <img
           alt="Prévia da frente do veículo"
-          className="makeStyles-root-89"
+          className="makeStyles-root-189"
           loading="lazy"
           src={null}
         />
       </figure>
     </div>
   </fieldset>
+  <progress />
 </form>
 `;

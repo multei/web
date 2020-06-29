@@ -107,5 +107,6 @@ exports[`CarFrontPhotoStep should render correctly 1`] = `
       </figure>
     </div>
   </fieldset>
+  <progress />
 </form>
 `;
