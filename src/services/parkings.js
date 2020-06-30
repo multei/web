@@ -14,3 +14,12 @@ export const createParkingReport = (parkingReportState, version = 1) => {
 
   return Api().post(`/v${version}/parkings/`, formData)
 }
+
+export const completeParkingReport = (parkingReportState, version = 1) => {
+  const request = {
+    uuid: parkingReportState['uuid'],
+    coordinates: parkingReportState['currentPosition'],
+  }
+
+  return Api().patch(`/v${version}/parkings/`, request)
+}

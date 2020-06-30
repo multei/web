@@ -3,6 +3,7 @@ import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
 export const parkingReportState = atom({
   key: "parkingReportState",
   default: {
+    uuid: null,
     carFrontPhotoPreviewUrl: null,
     carPlate: "",
     currentPosition: null,
