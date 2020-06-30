@@ -23,40 +23,14 @@ export const useStepsNavigation = (steps, maxSteps) => {
   }
 
   const handleStepNext = async () => {
-    const handleSuccess = ({ data }) => {
-      setLoading(false)
-
-      const uuid = data.data.uuid
-      const carPlate =
-        data.data.parkings.car_front_photo_recognition_data.results[0].plate
-
-      localStorage.setItem(`PARKING_REPORT`, uuid)
-
-      setParkingReportState((oldParkingReportState) => ({
-        ...oldParkingReportState,
-        carPlate,
-        isCarFrontPhotoValid: true,
-      }))
-
-      handleDefaultNext()
-    }
-
-    const handleError = (error) => {
-      setLoading(false)
-
-      localStorage.removeItem(`PARKING_REPORT`)
-
-      setParkingReportState((oldParkingReportState) => ({
-        ...oldParkingReportState,
-        isCarFrontPhotoValid: false,
-      }))
-    }
-
     setLoading(true)
-    steps[activeStepIndex]
-      .handleNext(parkingReportState)
-      .then(handleSuccess)
-      .catch(handleError)
+    const newParkingReportState = await steps[activeStepIndex].handleNext(parkingReportState)
+
+    setParkingReportState((oldParkingReportState) => ({
+      ...oldParkingReportState,
+      ...newParkingReportState
+    }))
+    setLoading(false)
   }
 
   const handleDefaultNext = () => {
