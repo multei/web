@@ -1,4 +1,3 @@
-
 import { createParkingReport } from "../../services/parkings"
 
 export const handleCarFrontPhoto = (parkingReportState) => {

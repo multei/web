@@ -105,7 +105,7 @@ describe("useStepsNavigation", () => {
     })
 
     it("should go to the next step", () => {
-      mockHandleNext.mockImplementation(async () => { })
+      mockHandleNext.mockImplementation(async () => {})
 
       const { handleNext } = useStepsNavigation(steps, maxSteps)
 
