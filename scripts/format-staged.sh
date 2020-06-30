@@ -5,9 +5,9 @@ STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR "*.js" "*.jsx" |
 echo Prettifying "$STAGED_FILES"
 
 # Prettify all selected files
-echo "$FILES" | xargs ./node_modules/.bin/prettier --write
+echo "$STAGED_FILES" | xargs ./node_modules/.bin/prettier --write
 
 # Add back the modified/prettified files to staging
-echo "$FILES" | xargs git add
+echo "$STAGED_FILES" | xargs git add
 
 exit 0
