@@ -21,8 +21,6 @@ export const handleCarFrontPhoto = (parkingReportState) => {
   }
 
   const handleError = (error) => {
-    localStorage.removeItem(`PARKING_REPORT`)
-
     return {
       success: false,
       newParkingReportState: {
