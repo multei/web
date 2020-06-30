@@ -1,7 +1,11 @@
 import React from "react"
 
 import Api from "../api"
-import { getParkingsByCarPlate, createParkingReport, completeParkingReport } from "./parkings"
+import {
+  getParkingsByCarPlate,
+  createParkingReport,
+  completeParkingReport,
+} from "./parkings"
 
 jest.mock("../api")
 
@@ -56,9 +60,8 @@ describe("Parkings API", () => {
       `/v${version}/parkings/`,
       expect.objectContaining({
         uuid: uuid,
-        coordinates: currentPosition
+        coordinates: currentPosition,
       })
     )
-
   })
 })
