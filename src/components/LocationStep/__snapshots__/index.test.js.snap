@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationStep should render correctly 1`] = `
+<form
+  className="MuiBox-root MuiBox-root-2"
+  data-name="form"
+  id="form"
+  name="form"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom"
+  >
+    Envie a localização da vaga
+  </h2>
+  <fieldset
+    className="MuiFormControl-root"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph MuiTypography-alignCenter"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained Mui-disabled Mui-disabled"
+        disabled={true}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "opacity": 0,
+            "visibility": "hidden",
+          }
+        }
+        tabIndex={-1}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          Permitir uso da localização
+        </span>
+      </button>
+    </p>
+    <p
+      className="MuiFormHelperText-root"
+    >
+      Utilizamos seus dados de localização apenas para ajudar os órgãos a encontrarem o local da infração.
+    </p>
+  </fieldset>
+  <hr
+    className="MuiDivider-root"
+  />
+</form>
+`;

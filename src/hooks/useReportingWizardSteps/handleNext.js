@@ -45,6 +45,7 @@ export const handleLocationStep = (parkingReportState) => {
       success: true,
       newParkingReportState: {
         uuid,
+        isLocationValid: true,
       },
     }
   }
@@ -53,7 +54,7 @@ export const handleLocationStep = (parkingReportState) => {
     return {
       success: false,
       newParkingReportState: {
-        currentPosition: null,
+        isLocationValid: false,
       },
     }
   }

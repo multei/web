@@ -22,6 +22,7 @@ const LocationStep = (props) => {
     onGetLocationClick,
     onMapLoaded,
     permissionDenied,
+    isLocationValid,
   } = props
 
   const getButtonLabel = () => {
@@ -52,6 +53,12 @@ const LocationStep = (props) => {
           <Alert severity={"error"}>
             <AlertTitle>Não é possível saber a localização da vaga</AlertTitle>
             Por favor, dê permissão para uso da localização e tente novamente.
+          </Alert>
+        )}
+        {!isLocationValid && (
+          <Alert severity={"warning"}>
+            <AlertTitle>Algo não deu certo!</AlertTitle>
+            Por favor, tente novamente.
           </Alert>
         )}
         <Divider />

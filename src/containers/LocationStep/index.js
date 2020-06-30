@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import usePosition from "../../hooks/usePosition"
 import LocationStep from "../../components/LocationStep"
-import { useSetParkingReportState } from "../../hooks/useParkingReportState"
+import { useParkingReportState } from "../../hooks/useParkingReportState"
 import { useSetLoadingState } from "../../hooks/useLoadingState"
 
 export default () => {
@@ -17,7 +17,7 @@ export default () => {
 
   const setLoading = useSetLoadingState()
   const [loadingMap, setLoadingMap] = useState(null)
-  const setParkingReportState = useSetParkingReportState()
+  const [parkingReportState, setParkingReportState] = useParkingReportState()
 
   useEffect(() => {
     if (Boolean(currentPosition)) {
@@ -44,6 +44,7 @@ export default () => {
     setLoading(true)
   }
 
+  const { isLocationValid } = parkingReportState
   return (
     <LocationStep
       checkingGeolocationSupport={checkingGeolocationSupport}
@@ -55,6 +56,7 @@ export default () => {
       onGetLocationClick={handleGetLocationClick}
       onMapLoaded={handleMapLoaded}
       permissionDenied={permissionDenied}
+      isLocationValid={isLocationValid}
     />
   )
 }

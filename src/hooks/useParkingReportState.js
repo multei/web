@@ -8,6 +8,7 @@ export const parkingReportState = atom({
     carPlate: "",
     currentPosition: null,
     isCarFrontPhotoValid: true,
+    isLocationValid: true,
   },
 })
 
