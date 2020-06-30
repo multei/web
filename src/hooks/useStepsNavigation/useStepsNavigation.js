@@ -24,9 +24,9 @@ export const useStepsNavigation = (steps, maxSteps) => {
 
   const handleStepNext = async () => {
     setLoading(true)
-    const { success, newParkingReportState } = await steps[activeStepIndex].handleNext(
-      parkingReportState
-    )
+    const { success, newParkingReportState } = await steps[
+      activeStepIndex
+    ].handleNext(parkingReportState)
 
     setParkingReportState((oldParkingReportState) => ({
       ...oldParkingReportState,
