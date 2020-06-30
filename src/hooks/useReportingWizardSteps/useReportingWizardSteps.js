@@ -8,7 +8,7 @@ import { isCarFrontPhotoValid } from "../../validators/isCarFrontPhotoValid"
 import { isCarPlateValid } from "../../validators/isCarPlateValid"
 import { isCurrentPositionValid } from "../../validators/isCurrentPositionValid"
 
-import { handleCarFrontPhoto } from "./handleNext"
+import { handleCarFrontPhoto, handleLocationStep } from "./handleNext"
 
 export const useReportingWizardSteps = ({ toggles }) => {
   let result = []
@@ -35,6 +35,7 @@ export const useReportingWizardSteps = ({ toggles }) => {
       label: "Enviar localização",
       component: LocationStep,
       validator: isCurrentPositionValid,
+      handleNext: handleLocationStep,
     },
     {
       label: "Denúncia realizada",

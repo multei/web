@@ -1,4 +1,7 @@
-import { createParkingReport } from "../../services/parkings"
+import {
+  createParkingReport,
+  completeParkingReport,
+} from "../../services/parkings"
 
 export const handleCarFrontPhoto = (parkingReportState) => {
   const handleSuccess = ({ data }) => {
@@ -24,6 +27,31 @@ export const handleCarFrontPhoto = (parkingReportState) => {
 
   const { carFrontPhotoPreviewUrl } = parkingReportState
   return createParkingReport(carFrontPhotoPreviewUrl)
+    .then(handleSuccess)
+    .catch(handleError)
+}
+
+export const handleLocationStep = (parkingReportState) => {
+  const handleSuccess = ({ data }) => {
+    const uuid = data.data.uuid
+
+    localStorage.removeItem("PARKING_REPORT")
+
+    return {
+      uuid,
+    }
+  }
+
+  const handleError = (error) => {
+    return {
+      currentPosition: null,
+    }
+  }
+  const { uuid, currentPosition } = parkingReportState
+  const coordinates =
+    currentPosition.coords.latitude + "," + currentPosition.coords.longitude
+
+  return completeParkingReport(uuid, coordinates)
     .then(handleSuccess)
     .catch(handleError)
 }

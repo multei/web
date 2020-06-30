@@ -1,4 +1,4 @@
-import { handleCarFrontPhoto } from "./handleNext"
+import { handleCarFrontPhoto, handleLocationStep } from "./handleNext"
 
 jest.mock("../../services/parkings")
 
@@ -29,5 +29,25 @@ describe("useStepsNavigation", () => {
     )
   })
 
-  it.todo("should remove uuid from localStorage in case of invalid photo")
+  it.todo("should not store uuid in localStorage when some error occurred")
+
+  it("should remove uuid from localStorage on complete parking report", async () => {
+    const parkingReportState = {
+      uuid: "uuid",
+      currentPosition: {
+        coords: {
+          latitude: "LAT",
+          longitude: "LNG",
+        },
+      },
+    }
+
+    await handleLocationStep(parkingReportState)
+
+    expect(window.localStorage.__proto__.removeItem).toHaveBeenCalledWith(
+      "PARKING_REPORT"
+    )
+  })
+
+  it.todo("should not remove uuid from localStorage when some error occurred")
 })
