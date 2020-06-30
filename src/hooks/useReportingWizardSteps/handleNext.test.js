@@ -19,9 +19,8 @@ describe("useStepsNavigation", () => {
       carFrontPhotoPreviewUrl: "url",
     }
 
-    const response = await handleCarFrontPhoto(parkingReportState)
-
-    const { uuid } = response
+    const { success, newParkingReportState } = await handleCarFrontPhoto(parkingReportState)
+    const { uuid } = newParkingReportState
 
     expect(window.localStorage.__proto__.setItem).toHaveBeenCalledWith(
       "PARKING_REPORT",

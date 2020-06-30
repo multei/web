@@ -11,9 +11,12 @@ export const handleCarFrontPhoto = (parkingReportState) => {
     localStorage.setItem(`PARKING_REPORT`, uuid)
 
     return {
-      uuid,
-      carPlate,
-      isCarFrontPhotoValid: true,
+      success: true,
+      newParkingReportState: {
+        uuid,
+        carPlate,
+        isCarFrontPhotoValid: true,
+      },
     }
   }
 
@@ -21,7 +24,10 @@ export const handleCarFrontPhoto = (parkingReportState) => {
     localStorage.removeItem(`PARKING_REPORT`)
 
     return {
-      isCarFrontPhotoValid: false,
+      success: false,
+      newParkingReportState: {
+        isCarFrontPhotoValid: false,
+      },
     }
   }
 
@@ -38,13 +44,19 @@ export const handleLocationStep = (parkingReportState) => {
     localStorage.removeItem("PARKING_REPORT")
 
     return {
-      uuid,
+      success: true,
+      newParkingReportState: {
+        uuid,
+      },
     }
   }
 
   const handleError = (error) => {
     return {
-      currentPosition: null,
+      success: false,
+      newParkingReportState: {
+        currentPosition: null,
+      },
     }
   }
   const { uuid, currentPosition } = parkingReportState
