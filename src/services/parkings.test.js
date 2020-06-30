@@ -47,20 +47,15 @@ describe("Parkings API", () => {
 
   it("should call parkings API patch with the coordinates", () => {
     const uuid = "uuid"
-    const currentPosition = "-LAT,+LNG"
+    const coordinates = "-LAT,+LNG"
 
-    const parkingReportState = {
-      uuid,
-      currentPosition,
-    }
-
-    completeParkingReport(parkingReportState, version)
+    completeParkingReport(uuid, coordinates, version)
 
     expect(Api().patch).toHaveBeenCalledWith(
       `/v${version}/parkings/`,
       expect.objectContaining({
-        uuid: uuid,
-        coordinates: currentPosition,
+        uuid,
+        coordinates,
       })
     )
   })

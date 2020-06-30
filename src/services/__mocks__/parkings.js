@@ -20,3 +20,9 @@ export const createParkingReport = (parkingReportState, version = 1) =>
     (resolve) => resolve(resolvedValue),
     (reject) => reject(rejectedValue)
   )
+
+export const completeParkingReport = (parkingReportState, version = 1) =>
+  new Promise(
+    (resolve) => resolve(resolvedValue),
+    (reject) => reject(rejectedValue)
+  )
