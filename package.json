@@ -94,7 +94,7 @@
     "babel-jest": "26.1.0",
     "babel-preset-gatsby": "0.4.12",
     "codecov": "3.7.0",
-    "cypress": "4.7.0",
+    "cypress": "4.9.0",
     "cypress-axe": "0.8.1",
     "cypress-file-upload": "4.0.7",
     "dotenv": "8.2.0",
