@@ -55,12 +55,6 @@ const LocationStep = (props) => {
             Por favor, dê permissão para uso da localização e tente novamente.
           </Alert>
         )}
-        {!isLocationValid && (
-          <Alert severity={"warning"}>
-            <AlertTitle>Algo não deu certo!</AlertTitle>
-            Por favor, tente novamente.
-          </Alert>
-        )}
         <Divider />
         <Paragraph align="center">
           <Fade in={hasGeolocationSupport}>
@@ -109,6 +103,13 @@ const LocationStep = (props) => {
       )}
 
       {children}
+
+      {!isLocationValid && (
+        <Alert severity={"warning"} variant="outlined">
+          <AlertTitle>Algo não deu certo!</AlertTitle>
+          Por favor, tente novamente.
+        </Alert>
+      )}
     </Form>
   )
 }
