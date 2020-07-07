@@ -28,17 +28,16 @@ describe("Parkings API", () => {
     expect(Api().get).toHaveBeenCalledWith(`/v${version}/parkings/${carPlate}`)
   })
 
-  it("should call parkings API post with car photo", () => {
+  it("should call parkings API post with car photo", async () => {
     const carFrontPhotoPreviewUrl = "photo-url"
-    const parkingReportState = {
-      carFrontPhotoPreviewUrl: carFrontPhotoPreviewUrl,
-    }
+    const blobPhoto = "blob-photo-url"
+
+    global.fetch = jest.fn().mockResolvedValue({ blob: () => blobPhoto })
 
     const formData = new FormData()
-    formData.append("car_front_photo", carFrontPhotoPreviewUrl)
+    formData.append("car_front_photo", blobPhoto)
 
-    createParkingReport(parkingReportState, version)
-
+    await createParkingReport(carFrontPhotoPreviewUrl, version)
     expect(Api().post).toHaveBeenCalledWith(
       `/v${version}/parkings/`,
       expect.objectContaining(formData)
