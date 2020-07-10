@@ -32,14 +32,16 @@ export default ({
     </ExpansionPanelSummary>
     <ExpansionPanelDetails>
       <GridList cellHeight={289} cols={3}>
-        <GridListTile cols={3}>
-          <EmbedMap
-            coordinates={`${coordinates.x},${coordinates.y}`}
-            height={450}
-            variant="cover"
-            width={600}
-          />
-        </GridListTile>
+        {coordinates && (
+          <GridListTile cols={3}>
+            <EmbedMap
+              coordinates={`${coordinates.x},${coordinates.y}`}
+              height={450}
+              variant="cover"
+              width={600}
+            />
+          </GridListTile>
+        )}
         <GridListTile cols={1.5}>
           <Image
             height={car_front_photo_height}
