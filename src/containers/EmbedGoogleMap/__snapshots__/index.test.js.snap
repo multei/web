@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmbedGoogleMap /> container should render 1`] = `
+<iframe
+  allowFullScreen={true}
+  className="MuiBox-root MuiBox-root-3"
+  frameBorder={0}
+  src="https://www.google.com/maps/embed/v1/place?q=undefined&key=undefined"
+/>
+`;
