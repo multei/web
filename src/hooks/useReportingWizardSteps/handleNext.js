@@ -6,7 +6,7 @@ import {
 export const handleCarFrontPhoto = (parkingReportState) => {
   const handleSuccess = ({ data }) => {
     const uuid = data.data.uuid
-    const carPlate = data.data.parkings.car_plate
+    const { car_plate, car_make, car_make_model } = data.data.parkings
 
     localStorage.setItem(`PARKING_REPORT`, uuid)
 
@@ -14,7 +14,9 @@ export const handleCarFrontPhoto = (parkingReportState) => {
       success: true,
       newParkingReportState: {
         uuid,
-        carPlate,
+        carPlate: car_plate,
+        carMake: car_make,
+        carMakeModel: car_make_model,
         isCarFrontPhotoValid: true,
       },
     }

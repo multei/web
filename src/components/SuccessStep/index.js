@@ -11,7 +11,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
 import Button from "@material-ui/core/Button"
 
-const SuccessStep = ({ onClick }) => (
+const SuccessStep = ({ carPlate, carMake, carMakeModel, onClick }) => (
   <Article>
     <Fade in={true} timeout={0}>
       <Alert>
@@ -42,11 +42,11 @@ const SuccessStep = ({ onClick }) => (
       <ExpansionPanelDetails>
         <dl>
           <dt>Placa</dt>
-          <dd>ABC1234</dd>
+          <dd>{carPlate}</dd>
           <dt>Marca</dt>
-          <dd>Kia</dd>
+          <dd>{carMake}</dd>
           <dt>Modelo</dt>
-          <dd>Cerato (ou similar)</dd>
+          <dd>{carMakeModel} (ou similar)</dd>
         </dl>
       </ExpansionPanelDetails>
     </ExpansionPanel>

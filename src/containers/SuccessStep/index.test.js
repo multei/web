@@ -1,20 +1,20 @@
 import React from "react"
 import { RecoilRoot } from "recoil"
-import { render, screen } from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
 import SuccessStep from "."
 import { useSetActiveStepState } from "../../hooks/useStepsNavigation/useActiveStepState"
-import { useSetParkingReportState } from "../../hooks/useParkingReportState"
+import { useParkingReportState } from "../../hooks/useParkingReportState"
 
 jest.mock("../../hooks/useStepsNavigation/useActiveStepState")
 
 jest.mock("../../hooks/useParkingReportState", () => {
   return {
-    useSetParkingReportState: jest.fn(),
+    useParkingReportState: jest.fn(),
   }
 })
 
 describe("<SuccessStep /> container", () => {
-  it("should set the parking report state", async () => {
+  it("should set the parking report state within the onClick function", async () => {
     const defaultParkingReportState = {
       uuid: null,
       carFrontPhotoPreviewUrl: null,
@@ -26,13 +26,22 @@ describe("<SuccessStep /> container", () => {
     const setParkingReportStateMock = jest.fn()
 
     useSetActiveStepState.mockImplementation(() => jest.fn())
-    useSetParkingReportState.mockImplementation(() => setParkingReportStateMock)
+    useParkingReportState.mockImplementation(() => [
+      defaultParkingReportState,
+      setParkingReportStateMock,
+    ])
 
     render(
       <RecoilRoot>
         <SuccessStep />
       </RecoilRoot>
     )
+
+    const element = screen.getByText("Fazer outra denúncia", {
+      selector: "button span",
+    })
+
+    fireEvent.click(element)
 
     expect(setParkingReportStateMock).toHaveBeenCalledWith(
       defaultParkingReportState

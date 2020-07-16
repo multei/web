@@ -6,7 +6,13 @@ import { RecoilRoot } from "recoil"
 
 describe("SuccessStep", () => {
   const mockOnClick = jest.fn()
+  const carPlate = "carPlate"
+  const carMake = "carMake"
+  const carMakeModel = "carMakeModel"
   const props = {
+    carPlate,
+    carMake,
+    carMakeModel,
     onClick: mockOnClick,
   }
 
@@ -47,5 +53,20 @@ describe("SuccessStep", () => {
     fireEvent.click(element)
 
     expect(mockOnClick).toHaveBeenCalledTimes(1)
+  })
+
+  it("should render the right car data", () => {
+    render(
+      <RecoilRoot>
+        <SuccessStep {...props} />
+      </RecoilRoot>
+    )
+    const carPlateElement = screen.getByText(carPlate)
+    const carMakeElement = screen.getByText(carMake)
+    const carMakeModelElement = screen.getByText(`${carMakeModel} (ou similar)`)
+
+    expect(carPlateElement).toBeTruthy()
+    expect(carMakeElement).toBeTruthy()
+    expect(carMakeModelElement).toBeTruthy()
   })
 })
