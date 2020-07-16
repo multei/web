@@ -4,7 +4,7 @@ import CarFrontPhotoStep from "./../../containers/CarFrontPhotoStep"
 import CarPlateConfirmStep from "./../../containers/CarPlateConfirmStep"
 import LocationStep from "./../../containers/LocationStep"
 import { CarPhotoInstructionsStep } from "./../../components/CarPhotoInstructionsStep"
-import SuccessStep from "./../../components/SuccessStep"
+import SuccessStep from "./../../containers/SuccessStep"
 
 describe("Reporting wizard steps", () => {
   const props = {

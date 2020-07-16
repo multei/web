@@ -11,7 +11,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
 import Button from "@material-ui/core/Button"
 
-const SuccessStep = () => (
+const SuccessStep = ({ onClick }) => (
   <Article>
     <Fade in={true} timeout={0}>
       <Alert>
@@ -51,7 +51,7 @@ const SuccessStep = () => (
       </ExpansionPanelDetails>
     </ExpansionPanel>
     <Divider />
-    <Button color={"primary"} variant={"contained"}>
+    <Button color={"primary"} variant={"contained"} onClick={onClick}>
       Fazer outra denúncia
     </Button>
   </Article>

@@ -2,7 +2,7 @@ import CarFrontPhotoStep from "../../containers/CarFrontPhotoStep"
 import CarPlateConfirmStep from "../../containers/CarPlateConfirmStep"
 import { CarPhotoInstructionsStep } from "../../components/CarPhotoInstructionsStep"
 import LocationStep from "../../containers/LocationStep"
-import SuccessStep from "../../components/SuccessStep"
+import SuccessStep from "../../containers/SuccessStep"
 
 import { isCarFrontPhotoValid } from "../../validators/isCarFrontPhotoValid"
 import { isCarPlateValid } from "../../validators/isCarPlateValid"
