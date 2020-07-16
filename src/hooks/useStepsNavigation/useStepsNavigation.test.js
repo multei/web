@@ -1,8 +1,10 @@
 import React, { Component } from "react"
 import { useStepsNavigation } from "./useStepsNavigation"
+import { useActiveStepState } from "./useActiveStepState"
 
 jest.mock("../../hooks/useParkingReportState")
 jest.mock("../../hooks/useLoadingState")
+jest.mock("./useActiveStepState")
 
 describe("useStepsNavigation", () => {
   const mockHandleNext = jest.fn()
@@ -14,10 +16,11 @@ describe("useStepsNavigation", () => {
 
   beforeEach(() => {
     jest.clearAllMocks()
+    useActiveStepState.mockImplementation(() => [1, mockSetActiveStepIndex])
+
     jest
       .spyOn(React, "useState")
-      .mockImplementationOnce(() => [1, mockSetActiveStepIndex])
-      .mockImplementationOnce(() => ["left", mockSetTransitionDirection])
+      .mockImplementation(() => ["left", mockSetTransitionDirection])
   })
 
   describe("Steps use default next step", () => {
@@ -71,11 +74,12 @@ describe("useStepsNavigation", () => {
     })
 
     it("should keep in the same step", () => {
+      useActiveStepState.mockImplementation(() => [0, mockSetActiveStepIndex])
+
       jest
         .spyOn(React, "useState")
         .mockReset()
-        .mockImplementationOnce(() => [0, mockSetActiveStepIndex])
-        .mockImplementationOnce(() => ["left", mockSetTransitionDirection])
+        .mockImplementation(() => ["left", mockSetTransitionDirection])
 
       const { handleBack } = useStepsNavigation(steps, maxSteps)
 

@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { useParkingReportState } from "../../hooks/useParkingReportState"
 import { useSetLoadingState } from "../../hooks/useLoadingState"
+import { useActiveStepState } from "./useActiveStepState"
 
 export const useStepsNavigation = (steps, maxSteps) => {
   const lastStepIndex = maxSteps - 1
-  const [activeStepIndex, setActiveStepIndex] = useState(0)
+  const [activeStepIndex, setActiveStepIndex] = useActiveStepState()
   const [transitionDirection, setTransitionDirection] = useState("left")
   const [parkingReportState, setParkingReportState] = useParkingReportState()
   const setLoading = useSetLoadingState()
