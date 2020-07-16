@@ -15,9 +15,6 @@ export default ({
   car_front_photo_uri,
   car_front_photo_width,
   car_plate,
-  car_rear_photo_height,
-  car_rear_photo_uri,
-  car_rear_photo_width,
   coordinates,
   created_at,
   uuid,
@@ -42,7 +39,7 @@ export default ({
             />
           </GridListTile>
         )}
-        <GridListTile cols={1.5}>
+        <GridListTile cols={3}>
           <Image
             height={car_front_photo_height}
             loading="lazy"
@@ -51,16 +48,6 @@ export default ({
             width={car_front_photo_width}
           />
           <GridListTileBar title="Foto da frente" />
-        </GridListTile>
-        <GridListTile cols={1.5}>
-          <Image
-            height={car_rear_photo_height}
-            loading="lazy"
-            src={car_rear_photo_uri}
-            variant="cover"
-            width={car_rear_photo_width}
-          />
-          <GridListTileBar title="Foto da traseira" />
         </GridListTile>
       </GridList>
     </ExpansionPanelDetails>

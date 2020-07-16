@@ -104,7 +104,7 @@ exports[`ParkingExpansionPanel should render correctly 1`] = `
                   Object {
                     "height": 293,
                     "padding": 2,
-                    "width": "50%",
+                    "width": "100%",
                   }
                 }
               >
@@ -128,41 +128,6 @@ exports[`ParkingExpansionPanel should render correctly 1`] = `
                         className="MuiGridListTileBar-title"
                       >
                         Foto da frente
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li
-                className="MuiGridListTile-root"
-                style={
-                  Object {
-                    "height": 293,
-                    "padding": 2,
-                    "width": "50%",
-                  }
-                }
-              >
-                <div
-                  className="MuiGridListTile-tile"
-                >
-                  <img
-                    className="makeStyles-root-92 makeStyles-cover-93"
-                    height="car_rear_photo_height"
-                    loading="lazy"
-                    src="car_rear_photo_uri"
-                    width="car_rear_photo_width"
-                  />
-                  <div
-                    className="MuiGridListTileBar-root MuiGridListTileBar-titlePositionBottom"
-                  >
-                    <div
-                      className="MuiGridListTileBar-titleWrap"
-                    >
-                      <div
-                        className="MuiGridListTileBar-title"
-                      >
-                        Foto da traseira
                       </div>
                     </div>
                   </div>
