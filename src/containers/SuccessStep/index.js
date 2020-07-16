@@ -1,11 +1,24 @@
-import React from "react"
+import React, { useEffect } from "react"
 import SuccessStep from "../../components/SuccessStep"
 
-import { useActiveStepState } from "../../hooks/useStepsNavigation/useActiveStepState"
+import { useSetActiveStepState } from "../../hooks/useStepsNavigation/useActiveStepState"
+import { useSetParkingReportState } from "../../hooks/useParkingReportState"
 
 export default () => {
-  const [activeStepIndex, setActiveStepIndex] = useActiveStepState()
+  const setActiveStepIndex = useSetActiveStepState()
+  const setParkingReportState = useSetParkingReportState()
   const onClick = () => setActiveStepIndex(0)
+
+  useEffect(() => {
+    setParkingReportState({
+      uuid: null,
+      carFrontPhotoPreviewUrl: null,
+      carPlate: "",
+      currentPosition: null,
+      isCarFrontPhotoValid: true,
+      isLocationValid: true,
+    })
+  }, [setParkingReportState])
 
   return <SuccessStep onClick={onClick} />
 }
