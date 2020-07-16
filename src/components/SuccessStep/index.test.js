@@ -9,7 +9,7 @@ jest.mock("@material-ui/core/fade")
 describe("SuccessStep", () => {
   const mockOnClick = jest.fn()
   const props = {
-    onClick: () => mockOnClick,
+    onClick: mockOnClick,
   }
 
   it("should render correctly", () => {
@@ -33,5 +33,21 @@ describe("SuccessStep", () => {
       selector: "button span",
     })
     expect(element).toBeTruthy()
+  })
+
+  it("should call onClick", () => {
+    render(
+      <RecoilRoot>
+        <SuccessStep {...props} />
+      </RecoilRoot>
+    )
+
+    const element = screen.getByText("Fazer outra denúncia", {
+      selector: "button span",
+    })
+
+    fireEvent.click(element)
+
+    expect(mockOnClick).toHaveBeenCalledTimes(1)
   })
 })
