@@ -13,7 +13,7 @@
 ### Start developing
 
 1. Navigate into root directory;
-2. Run `npm start`. Site will open at `http://localhost:8000`. You'll also see a second link for GraphQL: http://localhost:8000/___graphql.
+2. Run `npm start`. Site will open at `http://localhost:8001`. You'll also see a second link for GraphQL: http://localhost:8001/___graphql.
 3. Open the source code and start editing!
    Save your changes and the browser will update in real time!
 
