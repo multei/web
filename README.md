@@ -1,9 +1,7 @@
 # Multei web app
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![End-to-end tests](https://github.com/multei/web/workflows/End-to-end%20tests/badge.svg)
@@ -47,12 +45,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/carlamartinezribeiro"><img src="https://avatars2.githubusercontent.com/u/51760937?v=4" width="100px;" alt=""/><br /><sub><b>carlamartinezribeiro</b></sub></a><br /><a href="#ideas-carlamartinezribeiro" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/hpsmatheus"><img src="https://avatars2.githubusercontent.com/u/29740936?v=4" width="100px;" alt=""/><br /><sub><b>hpsmatheus</b></sub></a><br /><a href="https://github.com/multei/web/issues?q=author%3Ahpsmatheus" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

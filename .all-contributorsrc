@@ -84,6 +84,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "hpsmatheus",
+      "name": "hpsmatheus",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/29740936?v=4",
+      "profile": "https://github.com/hpsmatheus",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
