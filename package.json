@@ -96,7 +96,7 @@
     "codecov": "3.7.2",
     "cypress": "5.0.0",
     "cypress-axe": "0.8.1",
-    "cypress-file-upload": "4.0.7",
+    "cypress-file-upload": "4.1.1",
     "dotenv": "8.2.0",
     "husky": "4.2.5",
     "identity-obj-proxy": "3.0.0",
