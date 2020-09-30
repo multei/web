@@ -9,6 +9,8 @@ import Skeleton from "@material-ui/lab/Skeleton"
 import Fade from "@material-ui/core/Fade"
 import FormHelperText from "@material-ui/core/FormHelperText"
 import Divider from "@material-ui/core/Divider"
+import { GoogleMaps } from "../GoogleMaps"
+import useFeatureToggle from "../../hooks/useFeatureToggle"
 
 const LocationStep = (props) => {
   const {
@@ -24,6 +26,8 @@ const LocationStep = (props) => {
     permissionDenied,
     isLocationValid,
   } = props
+
+  const [googleMapsJsToggle] = useFeatureToggle("GOOGLE_MAPS_JS")
 
   const getButtonLabel = () => {
     if (checkingGeolocationSupport) {
@@ -94,6 +98,8 @@ const LocationStep = (props) => {
             onLoad={onMapLoaded}
             style={{ height: 157, width: "100%" }}
           />
+
+          {googleMapsJsToggle && <GoogleMaps />}
 
           <Paragraph variant={"body2"}>
             Se estiver tudo certo com esta localização, você pode finalizar a

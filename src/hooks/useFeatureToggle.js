@@ -42,6 +42,7 @@ const useFeatureToggle = (key) => {
       PARKING_REPORT: process.env.GATSBY_TOGGLE_PARKING_REPORT,
       PLATE_CONFIRMATION_STEP:
         process.env.GATSBY_TOGGLE_PLATE_CONFIRMATION_STEP,
+      GOOGLE_MAPS_JS: process.env.GATSBY_GOOGLE_MAPS_JS,
     }
 
     if (keys[key]) {
