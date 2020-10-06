@@ -71,7 +71,7 @@
     "gatsby-plugin-sitemap": "2.4.15",
     "gatsby-source-filesystem": "2.3.33",
     "gatsby-transformer-sharp": "2.5.17",
-    "google-map-react": "^2.1.5",
+    "google-map-react": "2.1.5",
     "metax": "1.2.1",
     "muy": "1.1.0",
     "prop-types": "15.7.2",
