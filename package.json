@@ -102,7 +102,7 @@
     "husky": "4.3.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.4.2",
-    "netlify-cli": "2.65.1",
+    "netlify-cli": "2.65.5",
     "prettier": "2.1.2",
     "react-test-renderer": "16.13.1",
     "wait-on": "5.2.0"
