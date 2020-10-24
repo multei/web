@@ -13,7 +13,7 @@ jobs:
         urls: |
           https://multei.com.br
     - name: Save results
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: lighthouseresults
         path: .lighthouseci
