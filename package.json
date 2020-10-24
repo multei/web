@@ -88,7 +88,7 @@
     "@stryker-mutator/javascript-mutator": "4.0.0",
     "@stryker-mutator/jest-runner": "4.0.0",
     "@testing-library/cypress": "7.0.1",
-    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/jest-dom": "5.11.5",
     "@testing-library/react": "11.1.0",
     "axe-core": "3.5.5",
     "axios": "0.20.0",
