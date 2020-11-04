@@ -84,27 +84,31 @@ const LocationStep = (props) => {
       <Divider />
       {currentPosition && (
         <div style={{ position: "relative" }}>
-          {loadingMap && (
+          {/*loadingMap && (
             <Skeleton
               style={{ position: "absolute", zIndex: 2 }}
               variant="rect"
               width={"100%"}
               height={157}
             />
-          )}
+        )*/}
 
-          <EmbedGoogleMap
-            coordinates={`${currentPosition.coords.latitude},${currentPosition.coords.longitude}`}
-            onLoad={onMapLoaded}
-            style={{ height: 157, width: "100%" }}
-          />
+          {!googleMapsJsToggle && (
+            <EmbedGoogleMap
+              coordinates={`${currentPosition.coords.latitude},${currentPosition.coords.longitude}`}
+              onLoad={onMapLoaded}
+              style={{ height: 157, width: "100%" }}
+            />
+          )}
 
           {googleMapsJsToggle && <GoogleMaps />}
 
-          <Paragraph variant={"body2"}>
-            Se estiver tudo certo com esta localização, você pode finalizar a
-            denúncia.
-          </Paragraph>
+          {!googleMapsJsToggle && (
+            <Paragraph variant={"body2"}>
+              Se estiver tudo certo com esta localização, você pode finalizar a
+              denúncia.
+            </Paragraph>
+          )}
         </div>
       )}
 

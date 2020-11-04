@@ -1,5 +1,23 @@
 import React, { useState } from "react"
 import GoogleMapReact from "google-map-react"
+import Button from "@material-ui/core/Button"
+import TextField from "@material-ui/core/TextField"
+import MapsMarker from "../../../src/images/maps-marker.png"
+
+const AnyReactComponent = () => (
+  <div
+    style={{
+      zIndex: 3,
+      left: "50%",
+      top: "50%",
+      width: "100px",
+      height: "100px",
+      position: "absolute",
+    }}
+  >
+    <img src={MapsMarker} alt="Logo da aplicação" width="50px" height="50px" />
+  </div>
+)
 
 export const GoogleMaps = () => {
   const zoom = 18
@@ -30,15 +48,16 @@ export const GoogleMaps = () => {
 
   return (
     <div>
-      <div style={{ height: "100vh", width: "100%" }}>
+      <div style={{ height: "70vh", width: "100%" }}>
         <div>
-          <input
-            type="text"
+          <TextField
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            size="70"
+            inputProps={{ size: 90 }}
           />
-          <button onClick={locate}>localizar</button>
+          <Button variant="contained" onClick={locate}>
+            Localizar
+          </Button>
         </div>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAPS_JS_API_KEY }}
@@ -46,7 +65,7 @@ export const GoogleMaps = () => {
           defaultZoom={zoom}
           onDragEnd={getAddress}
         ></GoogleMapReact>
-        {/* <AnyReactComponent /> */}
+        {<AnyReactComponent />}
       </div>
     </div>
   )
