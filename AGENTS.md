@@ -12,6 +12,9 @@ Always use **progressive, atomic commits** (see `CONTRIBUTING.md`):
 
 ## Issues
 
+- Create and edit GitHub issues **in English** (title and body). Do not open new issues in Portuguese.
+- Prefer Conventional Commit-style titles when helpful (`ci: …`, `docs: …`, `feat: …`).
+
 When implementing a GitHub issue, always:
 
 1. Read the full issue (scope checklists, acceptance criteria, notes) before coding.
@@ -19,7 +22,7 @@ When implementing a GitHub issue, always:
    - Mark completed items with `- [x]`.
    - Leave unfinished items unchecked and note what is still pending.
    - Mirror the same for acceptance criteria.
-3. Comment with a short summary of what shipped and follow-ups.
+3. Comment with a short summary of what shipped and follow-ups (English).
 4. Close only when acceptance criteria are satisfied; otherwise leave open (or reopen) with remaining items clear.
 
 ## Troubleshooting
