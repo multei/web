@@ -34,6 +34,18 @@ test: refresh copyright year snapshots
 
 Reference related GitHub issues in the subject or footer when applicable (e.g. `#417`).
 
+## Issues
+
+When you **implement** a GitHub issue:
+
+1. Read the full issue body (context, scope checklists, acceptance criteria, notes) before and during the work.
+2. After the implementation finishes, **update the issue** to match reality:
+   - Check completed checklist items (`- [x]`).
+   - Leave incomplete items unchecked and briefly note what remains.
+   - Adjust acceptance criteria the same way.
+   - Add a short comment summarizing what shipped and any follow-ups.
+3. Only close the issue when acceptance criteria are met, or leave it open (or reopen) if material checklist items are still pending.
+
 ## Guidelines & code of conduct
 
 - [Organization contributing guidelines](https://github.com/multei/.github/blob/master/CONTRIBUTING.md)
