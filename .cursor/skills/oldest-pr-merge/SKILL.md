@@ -18,13 +18,14 @@ Copy and track this checklist:
 ```
 Oldest PR progress:
 - [ ] 1. Select and analyze oldest open PR
+- [ ] 1b. Ensure assignee + at least one meaningful label (hard gate)
 - [ ] 2. Check test coverage for the changes
 - [ ] 3. Add missing tests on the same PR branch
 - [ ] 4. Resolve all review comments (incl. Copilot) in a loop
 - [ ] 5. Run tests and check for regressions
 - [ ] 6. Fix regressions if any
 - [ ] 7. Record work in TROUBLESHOOTING.md / AGENTS.md (and ADR if needed)
-- [ ] 8. Merge only when comments done, tests green, CI green
+- [ ] 8. Merge only when comments done, tests green, CI green, assignee + label set
 - [ ] 9. Close related issue(s) with a summary comment
 - [ ] 10. Final uncommitted-diff sweep and commit(s)
 ```
@@ -32,20 +33,66 @@ Oldest PR progress:
 ## 1. Pick the oldest open PR and analyze it
 
 ```bash
-gh pr list --state open --limit 100 --json number,title,createdAt,author,url,headRefName,baseRefName,labels,body \
+gh pr list --state open --limit 100 --json number,title,createdAt,author,url,headRefName,baseRefName,labels,assignees,body \
   --jq 'sort_by(.createdAt) | .[0]'
 ```
 
 Then:
 
 ```bash
-gh pr view <N> --json title,body,files,commits,statusCheckRollup,reviewDecision,comments,reviews
+gh pr view <N> --json title,body,files,commits,statusCheckRollup,reviewDecision,comments,reviews,assignees,labels
 gh pr diff <N>
 ```
 
 Checkout the PR branch (`gh pr checkout <N>`). Summarize intent, risk, and touched areas before editing.
 
 If there is no open PR, stop and report that.
+
+## 1b. Assignees and labels (mandatory before merge)
+
+As soon as you start processing the PR (right after checkout / analysis), **and again immediately before merge**, ensure metadata is set. **Never merge** a PR that is missing either requirement.
+
+### Assignees
+
+Prefer **`cursoragent`**; if that user is not assignable on the repo, fall back to **`jimmyandrade`**.
+
+```bash
+# Prefer cursoragent; fall back to jimmyandrade if not assignable
+if gh api "repos/$(gh repo view --json nameWithOwner -q .nameWithOwner)/assignees/cursoragent" --silent 2>/dev/null; then
+  gh pr edit <N> --add-assignee cursoragent
+else
+  gh pr edit <N> --add-assignee jimmyandrade
+fi
+
+# Verify at least one required assignee is present
+gh pr view <N> --json assignees --jq '
+  [.assignees[].login] as $a
+  | if ($a | index("cursoragent") or index("jimmyandrade")) then "ok" else error("missing required assignee") end
+'
+```
+
+If neither user can be assigned, **stop and escalate** — do not merge.
+
+### Labels
+
+Ensure **at least one meaningful label** from the repo’s existing labels (create a new label only when none fit and the name is clearly useful). Prefer:
+
+| PR kind | Example labels |
+| --- | --- |
+| Renovate / dependency bumps | `dependencies`, `renovate` |
+| Docs / skills / AGENTS | `documentation` |
+| Bug fix | `bug` |
+| Feature / product change | `enhancement` |
+| CI / workflows | add or reuse a CI-related label if present; otherwise `dependencies` only when that fits |
+
+```bash
+gh label list --limit 100
+gh pr view <N> --json labels --jq '.labels | length'
+# If zero labels, add one that fits, e.g.:
+gh pr edit <N> --add-label "dependencies"
+```
+
+A label is **meaningful** when it describes the PR’s nature (deps, docs, bug, enhancement, CI, etc.). Do not invent placeholder labels like `todo` unless that is the real status.
 
 ## 2. Verify tests cover the changes
 
@@ -103,8 +150,13 @@ Merge **only if all** are true:
 - All review comments answered and resolved
 - No known test regressions locally
 - PR CI pipeline is green (or only waived checks the user explicitly approved)
+- **Assignee set**: `cursoragent` (preferred) or `jimmyandrade` (fallback) is among assignees
+- **At least one meaningful label** is present
+
+Re-check metadata right before merge (see §1b and [gh-recipes.md](gh-recipes.md)). If assignee or label is missing, set them first — **do not merge without both**.
 
 ```bash
+gh pr view <N> --json assignees,labels --jq '{assignees:[.assignees[].login],labels:[.labels[].name]}'
 gh pr checks <N>
 gh pr merge <N> --squash
 ```
@@ -153,6 +205,7 @@ Stop and ask the user when:
 - Changes require product/architecture choice beyond ADRs
 - CI failures need secrets/network access you do not have
 - Merge requires admin bypass or force push
+- Neither `cursoragent` nor `jimmyandrade` can be assigned (assignee hard gate)
 
 ## Additional resources
 

@@ -3,7 +3,7 @@
 ## Oldest open PR
 
 ```bash
-gh pr list --state open --limit 100 --json number,title,createdAt,url,headRefName \
+gh pr list --state open --limit 100 --json number,title,createdAt,url,headRefName,assignees,labels \
   --jq 'sort_by(.createdAt) | .[0]'
 ```
 
@@ -12,9 +12,45 @@ gh pr list --state open --limit 100 --json number,title,createdAt,url,headRefNam
 ```bash
 gh pr checkout <N>
 gh pr view <N>
+gh pr view <N> --json assignees,labels,title,url
 gh pr diff <N>
 gh pr checks <N>
 ```
+
+## Assignees (required before merge)
+
+Prefer `cursoragent`; fall back to `jimmyandrade` if `cursoragent` is not assignable.
+
+```bash
+REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+
+if gh api "repos/$REPO/assignees/cursoragent" --silent 2>/dev/null; then
+  gh pr edit <N> --add-assignee cursoragent
+else
+  gh pr edit <N> --add-assignee jimmyandrade
+fi
+
+gh pr view <N> --json assignees --jq '[.assignees[].login]'
+```
+
+Never merge unless `cursoragent` or `jimmyandrade` is assigned.
+
+## Labels (required before merge)
+
+At least **one meaningful** label must exist. Use existing repo labels when possible.
+
+```bash
+gh label list --limit 100
+gh pr view <N> --json labels --jq '[.labels[].name]'
+
+# Examples:
+gh pr edit <N> --add-label "dependencies"   # Renovate / lockfile bumps
+gh pr edit <N> --add-label "documentation"  # docs / skills / AGENTS
+gh pr edit <N> --add-label "bug"            # fixes
+gh pr edit <N> --add-label "enhancement"    # features
+```
+
+Never merge a PR with zero labels.
 
 ## Comments and reviews
 
