@@ -57,6 +57,8 @@
     "@material-ui/lab": "4.0.0-alpha.53",
     "@material-ui/styles": "4.9.14",
     "@multei/themes": "1.0.0",
+    "baseline-browser-mapping": "2.10.43",
+    "caniuse-lite": "1.0.30001806",
     "clsx": "1.1.1",
     "gatsby": "2.32.13",
     "gatsby-image": "2.11.0",
