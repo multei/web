@@ -118,7 +118,7 @@ fi
 # Verify at least one required assignee is present
 gh pr view <N> --json assignees --jq '
   [.assignees[].login] as $a
-  | if ($a | index("cursoragent") or index("jimmyandrade")) then "ok" else error("missing required assignee") end
+  | if (($a | index("cursoragent")) or ($a | index("jimmyandrade"))) then "ok" else error("missing required assignee") end
 '
 ```
 
