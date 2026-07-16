@@ -128,13 +128,13 @@ If neither user can be assigned, **stop and escalate** — do not merge.
 
 Ensure **at least one meaningful label** from the repo’s existing labels (create a new label only when none fit and the name is clearly useful). Prefer:
 
-| PR kind | Example labels |
-| --- | --- |
-| Renovate / dependency bumps | `dependencies`, `renovate` |
-| Docs / skills / AGENTS | `documentation` |
-| Bug fix | `bug` |
-| Feature / product change | `enhancement` |
-| CI / workflows | add or reuse a CI-related label if present; otherwise `dependencies` only when that fits |
+| PR kind                     | Example labels                                                                           |
+| --------------------------- | ---------------------------------------------------------------------------------------- |
+| Renovate / dependency bumps | `dependencies`, `renovate`                                                               |
+| Docs / skills / AGENTS      | `documentation`                                                                          |
+| Bug fix                     | `bug`                                                                                    |
+| Feature / product change    | `enhancement`                                                                            |
+| CI / workflows              | add or reuse a CI-related label if present; otherwise `dependencies` only when that fits |
 
 ```bash
 gh label list --limit 100
