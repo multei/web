@@ -108,3 +108,31 @@ or Jest reports `Call retries were exceeded` for that suite:
 1. Ensure the step `handleNext` mock resolves to `{ success: true, newParkingReportState: {} }` (not a bare `async () => {}`);
 2. Prefer `await handleNext()` in the async test case;
 3. Re-run `npm test`.
+
+## Lighthouse workflow fails on deprecated actions/upload-artifact@v2
+
+Given the **Lighthouse** GitHub Actions workflow fails immediately at “Set up job” with:
+
+```
+This request has been automatically failed because it uses a deprecated version of
+`actions/upload-artifact: v2`
+```
+
+1. In `.github/workflows/lighthouse.yml`, bump `actions/upload-artifact` to a supported major (e.g. `@v4`);
+2. Also refresh related actions (`actions/checkout`, `treosh/lighthouse-ci-action`) if they are outdated;
+3. Push and confirm “Set up job” succeeds.
+
+## Lighthouse LHCI collect fails with CHROME_INTERSTITIAL_ERROR
+
+Given the Lighthouse job passes setup but fails on “Audit URLs using Lighthouse” with:
+
+```
+Runtime error encountered: Chrome prevented page load with an interstitial.
+...
+LHCI 'collect' has encountered a problem.
+```
+
+1. Open the audited URL (currently `https://multei.com.br`) in a clean browser / Chrome and check for SSL, DNS, or interstitial warning pages;
+2. Fix the production site response so Chrome can load the page without an interstitial;
+3. Re-run the Lighthouse workflow;
+4. This is separate from deprecated Action upgrades (see #418).
