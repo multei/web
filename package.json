@@ -120,6 +120,7 @@
     "http-proxy": ">=1.18.1"
   },
   "overrides": {
-    "log4js": "6.4.0"
+    "log4js": "6.4.0",
+    "devcert": "1.2.1"
   }
 }
