@@ -137,3 +137,13 @@ LHCI 'collect' has encountered a problem.
 3. Re-run the Lighthouse workflow;
 4. This is separate from deprecated Action upgrades (see #418).
 5. While production is down, the Lighthouse workflow is limited to `workflow_dispatch` only (no `push`). Re-enable automatic runs via #419 when the site is healthy again.
+
+## Renovate “Artifact update problem” on dependency PRs
+
+Given a Renovate PR comments that it failed to update an artifact and you should not merge as-is:
+
+1. Check out the PR branch and merge/rebase latest `main`;
+2. Use Node 18: `export PATH="/opt/homebrew/opt/node@18/bin:$PATH"`;
+3. Run `npm install --legacy-peer-deps` and commit the regenerated `package-lock.json`;
+4. Run `npm test` (and push so CI runs);
+5. Reply on the PR that the lockfile was regenerated and tests/CI pass.
