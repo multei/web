@@ -18,6 +18,7 @@ Copy and track this checklist:
 ```
 Oldest PR progress:
 - [ ] 1. Select and analyze oldest open PR
+- [ ] 1a. If already on main (Dependabot/Renovate), request bot rebase — do not close
 - [ ] 1b. Ensure assignee + at least one meaningful label (hard gate)
 - [ ] 2. Check test coverage for the changes
 - [ ] 3. Add missing tests on the same PR branch
@@ -29,6 +30,14 @@ Oldest PR progress:
 - [ ] 9. Close related issue(s) with a summary comment
 - [ ] 10. Final uncommitted-diff sweep and commit(s)
 ```
+
+## Continuous backlog drain
+
+When the user asks to run `oldest-pr-merge`, clear the backlog, or says to keep going to the next PR:
+
+1. After finishing one PR (merge, or Dependabot/Renovate has closed it after rebase), **immediately** select the new oldest open PR and repeat the full checklist.
+2. **Do not ask** whether to continue between PRs.
+3. Stop only on the [Stop / escalate conditions](#stop--escalate-conditions), when there are no open PRs left, or when the user explicitly cancels.
 
 ## 1. Pick the oldest open PR and analyze it
 
@@ -47,6 +56,48 @@ gh pr diff <N>
 Checkout the PR branch (`gh pr checkout <N>`). Summarize intent, risk, and touched areas before editing.
 
 If there is no open PR, stop and report that.
+
+## 1a. Already on `main` (Dependabot / Renovate) — request rebase, never self-close
+
+If analysis shows the PR is **redundant with `main`** (examples below), **do not** `gh pr close` or abandon the PR yourself.
+
+Treat as already-on-main when any of these hold:
+
+- The titled dependency version is already present on `main`’s `package.json` / lockfile
+- `git diff origin/main...HEAD` (or the PR merge diff) has no remaining meaningful package change
+- A squash merge would be empty / no-op relative to current `main`
+
+### Dependabot
+
+1. Comment on the PR **mentioning Dependabot** and requesting a rebase (English):
+
+```bash
+gh pr comment <N> --body "$(cat <<'EOF'
+@dependabot rebase
+
+This looks redundant with current `main` (dependency already present or empty merge). Please rebase so Dependabot can close or refresh the PR itself.
+EOF
+)"
+```
+
+2. **Wait** for Dependabot to rebase and for CI to run (`gh pr checks <N>` / `gh run watch` as needed).
+3. **Let Dependabot close** the PR if the bump is obsolete after rebase. Do not close it manually.
+4. If after rebase the PR still has a real bump, continue the normal merge checklist (§1b onward).
+
+### Renovate
+
+Same policy for Renovate-authored PRs: do **not** self-close when already on `main`. Request a rebase and wait for the bot:
+
+```bash
+gh pr comment <N> --body "$(cat <<'EOF'
+@renovate rebase
+
+This looks redundant with current `main`. Please rebase so Renovate can close or refresh the PR itself.
+EOF
+)"
+```
+
+See [gh-recipes.md](gh-recipes.md) for the snippet. After the bot closes (or the PR becomes mergeable again), continue the backlog drain.
 
 ## 1b. Assignees and labels (mandatory before merge)
 
@@ -206,6 +257,7 @@ Stop and ask the user when:
 - CI failures need secrets/network access you do not have
 - Merge requires admin bypass or force push
 - Neither `cursoragent` nor `jimmyandrade` can be assigned (assignee hard gate)
+- Dependabot/Renovate was asked to rebase an already-on-main PR but does not respond within a long wait and the PR stays open with no clear next step (do not self-close; escalate)
 
 ## Additional resources
 

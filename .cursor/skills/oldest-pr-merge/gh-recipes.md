@@ -52,6 +52,32 @@ gh pr edit <N> --add-label "enhancement"    # features
 
 Never merge a PR with zero labels.
 
+## Already on `main` — Dependabot / Renovate rebase (do not self-close)
+
+When the PR’s bump is already on `main` (or the merge would be empty), **never** `gh pr close`. Ask the bot to rebase and wait for it to close or refresh the PR.
+
+```bash
+# Dependabot
+gh pr comment <N> --body "$(cat <<'EOF'
+@dependabot rebase
+
+This looks redundant with current `main` (dependency already present or empty merge). Please rebase so Dependabot can close or refresh the PR itself.
+EOF
+)"
+
+# Renovate
+gh pr comment <N> --body "$(cat <<'EOF'
+@renovate rebase
+
+This looks redundant with current `main`. Please rebase so Renovate can close or refresh the PR itself.
+EOF
+)"
+
+# Then wait for bot activity + CI
+gh pr view <N> --json state,statusCheckRollup
+gh pr checks <N>
+```
+
 ## Comments and reviews
 
 ```bash
