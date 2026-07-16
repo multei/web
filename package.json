@@ -132,6 +132,8 @@
     "decode-uri-component": "0.2.2",
     "json5": "2.2.3",
     "@sideway/formula": "3.0.1",
-    "@babel/plugin-transform-modules-systemjs": "7.29.7"
+    "@babel/plugin-transform-modules-systemjs": "7.29.7",
+    "diff": "5.2.2",
+    "socket.io-parser": "4.0.5"
   }
 }
