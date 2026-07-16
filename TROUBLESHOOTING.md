@@ -147,3 +147,20 @@ Given a Renovate PR comments that it failed to update an artifact and you should
 3. Run `npm install --legacy-peer-deps` and commit the regenerated `package-lock.json`;
 4. Run `npm test` (and push so CI runs);
 5. Reply on the PR that the lockfile was regenerated and tests/CI pass.
+
+## Cypress 15+ requires Node 20 (keep Cypress ≤14 on Node 18 CI)
+
+Given Renovate opens a Cypress major that resolves to 15.x while CI uses Node 18:
+
+```
+npm warn EBADENGINE Unsupported engine {
+  package: 'cypress@15.x.x',
+  required: { node: '^20.1.0 || ^22.0.0 || >=24.0.0' },
+  current: { node: 'v18.20.8', ... }
+}
+```
+
+1. Do **not** merge Cypress 15+ until CI/dev Node is upgraded to 20+;
+2. Cap the bump at the latest Cypress 14.x (e.g. `14.5.4`) which still supports Node 18;
+3. Regenerate the lockfile with `npm install --legacy-peer-deps` and run `npm test`.
+
