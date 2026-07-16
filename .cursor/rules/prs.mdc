@@ -1,0 +1,12 @@
+---
+description: Always squash-merge pull requests; never merge commits or rebase-merge by default
+alwaysApply: true
+---
+
+# Pull request merges
+
+- Always **squash merge** PRs into the default branch: `gh pr merge <N> --squash`.
+- Do **not** use `--merge` or `--rebase` unless a maintainer explicitly requests an exception.
+- Prefer an English Conventional Commits subject for the squash commit message.
+
+See `CONTRIBUTING.md` and `AGENTS.md`.
