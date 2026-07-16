@@ -164,3 +164,19 @@ npm warn EBADENGINE Unsupported engine {
 2. Cap the bump at the latest Cypress 14.x (e.g. `14.5.4`) which still supports Node 18;
 3. Regenerate the lockfile with `npm install --legacy-peer-deps` and run `npm test`.
 
+
+## log4js CVE-2022-21704 (transitive via @stryker-mutator/core)
+
+Given Renovate opens a security PR to bump `log4js` to `6.4.0+` but `@stryker-mutator/core@4.x` still declares `log4js@~6.2.1`:
+
+1. Keep current `main` `package.json` (do not take the abandoned Renovate branch’s full dependency set);
+2. Add an npm override instead of a Stryker major bump:
+
+```json
+"overrides": {
+  "log4js": "6.4.0"
+}
+```
+
+3. Regenerate the lockfile with `npm install --legacy-peer-deps` and confirm `node_modules/log4js` resolves to `6.4.0`;
+4. Run `npm test` before merge.

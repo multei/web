@@ -118,5 +118,8 @@
   },
   "resolutions": {
     "http-proxy": ">=1.18.1"
+  },
+  "overrides": {
+    "log4js": "6.4.0"
   }
 }
