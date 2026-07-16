@@ -1,4 +1,6 @@
 import React from "react"
 import HelpTemplate from "../../templates/help"
 
-export default () => <HelpTemplate />
+const AjudaPage = () => <HelpTemplate />
+
+export default AjudaPage

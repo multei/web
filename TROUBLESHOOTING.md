@@ -304,6 +304,21 @@ Given `npm install` / `npm ci` floods the terminal with `npm warn deprecated …
 3. Prefer fixing/removing those roots over adding an `override` per leaf package;
 4. Keep using Node 18 + `npm install --legacy-peer-deps` for this stack.
 
+## Gatsby HMR eslint-loader: unused vars / anonymous page exports
+
+Given the browser console (or terminal) shows eslint-loader module warnings such as:
+
+```
+'Skeleton' is defined but never used  no-unused-vars
+Anonymous arrow functions cause Fast Refresh to not preserve local component state.
+  no-anonymous-exports-page-templates
+```
+
+1. Remove unused imports (and dead commented-out usage) — e.g. `Skeleton` in `LocationStep` when only referenced inside comments;
+2. Name page default exports like `src/pages/index.js` (`const NamedPage = () => …; export default NamedPage`);
+3. Re-run / hard-refresh `gatsby develop` so eslint-loader clears the warnings;
+4. See #453.
+
 ## Gatsby HMR: bundle has N errors / ENOENT in node_modules
 
 Given the browser console (with `gatsby develop` running) shows:

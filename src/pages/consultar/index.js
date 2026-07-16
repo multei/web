@@ -1,4 +1,6 @@
 import React from "react"
 import CheckTemplate from "../../templates/check"
 
-export default (props) => <CheckTemplate {...props} />
+const ConsultarPage = (props) => <CheckTemplate {...props} />
+
+export default ConsultarPage

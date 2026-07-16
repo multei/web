@@ -18,6 +18,15 @@ describe("LocationStep", () => {
     expect(tree).toMatchSnapshot()
   })
 
+  it("does not import unused Skeleton (eslint no-unused-vars)", () => {
+    // Skeleton was only referenced in a commented-out block; keep the import gone.
+    const source = require("fs").readFileSync(
+      require("path").join(__dirname, "index.js"),
+      "utf8"
+    )
+    expect(source).not.toMatch(/import Skeleton from/)
+  })
+
   it("should render warning panel", () => {
     props.isLocationValid = false
     render(<LocationStep {...props} />)

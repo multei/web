@@ -5,7 +5,6 @@ import Alert from "@material-ui/lab/Alert"
 import AlertTitle from "@material-ui/lab/AlertTitle"
 import FormControl from "@material-ui/core/FormControl"
 import EmbedGoogleMap from "../../containers/EmbedGoogleMap"
-import Skeleton from "@material-ui/lab/Skeleton"
 import Fade from "@material-ui/core/Fade"
 import FormHelperText from "@material-ui/core/FormHelperText"
 import Divider from "@material-ui/core/Divider"
@@ -84,15 +83,6 @@ const LocationStep = (props) => {
       <Divider />
       {currentPosition && (
         <div style={{ position: "relative" }}>
-          {/*loadingMap && (
-            <Skeleton
-              style={{ position: "absolute", zIndex: 2 }}
-              variant="rect"
-              width={"100%"}
-              height={157}
-            />
-        )*/}
-
           {!googleMapsJsToggle && (
             <EmbedGoogleMap
               coordinates={`${currentPosition.coords.latitude},${currentPosition.coords.longitude}`}
