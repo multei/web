@@ -131,6 +131,7 @@
     "engine.io": "3.6.1",
     "decode-uri-component": "0.2.2",
     "json5": "2.2.3",
-    "@sideway/formula": "3.0.1"
+    "@sideway/formula": "3.0.1",
+    "@babel/plugin-transform-modules-systemjs": "7.29.7"
   }
 }
