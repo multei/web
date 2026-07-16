@@ -36,3 +36,9 @@ Whenever you encounter an error while installing, building, developing, testing,
    - Numbered recovery steps that worked (or the best known workaround)
 3. Prefer documenting durable fixes over one-off environment hacks, but record workarounds when that is all that unblocks the task.
 4. Do this in the same session you hit the error — do not wait to be asked.
+
+## Dependency / Renovate PRs
+
+- For dependency-only PRs (especially Renovate), regenerate `package-lock.json` with **Node 18** and `npm install --legacy-peer-deps` when Renovate reports an artifact update problem.
+- Keep GitHub Actions Node CI on **Node 18** (not 10/12) for this stack; use `npm ci --legacy-peer-deps`.
+- Dependency bumps with no application source changes usually do not need new unit tests; still run the full existing suite before merge.
