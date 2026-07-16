@@ -1,5 +1,4 @@
 import React from "react"
-import { Link as GatsbyLink } from "gatsby"
 
 import image from "../images/undraw_order_a_car_3tww_dark.svg"
 import { Container } from "@material-ui/core"
@@ -8,6 +7,7 @@ import Link from "@material-ui/core/Link"
 import { Article, Figure, H1, Image, Paragraph } from "muy"
 import SEO from "../components/SEO"
 import useFeatureToggle from "../hooks/useFeatureToggle"
+import { RouterLink } from "../framework/router"
 
 const IndexTemplate = () => {
   const [parkingCheckToggle] = useFeatureToggle("PARKING_CHECK")
@@ -40,11 +40,11 @@ const IndexTemplate = () => {
           <Paragraph align="center">
             <Button
               id="reportNowButton"
-              component={GatsbyLink}
+              component={RouterLink}
               color="primary"
               data-testid="reportNowButton"
+              href="/denunciar"
               size="large"
-              to="/denunciar"
               variant="contained"
             >
               Fazer denúncia anônima
@@ -61,8 +61,8 @@ const IndexTemplate = () => {
             Seu veículo foi&nbsp;denunciado?{" "}
             <Link
               color="inherit"
-              component={GatsbyLink}
-              to="/consultar"
+              component={RouterLink}
+              href="/consultar"
               underline="always"
             >
               Consultar&nbsp;denúncias

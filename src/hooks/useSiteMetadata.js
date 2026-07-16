@@ -1,23 +1,5 @@
-import { graphql, useStaticQuery } from "gatsby"
+import siteMetadata from "../../config/siteMetadata"
 
-const useSiteMetadata = () => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          applicationName
-          description
-          lang
-          googleSiteVerification
-          statusBarStyle
-          themeColor
-          title
-          titleTemplate
-        }
-      }
-    }
-  `)
-  return data.site.siteMetadata
-}
+const useSiteMetadata = () => siteMetadata
 
 export default useSiteMetadata

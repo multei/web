@@ -13,8 +13,12 @@
 ### Start developing
 
 1. Navigate into root directory;
-2. Run `npm start`. Site will open at `http://localhost:8001`. You'll also see a second link for GraphQL: http://localhost:8001/\_\_\_graphql.
-3. Open the source code and start editing!
+2. Run `npm install --legacy-peer-deps --ignore-scripts` (keeps local setup resilient when Cypress binary download is blocked);
+3. Run `npm start`. Site will open at `http://localhost:8001`.
+4. Build for production with `npm run build`.
+5. Run tests with `npm test`.
+6. The application now runs on Next.js App Router (`src/app`) while preserving framework-agnostic UI templates in `src/templates`, so future migrations (Gatsby/Next/Remix) stay incremental.
+7. Open the source code and start editing!
    Save your changes and the browser will update in real time!
 
 ## How to contribute?
@@ -71,17 +75,14 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## 🧐 What's inside?
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+A quick look at the top-level files and directories in this Next.js project.
 
     .
     ├── node_modules
     ├── src
     ├── .gitignore
     ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
+    ├── next.config.js
     ├── LICENSE
     ├── package-lock.json
     ├── package.json
@@ -95,18 +96,11 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
+5.  **`next.config.js`**: Next.js build/runtime configuration.
+6.  **`src/app`**: App Router entries (`layout`, route pages, metadata routes).
+7.  **`src/templates`**: Framework-agnostic page templates reused independently from routing framework.
+8.  **`src/framework`**: Thin routing/runtime adapters that isolate framework specifics.
 9.  **`LICENSE`**: This project is licensed under the MIT license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
+10. **`package-lock.json`**: Auto-generated lockfile for exact dependency versions.
+11. **`package.json`**: Project metadata and npm scripts/dependencies.
+12. **`README.md`**: Project documentation.

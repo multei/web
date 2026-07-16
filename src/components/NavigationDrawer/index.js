@@ -9,7 +9,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import IconButton from "@material-ui/core/IconButton"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 import { CopyrightText } from "../../containers/CopyrightText"
-import { Link } from "gatsby"
+import { RouterLink } from "../../framework/router"
 
 export const NavigationDrawer = ({ onClose, open }) => (
   <Drawer anchor={"left"} onClose={onClose} open={open}>
@@ -19,7 +19,7 @@ export const NavigationDrawer = ({ onClose, open }) => (
       </IconButton>
     </Toolbar>
     <List>
-      <ListItem component={Link} onClick={onClose} to={"/"}>
+      <ListItem component={RouterLink} href={"/"} onClick={onClose}>
         <ListItemText primaryTypographyProps={{ color: "textPrimary" }}>
           Página inicial
         </ListItemText>
@@ -29,12 +29,12 @@ export const NavigationDrawer = ({ onClose, open }) => (
       {/*    Perguntas frequentes*/}
       {/*  </ListItemText>*/}
       {/*</ListItem>*/}
-      <ListItem component={Link} onClick={onClose} to={"/privacidade"}>
+      <ListItem component={RouterLink} href={"/privacidade"} onClick={onClose}>
         <ListItemText primaryTypographyProps={{ color: "textPrimary" }}>
           Privacidade
         </ListItemText>
       </ListItem>
-      <ListItem component={Link} onClick={onClose} to={"/termos"}>
+      <ListItem component={RouterLink} href={"/termos"} onClick={onClose}>
         <ListItemText primaryTypographyProps={{ color: "textPrimary" }}>
           Termos de uso
         </ListItemText>

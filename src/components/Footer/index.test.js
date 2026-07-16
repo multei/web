@@ -22,7 +22,7 @@ describe("Footer", () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it("renders help, privacy, and terms links via Gatsby Link without ref warnings", () => {
+  it("renders help, privacy, and terms links without ref warnings", () => {
     const consoleError = jest
       .spyOn(console, "error")
       .mockImplementation(() => {})
