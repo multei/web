@@ -125,6 +125,7 @@
     "jpeg-js": "0.4.4",
     "moment": "2.29.4",
     "terser": "4.8.1",
-    "loader-utils": "1.4.2"
+    "loader-utils": "1.4.2",
+    "engine.io": "3.6.1"
   }
 }
