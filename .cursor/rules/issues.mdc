@@ -1,0 +1,18 @@
+---
+description: Update GitHub issue checklists after implementing work
+alwaysApply: true
+---
+
+# Issue follow-through
+
+When you implement a GitHub issue:
+
+1. Read the full issue body (scope, acceptance criteria, notes) before and during the work.
+2. After implementation finishes, **edit the issue**:
+   - Check completed checklist items (`- [x]`).
+   - Leave incomplete items unchecked and note what remains.
+   - Update acceptance criteria the same way.
+3. Comment with a short summary of what shipped and any follow-ups.
+4. Close only when acceptance criteria are met; otherwise leave open/reopen with pending items visible.
+
+See `CONTRIBUTING.md` and `AGENTS.md`.
