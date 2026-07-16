@@ -127,6 +127,7 @@
     "terser": "4.8.1",
     "loader-utils": "1.4.2",
     "engine.io": "3.6.1",
-    "decode-uri-component": "0.2.2"
+    "decode-uri-component": "0.2.2",
+    "json5": "2.2.3"
   }
 }
