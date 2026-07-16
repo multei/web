@@ -1,4 +1,6 @@
 import React from "react"
 import PrivacyTemplate from "../../templates/privacy"
 
-export default () => <PrivacyTemplate />
+const PrivacidadePage = () => <PrivacyTemplate />
+
+export default PrivacidadePage

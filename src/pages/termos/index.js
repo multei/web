@@ -1,4 +1,6 @@
 import React from "react"
 import TermsTemplate from "../../templates/terms"
 
-export default () => <TermsTemplate />
+const TermosPage = () => <TermsTemplate />
+
+export default TermosPage

@@ -1,4 +1,6 @@
 import React from "react"
 import ReportingTemplate from "../../templates/reporting"
 
-export default () => <ReportingTemplate />
+const DenunciarPage = () => <ReportingTemplate />
+
+export default DenunciarPage
