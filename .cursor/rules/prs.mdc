@@ -8,5 +8,6 @@ alwaysApply: true
 - Always **squash merge** PRs into the default branch: `gh pr merge <N> --squash`.
 - Do **not** use `--merge` or `--rebase` unless a maintainer explicitly requests an exception.
 - Prefer an English Conventional Commits subject for the squash commit message.
+- Before merge (including `oldest-pr-merge`): assign **`cursoragent`** if possible, else **`jimmyandrade`**, and ensure **at least one meaningful label**. Do not merge without both.
 
-See `CONTRIBUTING.md` and `AGENTS.md`.
+See `CONTRIBUTING.md`, `AGENTS.md`, and `.cursor/skills/oldest-pr-merge/`.

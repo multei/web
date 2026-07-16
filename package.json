@@ -57,6 +57,8 @@
     "@material-ui/lab": "4.0.0-alpha.53",
     "@material-ui/styles": "4.9.14",
     "@multei/themes": "1.0.0",
+    "baseline-browser-mapping": "2.10.43",
+    "caniuse-lite": "1.0.30001806",
     "clsx": "1.1.1",
     "gatsby": "2.32.13",
     "gatsby-image": "2.11.0",
@@ -91,7 +93,7 @@
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "11.2.7",
     "axe-core": "4.12.1",
-    "axios": "0.21.2",
+    "axios": "0.28.0",
     "babel-jest": "26.6.3",
     "babel-preset-gatsby": "0.12.3",
     "codecov": "3.8.2",
@@ -124,6 +126,11 @@
     "devcert": "1.2.1",
     "jpeg-js": "0.4.4",
     "moment": "2.29.4",
-    "terser": "4.8.1"
+    "terser": "4.8.1",
+    "loader-utils": "1.4.2",
+    "engine.io": "3.6.1",
+    "decode-uri-component": "0.2.2",
+    "json5": "2.2.3",
+    "@sideway/formula": "3.0.1"
   }
 }
