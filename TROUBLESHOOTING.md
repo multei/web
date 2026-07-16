@@ -136,3 +136,4 @@ LHCI 'collect' has encountered a problem.
 2. Fix the production site response so Chrome can load the page without an interstitial;
 3. Re-run the Lighthouse workflow;
 4. This is separate from deprecated Action upgrades (see #418).
+5. While production is down, the Lighthouse workflow is limited to `workflow_dispatch` only (no `push`). Re-enable automatic runs via #419 when the site is healthy again.
