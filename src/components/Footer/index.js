@@ -1,11 +1,11 @@
 import React from "react"
-import { Link as GatsbyLink } from "gatsby"
 
 import Link from "@material-ui/core/Link"
 import ListItem from "@material-ui/core/ListItem"
 import Container from "@material-ui/core/Container"
 import { HorizontalList, PageFooter } from "muy"
 import { CopyrightText } from "../CopyrightText"
+import { RouterLink } from "../../framework/router"
 
 export default ({ siteTitle }) => {
   return (
@@ -18,8 +18,8 @@ export default ({ siteTitle }) => {
           <ListItem>
             <Link
               color="inherit"
-              component={GatsbyLink}
-              to="/ajuda"
+              component={RouterLink}
+              href="/ajuda"
               underline="always"
             >
               Ajuda
@@ -28,8 +28,8 @@ export default ({ siteTitle }) => {
           <ListItem>
             <Link
               color="inherit"
-              component={GatsbyLink}
-              to="/privacidade"
+              component={RouterLink}
+              href="/privacidade"
               underline="always"
             >
               Privacidade
@@ -38,8 +38,8 @@ export default ({ siteTitle }) => {
           <ListItem>
             <Link
               color="inherit"
-              component={GatsbyLink}
-              to="/termos"
+              component={RouterLink}
+              href="/termos"
               underline="always"
             >
               Termos de&nbsp;uso

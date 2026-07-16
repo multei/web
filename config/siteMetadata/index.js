@@ -1,7 +1,3 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
-
 const siteName = "Multei!"
 
 const siteMetadata = {
@@ -12,7 +8,10 @@ const siteMetadata = {
   display: "standalone",
   lang: "pt-br",
   icon: "src/images/icon.png",
-  googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || "0",
+  googleSiteVerification:
+    process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+    process.env.GATSBY_GOOGLE_SITE_VERIFICATION ||
+    "0",
   siteName,
   siteUrl: "https://multei.com.br",
   startUrl: "/",

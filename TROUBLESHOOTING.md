@@ -382,3 +382,36 @@ npm run develop
 
 Do **not** leave `gatsby develop` running while deleting or partially rewriting `node_modules` — that is the usual way this ENOENT storm starts.
 
+
+## npm install fails downloading Cypress binary (ENOTFOUND download.cypress.io)
+
+Given dependency install fails in restricted/offline environments:
+
+```sh
+npm install --legacy-peer-deps
+# ...
+# The Cypress App could not be downloaded.
+# URL: https://download.cypress.io/desktop/14.5.4?platform=linux&arch=x64
+# Error: getaddrinfo ENOTFOUND download.cypress.io
+```
+
+1. Re-run install without lifecycle scripts so Cypress binary download is skipped:
+
+```sh
+npm install --legacy-peer-deps --ignore-scripts
+```
+
+2. Run unit tests/build that do not require Cypress binary;
+3. If you need E2E locally, run install again in a network with access to `download.cypress.io`.
+
+## Next.js build fails with `App Router and Pages Router both match path`
+
+Given `next build` reports route conflicts like:
+
+```txt
+App Router and Pages Router both match path: /
+```
+
+1. Keep App Router entries under `src/app`;
+2. Remove or relocate legacy `src/pages` routes that mirror the same paths;
+3. Re-run `npm run build`.

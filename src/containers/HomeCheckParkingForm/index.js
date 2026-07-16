@@ -1,19 +1,18 @@
 import React from "react"
-import { navigate } from "gatsby"
 import CheckParkingForm from "../../components/CheckParkingForm"
-import { withPrefix } from "../../../.cache/gatsby-browser-entry"
+import { getPath, navigateTo } from "../../framework/router"
 
 const checkPath = "/consultar"
 
 const handleSubmit = (event) => {
   event.preventDefault()
-  navigate(`${checkPath}?car_plate=`)
+  navigateTo(`${checkPath}?car_plate=`)
 }
 
 const HomeCheckParkingForm = (props) => (
   <CheckParkingForm
     formProps={{
-      action: withPrefix(checkPath),
+      action: getPath(checkPath),
     }}
     onSubmit={handleSubmit}
   />

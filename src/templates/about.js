@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React from "react"
 import Button from "@material-ui/core/Button"
 import Divider from "@material-ui/core/Divider"
@@ -6,6 +5,7 @@ import Typography from "@material-ui/core/Typography"
 import HomeCheckParkingForm from "../containers/HomeCheckParkingForm"
 import { Article } from "muy"
 import SEO from "../components/SEO"
+import { RouterLink } from "../framework/router"
 
 const AboutTemplate = () => (
   <Article>
@@ -23,8 +23,8 @@ const AboutTemplate = () => (
     <Typography paragraph={true}>
       <Button
         color="primary"
-        component={Link}
-        to="/denunciar"
+        component={RouterLink}
+        href="/denunciar"
         variant="contained"
       >
         Denuncie agora

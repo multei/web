@@ -9,8 +9,8 @@ import Alert from "@material-ui/lab/Alert"
 import AlertTitle from "@material-ui/lab/AlertTitle"
 import useFeatureToggle from "../hooks/useFeatureToggle"
 
-const CheckTemplate = ({ location }) => {
-  const parsedQueryString = parse(location.search)
+const CheckTemplate = ({ location, search }) => {
+  const parsedQueryString = parse(search ?? location?.search ?? "")
   const carPlate = parsedQueryString["car_plate"]
   const [parkingCheckToggle] = useFeatureToggle("PARKING_CHECK")
 
