@@ -35,7 +35,8 @@ git branch -d master # optional, after switching
 
 ## Check our guidelines & code of conduct
 
-- [Contributing Guidelines](https://github.com/multei/.github/blob/master/CONTRIBUTING.md);
+- [Contributing Guidelines](./CONTRIBUTING.md) (this repo)
+- [Organization contributing guidelines](https://github.com/multei/.github/blob/master/CONTRIBUTING.md)
 - [Code of Conduct](https://github.com/multei/.github/blob/master/CODE_OF_CONDUCT.md).
 
 ### Meet our contributors ✨
