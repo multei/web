@@ -15,6 +15,7 @@ Always use **progressive, atomic commits** (see `CONTRIBUTING.md`):
 - Always **squash merge** PRs: `gh pr merge <N> --squash`.
 - Do not use `--merge` or `--rebase` unless a maintainer explicitly asks for an exception.
 - Prefer an English Conventional Commits subject for the squash commit message.
+- Before merge: assign **`cursoragent`** when assignable, otherwise **`jimmyandrade`**, and ensure **at least one meaningful label**. Never merge without both.
 
 ## Issues
 
