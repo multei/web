@@ -1,6 +1,10 @@
 const siteMetadata = require("../siteMetadata")
 
 const plugins = [
+  // Must run before gatsby-plugin-prefetch-google-fonts (creates .cache/google-fonts/fonts).
+  {
+    resolve: `${__dirname}/../../plugins/ensure-google-fonts-dirs`,
+  },
   {
     resolve: `gatsby-plugin-canonical-urls`,
     options: {

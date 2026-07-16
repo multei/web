@@ -79,7 +79,7 @@ and/or:
 Error: ENOENT: no such file or directory, scandir '.../public/google-fonts'
 ```
 
-1. Create the expected directories before (or after) a clean:
+1. Create the expected directories before (or after) a clean — preferably via the local plugin `plugins/ensure-google-fonts-dirs` (registered first in `config/plugins`) which runs `onPreInit` / `onPreBootstrap`:
 
 ```sh
 mkdir -p .cache/google-fonts/fonts public/google-fonts
@@ -303,4 +303,51 @@ Given `npm install` / `npm ci` floods the terminal with `npm warn deprecated …
    - #436 — Material UI v4 → MUI v5 (drops `popper.js@1`)
 3. Prefer fixing/removing those roots over adding an `override` per leaf package;
 4. Keep using Node 18 + `npm install --legacy-peer-deps` for this stack.
+
+## Gatsby HMR: bundle has N errors / ENOENT in node_modules
+
+Given the browser console (with `gatsby develop` running) shows:
+
+```
+[HMR] connected
+[HMR] bundle has 26 errors
+Module build failed: Error: ENOENT: no such file or directory, open '…/node_modules/…'
+```
+
+for paths such as `@hot-loader/react-dom/node_modules/scheduler/…`, `axios/lib/defaults.js`, `gatsby-link/index.js`, or `gatsby/node_modules/@babel/runtime/helpers/…`:
+
+1. Stop every local Gatsby process:
+
+```sh
+pkill -f "gatsby develop" || true
+```
+
+2. Wipe install artifacts and reinstall on **Node 18**:
+
+```sh
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+export NODE_OPTIONS=--openssl-legacy-provider
+rm -rf node_modules .cache
+npm install --legacy-peer-deps --ignore-scripts
+```
+
+3. On Apple Silicon, restore a working `sharp` (see the sharp / ARM section above), e.g.:
+
+```sh
+npm install sharp@0.32.6 --save-exact --legacy-peer-deps --no-save --foreground-scripts
+```
+
+4. Recreate font cache dirs, then start develop:
+
+```sh
+mkdir -p .cache/google-fonts/fonts public/google-fonts
+npm run develop
+```
+
+5. Hard-refresh the browser (or close the tab) so HMR is not stuck on the old broken module graph.
+
+6. If webpack fails with `Can't resolve 'gatsby-link'` / `gatsby-react-router-scroll` from `.cache`, keep those packages as **direct** dependencies matching the nested Gatsby 2 versions (`gatsby-link@2.11.0`, `gatsby-react-router-scroll@3.7.0`) so npm hoists them for the develop SSR bundle.
+7. If `gatsby-recipes` crashes with `Error [ERR_REQUIRE_ESM]` for `remark-mdx`, keep the npm override `"remark-mdx": "1.6.22"` in `package.json` (CJS-compatible) and re-run `npm install --legacy-peer-deps`. See #451.
+
+Do **not** leave `gatsby develop` running while deleting or partially rewriting `node_modules` — that is the usual way this ENOENT storm starts.
 
