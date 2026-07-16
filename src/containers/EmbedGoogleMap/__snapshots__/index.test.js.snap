@@ -5,6 +5,6 @@ exports[`<EmbedGoogleMap /> container should render 1`] = `
   allowFullScreen={true}
   className="MuiBox-root MuiBox-root-3"
   frameBorder={0}
-  src="https://www.google.com/maps/embed/v1/place?q=undefined&key=undefined"
+  src="https://www.google.com/maps/embed/v1/place?q=undefined&key=test-api-key"
 />
 `;
