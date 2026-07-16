@@ -6,14 +6,16 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Audit URLs using Lighthouse
-      uses: treosh/lighthouse-ci-action@v3
-      with:
-        urls: |
-          https://multei.com.br
-    - name: Save results
-      uses: actions/upload-artifact@v2
-      with:
-        name: lighthouseresults
-        path: .lighthouseci
+      - uses: actions/checkout@v4
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@12.6.2
+        with:
+          urls: |
+            https://multei.com.br
+          uploadArtifacts: false
+      - name: Save results
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouseresults
+          path: .lighthouseci
+          if-no-files-found: warn
