@@ -10,6 +10,12 @@ Always use **progressive, atomic commits** (see `CONTRIBUTING.md`):
 4. Prefer a sequence of small commits over one large commit.
 5. Commit messages in **English**, using [Conventional Commits](https://www.conventionalcommits.org/) (`feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `ci`, …).
 
+## Pull requests
+
+- Always **squash merge** PRs: `gh pr merge <N> --squash`.
+- Do not use `--merge` or `--rebase` unless a maintainer explicitly asks for an exception.
+- Prefer an English Conventional Commits subject for the squash commit message.
+
 ## Issues
 
 - Create and edit GitHub issues **in English** (title and body). Do not open new issues in Portuguese.

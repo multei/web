@@ -105,10 +105,10 @@ Merge **only if all** are true:
 
 ```bash
 gh pr checks <N>
-gh pr merge <N> --merge   # or --squash if the repo standard requires it; prefer preserving atomic commits with --merge when history is clean
+gh pr merge <N> --squash
 ```
 
-If merge is blocked (rules, reviews, conflict), report the blocker; do not force-merge unless the user explicitly asks.
+If merge is blocked (rules, reviews, conflict), report the blocker; do not force-merge unless the user explicitly asks. Never use `--merge` or `--rebase` unless a maintainer explicitly overrides the squash-only policy.
 
 ## 9. Related issue(s)
 

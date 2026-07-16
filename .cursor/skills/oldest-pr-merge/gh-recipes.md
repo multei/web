@@ -58,10 +58,10 @@ Filter bot/Copilot authors carefully (`copilot`, `github-actions`, etc.) but sti
 ## Merge
 
 ```bash
-gh pr merge <N> --merge
-# or: gh pr merge <N> --squash
+gh pr merge <N> --squash
 ```
 
+Do not use `--merge` or `--rebase` unless a maintainer explicitly asks.
 ## Linked issues
 
 ```bash
