@@ -1,0 +1,21 @@
+---
+description: Progressive atomic Conventional Commits in English
+alwaysApply: true
+---
+
+# Commits
+
+Always create **progressive, atomic commits**:
+
+- One logical change per commit.
+- Each commit must be **cherry-pickable** without breaking the pipeline (install/build/test/CI still pass on that commit alone).
+- Do not bundle unrelated changes or leave the tree red mid-series.
+- Prefer several small commits over one large commit.
+
+### Messages
+
+- English only.
+- [Conventional Commits](https://www.conventionalcommits.org/): `feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `ci`, etc.
+- Example: `fix(hooks): return success payload from steps navigation mock`
+
+See `CONTRIBUTING.md` and `AGENTS.md`.
