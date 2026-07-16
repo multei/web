@@ -23,6 +23,16 @@
 
 You can find it at https://github.com/orgs/multei/projects/1
 
+The default branch is **`main`**. If your local clone still tracks `master`, update it:
+
+```sh
+git fetch origin
+git checkout main
+git branch -u origin/main main
+git remote set-head origin -a
+git branch -d master # optional, after switching
+```
+
 ## Check our guidelines & code of conduct
 
 - [Contributing Guidelines](https://github.com/multei/.github/blob/master/CONTRIBUTING.md);
