@@ -49,3 +49,12 @@ Whenever you encounter an error while installing, building, developing, testing,
 - For dependency-only PRs (especially Renovate), regenerate `package-lock.json` with **Node 18** and `npm install --legacy-peer-deps` when Renovate reports an artifact update problem.
 - Keep GitHub Actions Node CI on **Node 18** (not 10/12) for this stack; use `npm ci --legacy-peer-deps`.
 - Dependency bumps with no application source changes usually do not need new unit tests; still run the full existing suite before merge.
+
+## Upstream `muy` fixes
+
+We maintain / have access to [muy/muy](https://github.com/muy/muy). Whenever a bug or limitation in `muy` forces a local workaround or fix in this repo:
+
+1. Ship the consumer-side fix here if needed (with tests).
+2. **Always** open an upstream issue + PR on `muy/muy` that fixes the root cause (even when the local workaround already unblocks us).
+3. Cross-link the multei/web and muy issues/PRs.
+4. Follow existing `muy` patterns under `packages/muy/lib/` (e.g. use `clsx` for optional `className` values).

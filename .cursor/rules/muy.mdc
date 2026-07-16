@@ -1,0 +1,15 @@
+---
+description: When fixing or working around bugs in the muy design system, also open an upstream PR on muy/muy
+alwaysApply: true
+---
+
+# Upstream fixes for `muy`
+
+We have access to [muy/muy](https://github.com/muy/muy). Whenever a bug or limitation in `muy` requires a local workaround or fix in this repo:
+
+1. Still ship the consumer fix here if needed (tests, temporary local implementation, etc.).
+2. **Also** open an issue and PR on `https://github.com/muy/muy` that fixes the root cause in the design system.
+3. Link the consumer issue/PR to the upstream PR (and vice versa).
+4. Prefer aligning with existing `muy` patterns (e.g. `clsx` for optional class names, same folder/test layout under `packages/muy/lib/`).
+
+Do not leave muy bugs fixed only in multei/web without an upstream PR.

@@ -200,3 +200,107 @@ Given Renovate opens a security PR to bump `log4js` to `6.4.0+` but `@stryker-mu
 3. Regenerate the lockfile with `npm install --legacy-peer-deps` and confirm `node_modules/log4js` resolves to `6.4.0`;
 4. Run `npm test` before merge.
 
+## Something is already running at port 8001
+
+Given you run `npm run dev` / `npm run develop` / `gatsby develop`, when you find this on Terminal:
+
+```
+Something is already running at port 8001
+```
+
+1. Confirm what is listening:
+
+```sh
+lsof -iTCP:8001 -sTCP:LISTEN -n -P
+```
+
+2. If it is a leftover Gatsby from this repo, stop it (replace `<PID>`):
+
+```sh
+kill <PID>
+# if it does not exit: kill -9 <PID>
+```
+
+3. Or stop every local Gatsby develop:
+
+```sh
+pkill -f "gatsby develop" || true
+```
+
+4. Restart with Node 18 (see also the localStorage warning below):
+
+```sh
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+npm run develop
+```
+
+5. To use another port temporarily: `gatsby develop --host localhost --port 8002` (update Cypress `baseUrl` if you run e2e against it).
+
+## ExperimentalWarning: localStorage / --localstorage-file (Node 25+)
+
+Given you run `npm run develop` (often right after the port-8001 message) and see:
+
+```
+(node:…) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+```
+
+1. This comes from **Node 25+ / 26** experimental Web Storage (`globalThis.localStorage`), not from browser `window.localStorage` in the app;
+2. Homebrew’s default `node` may be 26.x while this Gatsby 2 stack expects **Node 18** — check with `node -v` and `which node`;
+3. Prefer Node 18 for install/dev/test/CI:
+
+```sh
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+node -v   # expect v18.x
+npm run develop
+```
+
+4. If you must stay on Node 25+, you can silence Web Storage with `NODE_OPTIONS=--no-webstorage` (or provide `--localstorage-file=…`). Prefer switching to Node 18 instead of papering over it on this repo;
+5. Separately keep using `NODE_OPTIONS=--openssl-legacy-provider` when OpenSSL errors appear (see the OpenSSL section above). Combine carefully, e.g. `export NODE_OPTIONS="--openssl-legacy-provider --no-webstorage"`.
+
+## Jest PropTypes: EmbedGoogleMap boolean `className`
+
+Given `npm test` prints:
+
+```
+Warning: Failed prop type: Invalid prop `className` of type `boolean` supplied to `Styled(MuiBox)`, expected `string`.
+    at Iframe (…/muy/dist/index.cjs.js)
+    at EmbedGoogleMap (src/containers/EmbedGoogleMap/…)
+```
+
+1. Cause: `muy@1.1.0` `Iframe` sets `className: variant === "cover" && classes.cover`, which is `false` when `variant` is not `"cover"`;
+2. Consumer workaround: local `src/containers/EmbedGoogleMap` implementation (string-safe `className`) — shipped in #440 / #443;
+3. Upstream fix: [muy/muy#152](https://github.com/muy/muy/issues/152) / [muy/muy#153](https://github.com/muy/muy/pull/153) (`clsx` on `Iframe`, same pattern as `Image`);
+4. After a published `muy` release with that fix, prefer bumping `muy` and simplifying the local container if it is only a re-export again;
+5. If the warning returns, ensure related unit tests still assert no boolean-`className` warning.
+
+## Jest PropTypes / ref: Footer MUI Link + Gatsby Link mock
+
+Given `npm test` prints one or more of:
+
+```
+Warning: Failed prop type: Invalid prop `component` supplied to `ForwardRef(Link)`. Expected an element type that can hold a ref.
+Warning: mockConstructor: `ref` is not a prop. …
+Warning: Function components cannot be given refs. …
+    at __mocks__/gatsby.js
+    at Footer (src/components/Footer/…)
+```
+
+1. Cause: `__mocks__/gatsby.js` implemented `Link` as a plain `jest.fn()` and destructured `ref` from props; MUI `Link` requires a ref-capable `component`;
+2. Fix: mock `Link` with `React.forwardRef` (production Gatsby `Link` already does) — shipped in #441 / #442;
+3. Regression coverage lives in `src/components/Footer/index.test.js`.
+
+## npm warn deprecated … on install (inventory)
+
+Given `npm install` / `npm ci` floods the terminal with `npm warn deprecated …` (e.g. `urix`, `request`, `gatsby-image`, `netlify-cli` transitive packages, `popper.js`, `@hapi/joi`, …):
+
+1. Do **not** silence with npm loglevel flags — almost all warnings come from a few **root** packages;
+2. Follow the inventory and remediations in #445:
+   - #446 — remove unused direct `gatsby-image` (quick win)
+   - #447 / #416 — upgrade or remove `netlify-cli` (largest install-noise cluster)
+   - #448 / #415 — clear Gatsby 2 / webpack 4 transitive deprecations (upgrade Gatsby majors or migrate to Next.js)
+   - #449 — upgrade Jest past 26 (drops `request` / `har-validator` via jsdom)
+   - #436 — Material UI v4 → MUI v5 (drops `popper.js@1`)
+3. Prefer fixing/removing those roots over adding an `override` per leaf package;
+4. Keep using Node 18 + `npm install --legacy-peer-deps` for this stack.
+
