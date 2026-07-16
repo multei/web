@@ -34,6 +34,12 @@ test: refresh copyright year snapshots
 
 Reference related GitHub issues in the subject or footer when applicable (e.g. `#417`).
 
+## Pull requests
+
+- Always **squash merge** PRs into the default branch (`gh pr merge <N> --squash`).
+- Do **not** use merge commits (`--merge`) or rebase merges (`--rebase`) unless a maintainer explicitly overrides this for a one-off case.
+- Keep the squash commit message in English and Conventional Commits style when editing it on merge.
+
 ## Issues
 
 - Write **all GitHub issues in English** (title and body), including bug reports, tasks, epics, and comments that describe scope or status.
