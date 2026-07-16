@@ -126,6 +126,7 @@
     "moment": "2.29.4",
     "terser": "4.8.1",
     "loader-utils": "1.4.2",
-    "engine.io": "3.6.1"
+    "engine.io": "3.6.1",
+    "decode-uri-component": "0.2.2"
   }
 }
