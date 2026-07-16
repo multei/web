@@ -108,12 +108,15 @@ describe("useStepsNavigation", () => {
       ]
     })
 
-    it("should go to the next step", () => {
-      mockHandleNext.mockImplementation(async () => {})
+    it("should go to the next step", async () => {
+      mockHandleNext.mockImplementation(async () => ({
+        success: true,
+        newParkingReportState: {},
+      }))
 
       const { handleNext } = useStepsNavigation(steps, maxSteps)
 
-      handleNext()
+      await handleNext()
 
       expect(mockHandleNext).toHaveBeenCalledTimes(1)
     })
