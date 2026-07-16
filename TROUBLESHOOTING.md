@@ -165,5 +165,38 @@ npm install caniuse-lite baseline-browser-mapping --legacy-peer-deps
 npx update-browserslist-db@latest
 ```
 
-3. Commit the resulting `package.json` / `package-lock.json` changes;
+3. Commit the regenerated `package-lock.json`; commit `package.json` too only when the manual install path added or updated direct package entries;
 4. Confirm `npx update-browserslist-db@latest` reports `caniuse-lite is up to date`.
+
+## Cypress 15+ requires Node 20 (keep Cypress <=14 on Node 18 CI)
+
+Given Renovate opens a Cypress major that resolves to 15.x while CI uses Node 18:
+
+```
+npm warn EBADENGINE Unsupported engine {
+  package: 'cypress@15.x.x',
+  required: { node: '^20.1.0 || ^22.0.0 || >=24.0.0' },
+  current: { node: 'v18.20.8', ... }
+}
+```
+
+1. Do **not** merge Cypress 15+ until CI/dev Node is upgraded to 20+;
+2. Cap the bump at the latest Cypress 14.x (e.g. `14.5.4`) which still supports Node 18;
+3. Regenerate the lockfile with `npm install --legacy-peer-deps` and run `npm test`.
+
+## log4js CVE-2022-21704 (transitive via @stryker-mutator/core)
+
+Given Renovate opens a security PR to bump `log4js` to `6.4.0+` but `@stryker-mutator/core@4.x` still declares `log4js@~6.2.1`:
+
+1. Keep current `main` `package.json` (do not take the abandoned Renovate branch's full dependency set);
+2. Add an npm override instead of a Stryker major bump:
+
+```json
+"overrides": {
+  "log4js": "6.4.0"
+}
+```
+
+3. Regenerate the lockfile with `npm install --legacy-peer-deps` and confirm `node_modules/log4js` resolves to `6.4.0`;
+4. Run `npm test` before merge.
+
