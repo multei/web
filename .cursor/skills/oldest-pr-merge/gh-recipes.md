@@ -62,6 +62,7 @@ gh pr merge <N> --squash
 ```
 
 Do not use `--merge` or `--rebase` unless a maintainer explicitly asks.
+
 ## Linked issues
 
 ```bash
