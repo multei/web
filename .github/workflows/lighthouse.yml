@@ -1,6 +1,13 @@
+# Lighthouse CI against production.
+# Temporarily disabled while https://multei.com.br is unavailable
+# (CHROME_INTERSTITIAL_ERROR). Re-enable when the site is back — see the
+# tracking issue #419.
 name: Lighthouse
 
-on: [push]
+# Was: on: [push]
+# Manual runs only until production is healthy again.
+on:
+  workflow_dispatch:
 
 jobs:
   lighthouse:
