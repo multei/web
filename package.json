@@ -121,6 +121,7 @@
   },
   "overrides": {
     "log4js": "6.4.0",
-    "devcert": "1.2.1"
+    "devcert": "1.2.1",
+    "jpeg-js": "0.4.4"
   }
 }
