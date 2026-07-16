@@ -36,6 +36,9 @@ Reference related GitHub issues in the subject or footer when applicable (e.g. `
 
 ## Issues
 
+- Write **all GitHub issues in English** (title and body), including bug reports, tasks, epics, and comments that describe scope or status.
+- Prefer Conventional Commit-style titles when they help (`ci: …`, `docs: …`, `feat: …`).
+
 When you **implement** a GitHub issue:
 
 1. Read the full issue body (context, scope checklists, acceptance criteria, notes) before and during the work.
