@@ -1,0 +1,14 @@
+---
+description: Always document runtime/setup errors in TROUBLESHOOTING.md
+alwaysApply: true
+---
+
+# Troubleshooting log
+
+Whenever you hit an install, build, develop, test, or deploy error in this repo:
+
+1. Check `TROUBLESHOOTING.md` first.
+2. If it is a **new** error, append a section there in the same style as existing entries (heading, when it appears, terminal excerpt, numbered steps).
+3. Do this in the same session — do not wait to be asked.
+
+See also `AGENTS.md`.
