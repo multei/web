@@ -60,7 +60,7 @@
     "baseline-browser-mapping": "2.10.43",
     "caniuse-lite": "1.0.30001806",
     "clsx": "1.1.1",
-    "gatsby": "2.32.13",
+    "gatsby": "4.25.7",
     "gatsby-image": "2.11.0",
     "gatsby-plugin-canonical-urls": "2.10.0",
     "gatsby-plugin-layout": "1.10.0",
