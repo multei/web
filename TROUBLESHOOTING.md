@@ -148,7 +148,27 @@ Given a Renovate PR comments that it failed to update an artifact and you should
 4. Run `npm test` (and push so CI runs);
 5. Reply on the PR that the lockfile was regenerated and tests/CI pass.
 
-## Cypress 15+ requires Node 20 (keep Cypress ≤14 on Node 18 CI)
+## Browserslist: caniuse-lite is outdated
+
+Given build/dev tooling prints:
+
+```
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+```
+
+1. Prefer the current updater: `npx update-browserslist-db@latest`;
+2. If that fails with `ERESOLVE` / peer dependency conflicts (common with `@hot-loader/react-dom` vs `react@17.0.1`), install manually:
+
+```sh
+npm install caniuse-lite baseline-browser-mapping --legacy-peer-deps
+npx update-browserslist-db@latest
+```
+
+3. Commit the regenerated `package-lock.json`; commit `package.json` too only when the manual install path added or updated direct package entries;
+4. Confirm `npx update-browserslist-db@latest` reports `caniuse-lite is up to date`.
+
+## Cypress 15+ requires Node 20 (keep Cypress <=14 on Node 18 CI)
 
 Given Renovate opens a Cypress major that resolves to 15.x while CI uses Node 18:
 
@@ -164,12 +184,11 @@ npm warn EBADENGINE Unsupported engine {
 2. Cap the bump at the latest Cypress 14.x (e.g. `14.5.4`) which still supports Node 18;
 3. Regenerate the lockfile with `npm install --legacy-peer-deps` and run `npm test`.
 
-
 ## log4js CVE-2022-21704 (transitive via @stryker-mutator/core)
 
 Given Renovate opens a security PR to bump `log4js` to `6.4.0+` but `@stryker-mutator/core@4.x` still declares `log4js@~6.2.1`:
 
-1. Keep current `main` `package.json` (do not take the abandoned Renovate branch’s full dependency set);
+1. Keep current `main` `package.json` (do not take the abandoned Renovate branch's full dependency set);
 2. Add an npm override instead of a Stryker major bump:
 
 ```json
@@ -180,3 +199,4 @@ Given Renovate opens a security PR to bump `log4js` to `6.4.0+` but `@stryker-mu
 
 3. Regenerate the lockfile with `npm install --legacy-peer-deps` and confirm `node_modules/log4js` resolves to `6.4.0`;
 4. Run `npm test` before merge.
+

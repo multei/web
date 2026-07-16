@@ -39,6 +39,7 @@ Reference related GitHub issues in the subject or footer when applicable (e.g. `
 - Always **squash merge** PRs into the default branch (`gh pr merge <N> --squash`).
 - Do **not** use merge commits (`--merge`) or rebase merges (`--rebase`) unless a maintainer explicitly overrides this for a one-off case.
 - Keep the squash commit message in English and Conventional Commits style when editing it on merge.
+- Before merge: assign **`cursoragent`** when assignable, otherwise **`jimmyandrade`**, and ensure **at least one meaningful label**. Never merge without both.
 
 ## Issues
 
