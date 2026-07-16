@@ -304,6 +304,22 @@ Given `npm install` / `npm ci` floods the terminal with `npm warn deprecated …
 3. Prefer fixing/removing those roots over adding an `override` per leaf package;
 4. Keep using Node 18 + `npm install --legacy-peer-deps` for this stack.
 
+## Jest PropTypes: SEO required `description` undefined
+
+Given the browser console shows:
+
+```
+Warning: Failed prop type: The prop `description` is marked as required in `SEO`, but its value is `undefined`.
+    at SEO (…/metax/…)
+    at SEO (src/components/SEO/…)
+    at IndexTemplate (src/templates/index.js)
+```
+
+1. Ensure `src/components/SEO` defaults `description` (and `title`) from `useSiteMetadata()` when omitted;
+2. Prefer page-specific `description` on important routes (e.g. home `IndexTemplate`);
+3. Upstream: [muy/muy#154](https://github.com/muy/muy/issues/154) / PR for `metax` `mergeProps` fallback;
+4. See #455.
+
 ## Gatsby HMR eslint-loader: unused vars / anonymous page exports
 
 Given the browser console (or terminal) shows eslint-loader module warnings such as:

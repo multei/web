@@ -15,6 +15,7 @@ const IndexTemplate = () => {
   return (
     <Article>
       <SEO
+        description="Denuncie estacionamento irregular em vagas preferenciais sem credencial"
         title="Denunciar estacionamento irregular"
         titleTemplate={"Multei! %s"}
       />
