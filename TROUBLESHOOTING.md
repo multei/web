@@ -147,3 +147,23 @@ Given a Renovate PR comments that it failed to update an artifact and you should
 3. Run `npm install --legacy-peer-deps` and commit the regenerated `package-lock.json`;
 4. Run `npm test` (and push so CI runs);
 5. Reply on the PR that the lockfile was regenerated and tests/CI pass.
+
+## Browserslist: caniuse-lite is outdated
+
+Given build/dev tooling prints:
+
+```
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+```
+
+1. Prefer the current updater: `npx update-browserslist-db@latest`;
+2. If that fails with `ERESOLVE` / peer dependency conflicts (common with `@hot-loader/react-dom` vs `react@17.0.1`), install manually:
+
+```sh
+npm install caniuse-lite baseline-browser-mapping --legacy-peer-deps
+npx update-browserslist-db@latest
+```
+
+3. Commit the resulting `package.json` / `package-lock.json` changes;
+4. Confirm `npx update-browserslist-db@latest` reports `caniuse-lite is up to date`.
