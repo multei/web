@@ -26,6 +26,7 @@ Oldest PR progress:
 - [ ] 7. Record work in TROUBLESHOOTING.md / AGENTS.md (and ADR if needed)
 - [ ] 8. Merge only when comments done, tests green, CI green
 - [ ] 9. Close related issue(s) with a summary comment
+- [ ] 10. Final uncommitted-diff sweep and commit(s)
 ```
 
 ## 1. Pick the oldest open PR and analyze it
@@ -123,6 +124,26 @@ For each associated issue:
 1. Comment in **English** with what shipped and the PR URL.
 2. Update checklists (`- [x]` / remaining items) per `AGENTS.md`.
 3. Close when acceptance criteria are met: `gh issue close <N> --reason completed`.
+
+## 10. Final uncommitted-diff sweep (mandatory)
+
+At the **end of every** `oldest-pr-merge` run (after merge/close, or after stopping early), inspect the working tree:
+
+```bash
+git status -sb
+git diff
+git diff --cached
+```
+
+If anything is uncommitted (modified, staged, or untracked that belongs in git):
+
+1. Classify each change:
+   - **Related to the PR just processed** (tests, fixes, docs for that PR) → commit on the PR branch **before** merge if the PR is still open; if already merged, commit on a follow-up branch/PR or on `main` only if that is the repo’s normal flow and the user expects it.
+   - **Not related to the PR** (skill/rules, unrelated docs, tooling, leftover stash conflict fixes, etc.) → switch to `main` (or a dedicated branch), commit **separately** with its own atomic Conventional Commit, and push. Do **not** fold unrelated work into the PR commits.
+2. Use progressive atomic commits (English, Conventional Commits).
+3. Re-run `git status` until the tree is clean for intentional work (ignore local-only files that should stay untracked, e.g. `.env`).
+
+Never leave PR-related or skill-run leftovers uncommitted without an explicit user decision to discard them.
 
 ## Stop / escalate conditions
 
