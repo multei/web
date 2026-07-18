@@ -125,7 +125,7 @@
   },
   "overrides": {
     "log4js": "6.4.0",
-    "devcert": "1.2.1",
+    "devcert": "1.2.3",
     "jpeg-js": "0.4.4",
     "moment": "2.29.4",
     "terser": "4.8.1",
