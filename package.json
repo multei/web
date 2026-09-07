@@ -138,13 +138,13 @@
     "diff": "5.2.2",
     "socket.io-parser": "4.0.5",
     "request": {
-      "qs": "6.5.5"
+      "qs": "6.15.2"
     },
     "body-parser": {
-      "qs": "6.9.7"
+      "qs": "6.15.2"
     },
     "express": {
-      "qs": "6.9.7"
+      "qs": "6.15.2"
     },
     "remark-mdx": "1.6.22"
   }
